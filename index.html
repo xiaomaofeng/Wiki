@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金融研究知识库</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        
+        .search-btn {
+            padding: 12px 20px;
+            background: #ff6f00;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .sidebar {
+            width: 220px;
+            flex-shrink: 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .card h3 {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        
+        .filter-item {
+            padding: 10px 12px;
+            margin: 4px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .filter-item:hover { background: #f5f5f5; }
+        .filter-item.active { background: #e8eaf6; color: #1a237e; font-weight: 500; }
+        
+        .filter-count {
+            background: #e0e0e0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        
+        .filter-item.active .filter-count {
+            background: #1a237e;
+            color: white;
+        }
+        
+        .content {
+            flex: 1;
+        }
+        
+        .stats-bar {
+            background: white;
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .stats-bar strong {
+            color: #1a237e;
+            font-size: 20px;
+        }
+        
+        .report-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .report-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border-left: 3px solid #1a237e;
+        }
+        
+        .report-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .report-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a237e;
+        }
+        
+        .report-date {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .report-meta {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .report-meta span {
+            margin-right: 15px;
+        }
+        
+        .report-summary {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .report-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        
+        .tag {
+            padding: 4px 10px;
+            background: #e8eaf6;
+            color: #1a237e;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .report-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .btn-primary {
+            background: #1a237e;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e0e0e0;
+            border-top-color: #1a237e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+        
+        @media (max-width: 900px) {
+            .main { flex-direction: column; }
+            .sidebar { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>📊 金融研究知识库</h1>
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索报告标题、关键词...">
+                <button class="search-btn" onclick="doSearch()">🔍 搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main">
+        <aside class="sidebar">
+            <div class="card">
+                <h3>📁 分类</h3>
+                <div id="categoryFilters"></div>
+            </div>
+            
+            <div class="card">
+                <h3>🏷️ 标签</h3>
+                <div id="tagCloud"></div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="stats-bar">
+                <div>
+                    共 <strong id="totalCount">0</strong> 份报告
+                    <span id="updateTime" style="margin-left: 15px; color: #999; font-size: 13px;"></span>
+                </div>
+                <select id="sortSelect" onchange="renderList()" style="border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px;">
+                    <option value="newest">最新发布</option>
+                    <option value="oldest">最早发布</option>
+                </select>
+            </div>
+            
+            <div id="reportList" class="report-list">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>正在加载...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        let allReports = [];
+        let filteredReports = [];
+        let currentFilter = { type: 'all', value: null };
+        let searchQuery = '';
+        
+        function init() {
+            if (typeof REPORTS_DATA === 'undefined' || !REPORTS_DATA.reports) {
+                showError('数据加载失败');
+                return;
+            }
+            
+            allReports = REPORTS_DATA.reports;
+            filteredReports = [...allReports];
+            
+            document.getElementById('totalCount').textContent = allReports.length;
+            if (REPORTS_DATA.lastUpdate) {
+                document.getElementById('updateTime').textContent = 
+                    '更新: ' + REPORTS_DATA.lastUpdate.split(' ')[0];
+            }
+            
+            initFilters();
+            renderList();
+            
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                searchQuery = e.target.value.toLowerCase().trim();
+                applyFilters();
+            });
+        }
+        
+        function initFilters() {
+            // 分类统计
+            const cats = {};
+            allReports.forEach(r => {
+                cats[r.category] = (cats[r.category] || 0) + 1;
+            });
+            
+            let catHtml = `<div class="filter-item active" onclick="setFilter('all')">
+                <span>全部</span><span class="filter-count">${allReports.length}</span>
+            </div>`;
+            
+            Object.entries(cats).sort((a,b) => b[1]-a[1]).forEach(([cat, count]) => {
+                catHtml += `<div class="filter-item" onclick="setFilter('category', '${cat}')">
+                    <span>${cat}</span><span class="filter-count">${count}</span>
+                </div>`;
+            });
+            
+            document.getElementById('categoryFilters').innerHTML = catHtml;
+            
+            // 标签云
+            const allTags = {};
+            allReports.forEach(r => {
+                (r.tags || []).forEach(t => {
+                    allTags[t] = (allTags[t] || 0) + 1;
+                });
+            });
+            
+            const sortedTags = Object.entries(allTags).sort((a,b) => b[1]-a[1]).slice(0, 15);
+            document.getElementById('tagCloud').innerHTML = sortedTags.map(([tag, count]) => 
+                `<span class="tag" style="cursor:pointer; margin:2px;" onclick="setFilter('tag', '${tag}')">${tag} (${count})</span>`
+            ).join('');
+        }
+        
+        function setFilter(type, value) {
+            currentFilter = { type, value };
+            
+            // 更新UI
+            document.querySelectorAll('#categoryFilters .filter-item').forEach((item, idx) => {
+                item.classList.remove('active');
+                if (type === 'all' && idx === 0) item.classList.add('active');
+                if (type === 'category' && item.textContent.includes(value)) item.classList.add('active');
+            });
+            
+            applyFilters();
+        }
+        
+        function applyFilters() {
+            filteredReports = allReports.filter(r => {
+                if (currentFilter.type === 'category' && r.category !== currentFilter.value) {
+                    return false;
+                }
+                if (currentFilter.type === 'tag' && !(r.tags || []).includes(currentFilter.value)) {
+                    return false;
+                }
+                if (searchQuery) {
+                    const text = (r.title + ' ' + r.summary + ' ' + (r.tags || []).join(' ')).toLowerCase();
+                    if (!text.includes(searchQuery)) return false;
+                }
+                return true;
+            });
+            
+            renderList();
+        }
+        
+        function doSearch() {
+            searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+            applyFilters();
+        }
+        
+        function renderList() {
+            const container = document.getElementById('reportList');
+            const sortType = document.getElementById('sortSelect').value;
+            
+            let reports = [...filteredReports];
+            reports.sort((a, b) => {
+                const dateA = new Date(a.date || '2000-01-01');
+                const dateB = new Date(b.date || '2000-01-01');
+                return sortType === 'newest' ? dateB - dateA : dateA - dateB;
+            });
+            
+            if (reports.length === 0) {
+                container.innerHTML = '<div class="empty"><h3>没有找到报告</h3></div>';
+                return;
+            }
+            
+            container.innerHTML = reports.map(r => `
+                <div class="report-card">
+                    <div class="report-header">
+                        <div class="report-title">${escapeHtml(r.title)}</div>
+                        <div class="report-date">${r.date}</div>
+                    </div>
+                    <div class="report-meta">
+                        <span>📁 ${r.category}</span>
+                        <span>🏭 ${r.subcategory}</span>
+                    </div>
+                    <div class="report-summary">${escapeHtml(r.summary)}</div>
+                    ${r.tags && r.tags.length ? `<div class="report-tags">${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
+                    <div class="report-actions">
+                        <a href="${r.githubUrl}" class="btn btn-primary" target="_blank">📖 阅读报告</a>
+                        <a href="${r.path}" class="btn btn-secondary" target="_blank">📄 原始文件</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function showError(msg) {
+            document.getElementById('reportList').innerHTML = 
+                `<div class="empty"><h3>${msg}</h3><p>请刷新重试</p></div>`;
+        }
+        
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>
