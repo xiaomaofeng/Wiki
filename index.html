@@ -6,70 +6,48 @@
     <title>金融研究知识库</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary: #1a237e; --primary-light: #283593; --accent: #ff6f00; --bg: #f5f7fa; --card: #fff; --text: #333; --md: #4caf50; --html: #2196f3; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 20px; position: sticky; top: 0; z-index: 100; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); color: white; padding: 20px; }
         .header-content { max-width: 1200px; margin: 0 auto; }
-        .header h1 { font-size: 20px; margin-bottom: 8px; }
-        .header-subtitle { font-size: 13px; opacity: 0.9; margin-bottom: 15px; }
-        .search-box { display: flex; gap: 10px; }
+        .header h1 { font-size: 22px; margin-bottom: 8px; }
+        .search-box { display: flex; gap: 10px; margin-top: 15px; }
         .search-input { flex: 1; padding: 12px 16px; border: none; border-radius: 8px; font-size: 15px; }
-        .search-btn { padding: 12px 20px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; }
+        .search-btn { padding: 12px 24px; background: #ff6f00; color: white; border: none; border-radius: 8px; cursor: pointer; }
         .main { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; gap: 20px; }
-        .sidebar { width: 240px; flex-shrink: 0; }
-        .card { background: var(--card); border-radius: 10px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-        .card h3 { font-size: 13px; color: #666; margin-bottom: 12px; }
-        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; margin: 8px 0; }
-        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
-        .legend-dot.both { background: linear-gradient(135deg, var(--md) 50%, var(--html) 50%); }
-        .legend-dot.md { background: var(--md); }
-        .legend-dot.html { background: var(--html); }
+        .sidebar { width: 260px; flex-shrink: 0; }
+        .card { background: white; border-radius: 10px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .card h3 { font-size: 14px; color: #666; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         .filter-item { padding: 10px 12px; margin: 4px 0; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; justify-content: space-between; }
         .filter-item:hover { background: #f5f5f5; }
-        .filter-item.active { background: #e8eaf6; color: var(--primary); font-weight: 500; }
-        .filter-count { background: #e0e0e0; padding: 2px 8px; border-radius: 10px; font-size: 12px; }
-        .filter-item.active .filter-count { background: var(--primary); color: white; }
+        .filter-item.active { background: #e3f2fd; color: #1565c0; font-weight: 500; }
         .content { flex: 1; }
-        .stats-bar { background: var(--card); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .stats-bar strong { color: var(--primary); font-size: 20px; }
-        .stats-detail { font-size: 13px; color: #666; }
+        .stats { background: white; border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .stats strong { color: #1a237e; font-size: 24px; }
         .report-list { display: flex; flex-direction: column; gap: 12px; }
-        .report-card { background: var(--card); border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 4px solid var(--primary); transition: all 0.2s; }
-        .report-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
-        .report-card.has-both { border-image: linear-gradient(to bottom, var(--md), var(--html)) 1; border-left: 4px solid transparent; }
-        .report-card.has-md { border-left-color: var(--md); }
-        .report-card.has-html { border-left-color: var(--html); }
-        .report-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 10px; }
-        .report-title { font-size: 17px; font-weight: 600; color: var(--primary); flex: 1; line-height: 1.4; }
-        .version-badges { display: flex; gap: 6px; }
-        .version-badge { padding: 4px 10px; border-radius: 4px; font-size: 11px; white-space: nowrap; }
-        .version-badge.md { background: #e8f5e9; color: #2e7d32; }
-        .version-badge.html { background: #e3f2fd; color: #1565c0; }
+        .report-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 4px solid #1a237e; }
+        .report-title { font-size: 17px; font-weight: 600; color: #1a237e; margin-bottom: 8px; }
         .report-meta { font-size: 13px; color: #666; margin-bottom: 10px; }
-        .report-meta span { margin-right: 15px; }
-        .report-summary { font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 12px; }
+        .report-summary { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 12px; }
         .report-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-        .tag { padding: 4px 10px; background: #e8eaf6; color: var(--primary); border-radius: 4px; font-size: 12px; cursor: pointer; }
-        .report-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { padding: 8px 16px; border-radius: 6px; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; border: none; }
-        .btn-md { background: var(--md); color: white; }
-        .btn-html { background: var(--html); color: white; }
-        .btn:hover { opacity: 0.9; }
-        .empty { text-align: center; padding: 60px 20px; color: #999; }
+        .tag { padding: 4px 10px; background: #e3f2fd; color: #1565c0; border-radius: 4px; font-size: 12px; cursor: pointer; }
+        .report-actions { display: flex; gap: 10px; }
+        .btn { padding: 8px 16px; border-radius: 6px; font-size: 13px; text-decoration: none; display: inline-block; cursor: pointer; border: none; }
+        .btn-md { background: #4caf50; color: white; }
+        .btn-html { background: #2196f3; color: white; }
+        .empty { text-align: center; padding: 60px; color: #999; }
+        .error { text-align: center; padding: 60px; color: #d32f2f; }
         .loading { text-align: center; padding: 60px; }
-        .spinner { width: 40px; height: 40px; border: 3px solid #e0e0e0; border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @media (max-width: 900px) { .main { flex-direction: column; } .sidebar { width: 100%; } .report-actions { flex-direction: column; } .btn { width: 100%; justify-content: center; } }
+        @media (max-width: 900px) { .main { flex-direction: column; } .sidebar { width: 100%; } }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-content">
             <h1>📊 金融研究知识库</h1>
-            <div class="header-subtitle">详细版(MD) + 简略版(HTML) 同一份报告，两种阅读方式</div>
+            <p style="opacity: 0.9; font-size: 14px;">详细版(MD) + 简略版(HTML) 双版本管理</p>
             <div class="search-box">
                 <input type="text" class="search-input" id="searchInput" placeholder="搜索报告标题、关键词...">
-                <button class="search-btn" onclick="doSearch()">🔍 搜索</button>
+                <button class="search-btn" onclick="search()">🔍 搜索</button>
             </div>
         </div>
     </header>
@@ -77,89 +55,189 @@
     <div class="main">
         <aside class="sidebar">
             <div class="card">
-                <h3>📄 版本说明</h3>
-                <div class="legend-item"><div class="legend-dot both"></div><span>双版本 (MD+HTML)</span></div>
-                <div class="legend-item"><div class="legend-dot md"></div><span>仅详细版 (MD)</span></div>
-                <div class="legend-item"><div class="legend-dot html"></div><span>仅简略版 (HTML)</span></div>
+                <h3>📁 分类筛选</h3>
+                <div id="filters"></div>
             </div>
             <div class="card">
-                <h3>📁 分类</h3>
-                <div id="categoryFilters"></div>
-            </div>
-            <div class="card">
-                <h3>🏷️ 标签</h3>
-                <div id="tagCloud"></div>
+                <h3>🏷️ 热门标签</h3>
+                <div id="tags"></div>
             </div>
         </aside>
 
         <main class="content">
-            <div class="stats-bar">
-                <div>
-                    共 <strong id="totalCount">0</strong> 份报告
-                    <span class="stats-detail" id="statsDetail"></span>
-                    <span id="updateTime" style="margin-left: 15px; color: #999; font-size: 13px;"></span>
-                </div>
+            <div class="stats">
+                共 <strong id="count">0</strong> 份研究报告
+                <span id="update" style="margin-left: 15px; color: #999; font-size: 13px;"></span>
             </div>
-            <div id="reportList" class="report-list">
-                <div class="loading"><div class="spinner"></div><p>正在加载...</p></div>
-            </div>
+            <div id="reports"></div>
         </main>
     </div>
 
     <script src="data.js"></script>
     <script>
-        let allReports = [], filteredReports = [], currentFilter = { type: "all", value: null }, searchQuery = "";
+        // 等待数据加载
         function init() {
-            if (typeof REPORTS_DATA === "undefined" || !REPORTS_DATA.reports) { showError("数据加载失败"); return; }
-            allReports = REPORTS_DATA.reports; filteredReports = [...allReports];
-            document.getElementById("totalCount").textContent = allReports.length;
-            let detail = []; 
-            if (REPORTS_DATA.bothVersionsCount) detail.push(REPORTS_DATA.bothVersionsCount + "份双版本"); 
-            if (REPORTS_DATA.mdOnlyCount) detail.push(REPORTS_DATA.mdOnlyCount + "份仅MD"); 
-            if (REPORTS_DATA.htmlOnlyCount) detail.push(REPORTS_DATA.htmlOnlyCount + "份仅HTML");
-            if (detail.length) document.getElementById("statsDetail").textContent = "(" + detail.join("，") + ")";
-            if (REPORTS_DATA.lastUpdate) document.getElementById("updateTime").textContent = "更新: " + REPORTS_DATA.lastUpdate.split(" ")[0];
-            initFilters(); renderList();
-            document.getElementById("searchInput").addEventListener("input", function(e) { searchQuery = e.target.value.toLowerCase().trim(); applyFilters(); });
+            console.log('Initializing...');
+            
+            if (typeof REPORTS_DATA === 'undefined') {
+                showError('数据加载失败：data.js 未找到');
+                return;
+            }
+            
+            if (!REPORTS_DATA || !REPORTS_DATA.reports) {
+                showError('数据格式错误');
+                return;
+            }
+            
+            var reports = REPORTS_DATA.reports;
+            console.log('Loaded reports:', reports.length);
+            
+            // 更新统计
+            document.getElementById('count').textContent = reports.length;
+            if (REPORTS_DATA.lastUpdate) {
+                document.getElementById('update').textContent = '更新: ' + REPORTS_DATA.lastUpdate;
+            }
+            
+            // 渲染筛选器
+            renderFilters(reports);
+            
+            // 渲染报告列表
+            renderReports(reports);
         }
-        function initFilters() {
-            let cats = {}; allReports.forEach(r => { cats[r.category] = (cats[r.category] || 0) + 1; });
-            let catHtml = '<div class="filter-item active" onclick="setFilter('all')"><span>全部</span><span class="filter-count">' + allReports.length + '</span></div>';
-            Object.entries(cats).sort((a,b) => b[1]-a[1]).forEach(([cat, count]) => { catHtml += '<div class="filter-item" onclick="setFilter('category', '' + cat + '')"><span>' + cat + '</span><span class="filter-count">' + count + '</span></div>'; });
-            document.getElementById("categoryFilters").innerHTML = catHtml;
-            let allTags = {}; allReports.forEach(r => { (r.tags || []).forEach(t => { allTags[t] = (allTags[t] || 0) + 1; }); });
-            let sortedTags = Object.entries(allTags).sort((a,b) => b[1]-a[1]).slice(0, 15);
-            document.getElementById("tagCloud").innerHTML = sortedTags.map(([tag, count]) => '<span class="tag" onclick="setFilter('tag', '' + tag + '')">' + tag + ' (' + count + ')</span>').join("");
-        }
-        function setFilter(type, value) { currentFilter = { type, value }; document.querySelectorAll("#categoryFilters .filter-item").forEach((item, idx) => { item.classList.remove("active"); if (type === "all" && idx === 0) item.classList.add("active"); if (type === "category" && item.textContent.includes(value)) item.classList.add("active"); }); applyFilters(); }
-        function applyFilters() {
-            filteredReports = allReports.filter(r => {
-                if (currentFilter.type === "category" && r.category !== currentFilter.value) return false;
-                if (currentFilter.type === "tag" && !(r.tags || []).includes(currentFilter.value)) return false;
-                if (searchQuery) { let text = (r.title + " " + r.summary + " " + (r.tags || []).join(" ")).toLowerCase(); if (!text.includes(searchQuery)) return false; }
-                return true;
+        
+        function renderFilters(reports) {
+            // 分类统计
+            var cats = {};
+            reports.forEach(function(r) {
+                cats[r.category] = (cats[r.category] || 0) + 1;
             });
-            renderList();
+            
+            var html = '<div class="filter-item active" onclick="filter(\'all\')">' +
+                       '<span>全部</span><span>' + reports.length + '</span></div>';
+            
+            for (var cat in cats) {
+                html += '<div class="filter-item" onclick="filter(\'' + cat + '\')">' +
+                        '<span>' + cat + '</span><span>' + cats[cat] + '</span></div>';
+            }
+            document.getElementById('filters').innerHTML = html;
+            
+            // 标签
+            var allTags = {};
+            reports.forEach(function(r) {
+                (r.tags || []).forEach(function(t) {
+                    allTags[t] = (allTags[t] || 0) + 1;
+                });
+            });
+            
+            var tagHtml = '';
+            for (var tag in allTags) {
+                tagHtml += '<span class="tag" onclick="filterTag(\'' + tag + '\')">' + tag + '</span>';
+            }
+            document.getElementById('tags').innerHTML = tagHtml;
         }
-        function doSearch() { searchQuery = document.getElementById("searchInput").value.toLowerCase().trim(); applyFilters(); }
-        function renderList() {
-            let container = document.getElementById("reportList");
-            let reports = [...filteredReports].sort((a, b) => new Date(b.date) - new Date(a.date));
-            if (!reports.length) { container.innerHTML = '<div class="empty"><h3>没有找到报告</h3></div>'; return; }
-            container.innerHTML = reports.map(r => {
-                let cardClass = "report-card"; let badges = "";
-                if (r.hasHtml && r.mdPath) { cardClass += " has-both"; badges += '<span class="version-badge md">📄 详细版</span><span class="version-badge html">📱 简略版</span>'; }
-                else if (r.mdPath) { cardClass += " has-md"; badges += '<span class="version-badge md">📄 仅详细版</span>'; }
-                else { cardClass += " has-html"; badges += '<span class="version-badge html">📱 仅简略版</span>'; }
-                let actions = "";
-                if (r.mdPath) actions += '<a href="' + r.mdGithubUrl + '" class="btn btn-md" target="_blank">📄 阅读详细版</a>';
-                if (r.hasHtml && r.htmlPath) actions += '<a href="' + r.htmlGithubUrl + '" class="btn btn-html" target="_blank">📱 查看简略版</a>';
-                return '<div class="' + cardClass + '"><div class="report-header"><div class="report-title">' + escapeHtml(r.title) + '</div><div class="version-badges">' + badges + '</div></div><div class="report-meta"><span>📅 ' + r.date + '</span><span>📁 ' + r.category + '</span><span>🏭 ' + r.subcategory + '</span></div><div class="report-summary">' + escapeHtml(r.summary) + '</div>' + (r.tags && r.tags.length ? '<div class="report-tags">' + r.tags.map(t => '<span class="tag">' + escapeHtml(t) + '</span>').join("") + '</div>' : '') + '<div class="report-actions">' + actions + '</div></div>';
-            }).join("");
+        
+        function renderReports(reports) {
+            var container = document.getElementById('reports');
+            
+            if (reports.length === 0) {
+                container.innerHTML = '<div class="empty">没有找到报告</div>';
+                return;
+            }
+            
+            var html = '<div class="report-list">';
+            
+            reports.forEach(function(r) {
+                // 版本标签
+                var versionTags = '';
+                if (r.hasHtml && r.mdPath) {
+                    versionTags = '<span style="color: #4caf50; font-size: 12px;">📄 详细版 + 📱 简略版</span>';
+                } else if (r.mdPath) {
+                    versionTags = '<span style="color: #4caf50; font-size: 12px;">📄 仅详细版</span>';
+                } else {
+                    versionTags = '<span style="color: #2196f3; font-size: 12px;">📱 仅简略版</span>';
+                }
+                
+                // 操作按钮
+                var buttons = '';
+                if (r.mdPath) {
+                    buttons += '<a href="' + r.mdGithubUrl + '" class="btn btn-md" target="_blank">📄 阅读详细版</a>';
+                }
+                if (r.hasHtml && r.htmlPath) {
+                    buttons += '<a href="' + r.htmlGithubUrl + '" class="btn btn-html" target="_blank">📱 查看简略版</a>';
+                }
+                
+                // 标签
+                var tagsHtml = '';
+                if (r.tags && r.tags.length) {
+                    tagsHtml = '<div class="report-tags">';
+                    r.tags.forEach(function(t) {
+                        tagsHtml += '<span class="tag">' + t + '</span>';
+                    });
+                    tagsHtml += '</div>';
+                }
+                
+                html += '<div class="report-card">' +
+                        '<div class="report-title">' + escapeHtml(r.title) + '</div>' +
+                        '<div class="report-meta">' + versionTags + ' | 📅 ' + r.date + ' | 📁 ' + r.category + '</div>' +
+                        '<div class="report-summary">' + escapeHtml(r.summary) + '</div>' +
+                        tagsHtml +
+                        '<div class="report-actions">' + buttons + '</div>' +
+                        '</div>';
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
         }
-        function showError(msg) { document.getElementById("reportList").innerHTML = '<div class="empty"><h3>' + msg + '</h3></div>'; }
-        function escapeHtml(text) { if (!text) return ""; let div = document.createElement("div"); div.textContent = text; return div.innerHTML; }
-        if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", init); } else { init(); }
+        
+        function escapeHtml(text) {
+            if (!text) return '';
+            var div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function showError(msg) {
+            document.getElementById('reports').innerHTML = '<div class="error"><h3>' + msg + '</h3></div>';
+        }
+        
+        function filter(category) {
+            var all = REPORTS_DATA.reports;
+            var filtered = category === 'all' ? all : all.filter(function(r) {
+                return r.category === category;
+            });
+            renderReports(filtered);
+            
+            // 更新active状态
+            document.querySelectorAll('.filter-item').forEach(function(el) {
+                el.classList.remove('active');
+                if (el.textContent.includes(category === 'all' ? '全部' : category)) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        
+        function filterTag(tag) {
+            var filtered = REPORTS_DATA.reports.filter(function(r) {
+                return r.tags && r.tags.includes(tag);
+            });
+            renderReports(filtered);
+        }
+        
+        function search() {
+            var query = document.getElementById('searchInput').value.toLowerCase();
+            var filtered = REPORTS_DATA.reports.filter(function(r) {
+                return r.title.toLowerCase().includes(query) || 
+                       r.summary.toLowerCase().includes(query);
+            });
+            renderReports(filtered);
+        }
+        
+        // 启动
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
     </script>
 </body>
 </html>
