@@ -1,22 +1,24 @@
-// 自动生成于 2026-04-08 09:46:49
+// 自动生成于 2026-04-08 09:52:39
 // 详细版(MD): 3 份
-// 简略版(HTML): 5 份
+// 仅简略版(HTML): 2 份
+// 双版本: 3 份
 
 const REPORTS_DATA = {
-  "lastUpdate": "2026-04-08 09:46:49",
-  "totalCount": 8,
+  "lastUpdate": "2026-04-08 09:52:39",
+  "totalCount": 5,
   "detailedCount": 3,
-  "summaryCount": 5,
+  "summaryCount": 2,
+  "bothVersionsCount": 3,
   "reports": [
     {
       "id": 1,
       "title": "恒生科技指数2025年下半年暴涨暴跌的深层原因分析：从结果反推的多维复盘",
       "filename": "恒生科技指数2025年下半年深度分析.md",
       "path": "01-research/index/恒生科技指数2025年下半年深度分析.md",
-      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/01-research\\index\\恒生科技指数2025年下半年深度分析.md",
-      "htmlPath": null,
-      "htmlGithubUrl": null,
-      "hasHtml": false,
+      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/01-research/index/恒生科技指数2025年下半年深度分析.md",
+      "htmlPath": "pages/research/index/恒生科技指数2025年下半年深度分析.html",
+      "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/index/恒生科技指数2025年下半年深度分析.html",
+      "hasHtml": true,
       "category": "指数研究",
       "subcategory": "指数",
       "date": "2026-04-08",
@@ -36,10 +38,10 @@ const REPORTS_DATA = {
       "title": "光伏ETF近期深度回调分析：基本面、技术面与中线操作策略",
       "filename": "光伏深度回调分析.md",
       "path": "01-research/sector/03-technology/光伏深度回调分析.md",
-      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/01-research\\sector\\03-technology\\光伏深度回调分析.md",
-      "htmlPath": null,
-      "htmlGithubUrl": null,
-      "hasHtml": false,
+      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/01-research/sector/03-technology/光伏深度回调分析.md",
+      "htmlPath": "pages/research/sector/03-technology/光伏深度回调分析.html",
+      "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/03-technology/光伏深度回调分析.html",
+      "hasHtml": true,
       "category": "行业研究",
       "subcategory": "TMT科技",
       "date": "2026-04-08",
@@ -59,10 +61,10 @@ const REPORTS_DATA = {
       "title": "光伏行业周期定位与ETF投资策略分析",
       "filename": "光伏行业周期分析.md",
       "path": "01-research/sector/03-technology/光伏行业周期分析.md",
-      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/01-research\\sector\\03-technology\\光伏行业周期分析.md",
-      "htmlPath": null,
-      "htmlGithubUrl": null,
-      "hasHtml": false,
+      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/01-research/sector/03-technology/光伏行业周期分析.md",
+      "htmlPath": "pages/research/sector/03-technology/光伏行业周期分析.html",
+      "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/03-technology/光伏行业周期分析.html",
+      "hasHtml": true,
       "category": "行业研究",
       "subcategory": "TMT科技",
       "date": "2026-04-08",
@@ -79,30 +81,10 @@ const REPORTS_DATA = {
     },
     {
       "id": 1000,
-      "title": "恒生科技指数2025年下半年暴涨暴跌深度分析",
-      "filename": "恒生科技指数2025年下半年深度分析.html",
-      "path": "pages/research/index/恒生科技指数2025年下半年深度分析.html",
-      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/index/恒生科技指数2025年下半年深度分析.html",
-      "pagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/index/恒生科技指数2025年下半年深度分析.html",
-      "hasHtml": true,
-      "category": "指数研究",
-      "subcategory": "指数",
-      "date": "2026-04-08",
-      "summary": "<!DOCTYPE html><html lang=\"zh-CN\"><head>\n    <meta charset=\"UTF-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n    <title>恒生科技指数2025年下半年暴涨暴跌深度分析</title>\n    <script s... (HTML简略版)",
-      "tags": [
-        "港股",
-        "AI",
-        "科技"
-      ],
-      "type": "summary"
-    },
-    {
-      "id": 1001,
       "title": "恒生医疗创新药板块深度研究报告：下跌逻辑与长期价值分析",
       "filename": "恒生医疗创新药板块.html",
       "path": "pages/research/sector/02-healthcare/恒生医疗创新药板块.html",
       "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/02-healthcare/恒生医疗创新药板块.html",
-      "pagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/sector/02-healthcare/恒生医疗创新药板块.html",
       "hasHtml": true,
       "category": "行业研究",
       "subcategory": "医疗健康",
@@ -116,53 +98,11 @@ const REPORTS_DATA = {
       "type": "summary"
     },
     {
-      "id": 1002,
-      "title": "光伏ETF深度回调分析：政策冲击下的投资策略",
-      "filename": "光伏深度回调分析.html",
-      "path": "pages/research/sector/03-technology/光伏深度回调分析.html",
-      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/03-technology/光伏深度回调分析.html",
-      "pagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/sector/03-technology/光伏深度回调分析.html",
-      "hasHtml": true,
-      "category": "行业研究",
-      "subcategory": "TMT科技",
-      "date": "2026-04-08",
-      "summary": "<!DOCTYPE html><html lang=\"zh-CN\"><head>\n    <meta charset=\"UTF-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n    <title>光伏ETF深度回调分析：政策冲击下的投资策略</title>\n    <script s... (HTML简略版)",
-      "tags": [
-        "光伏",
-        "ETF",
-        "AI",
-        "策略"
-      ],
-      "type": "summary"
-    },
-    {
-      "id": 1003,
-      "title": "光伏行业周期定位与ETF投资策略分析",
-      "filename": "光伏行业周期分析.html",
-      "path": "pages/research/sector/03-technology/光伏行业周期分析.html",
-      "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/03-technology/光伏行业周期分析.html",
-      "pagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/sector/03-technology/光伏行业周期分析.html",
-      "hasHtml": true,
-      "category": "行业研究",
-      "subcategory": "TMT科技",
-      "date": "2026-04-08",
-      "summary": "<!DOCTYPE html><html lang=\"zh-CN\"><head>\n    <meta charset=\"UTF-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n    <title>光伏行业周期定位与ETF投资策略分析</title> (HTML简略版)",
-      "tags": [
-        "光伏",
-        "ETF",
-        "AI",
-        "周期",
-        "策略"
-      ],
-      "type": "summary"
-    },
-    {
-      "id": 1004,
+      "id": 1001,
       "title": "中期投资组合优化研究报告：基于&#34;十五五&#34;规划与全球动荡环境的战略配置",
       "filename": "2026第一季度投资组合优化.html",
       "path": "pages/reviews/2026第一季度投资组合优化.html",
       "githubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/reviews/2026第一季度投资组合优化.html",
-      "pagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/reviews/2026第一季度投资组合优化.html",
       "hasHtml": true,
       "category": "交易复盘",
       "subcategory": "复盘",

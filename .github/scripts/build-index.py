@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 GitHub Actions: 生成知识库索引 (支持MD+HTML双版本)
-MD = 详细内容
-HTML = 简略展示
 """
 
 import os
@@ -136,8 +134,29 @@ def get_category(path):
     
     return ('其他', '其他')
 
-def scan_reports():
-    """扫描所有MD报告（详细版本）"""
+def find_html_for_md(md_relpath):
+    """查找MD对应的HTML文件"""
+    # 将MD路径转换为对应的HTML路径
+    # 01-research/sector/... -> pages/research/...
+    html_relpath = md_relpath.replace('.md', '.html')
+    
+    # 处理路径前缀
+    if html_relpath.startswith('01-research/'):
+        pages_path = 'pages/' + html_relpath.replace('01-research/', 'research/', 1)
+    elif html_relpath.startswith('02-reviews/'):
+        pages_path = 'pages/' + html_relpath.replace('02-reviews/', 'reviews/', 1)
+    else:
+        pages_path = 'pages/' + html_relpath
+    
+    # 统一使用正斜杠并检查
+    pages_path = pages_path.replace('\\', '/')
+    
+    if os.path.exists(pages_path):
+        return pages_path
+    return None
+
+def scan_md_reports():
+    """扫描MD报告（详细版本）"""
     reports = []
     report_id = 1
     
@@ -156,7 +175,7 @@ def scan_reports():
                     continue
                 
                 filepath = os.path.join(root, filename)
-                relpath = os.path.relpath(filepath)
+                relpath = os.path.relpath(filepath).replace('\\', '/')
                 
                 try:
                     with open(filepath, 'r', encoding='utf-8') as f:
@@ -168,26 +187,20 @@ def scan_reports():
                     tags = extract_tags(content, title)
                     category, subcategory = get_category(relpath)
                     
-                    # GitHub URL (MD文件)
+                    # GitHub URL (MD)
                     github_url = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{relpath}"
                     
-                    # 查找对应的HTML文件
-                    html_path = None
+                    # 查找对应的HTML
+                    html_path = find_html_for_md(relpath)
                     html_github_url = None
-                    
-                    # 计算对应的HTML路径
-                    html_relative = relpath.replace('.md', '.html')
-                    pages_html_path = os.path.join('pages', html_relative)
-                    
-                    if os.path.exists(pages_html_path):
-                        html_path = pages_html_path.replace('\\', '/')
+                    if html_path:
                         html_github_url = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{html_path}"
                     
                     reports.append({
                         'id': report_id,
                         'title': title,
                         'filename': filename,
-                        'path': relpath.replace('\\', '/'),
+                        'path': relpath,
                         'githubUrl': github_url,
                         'htmlPath': html_path,
                         'htmlGithubUrl': html_github_url,
@@ -197,24 +210,31 @@ def scan_reports():
                         'date': date,
                         'summary': summary,
                         'tags': tags,
-                        'type': 'detailed'  # MD是详细版本
+                        'type': 'detailed'
                     })
                     
                     report_id += 1
-                    print(f"[MD] {title[:40]}...")
+                    has_html_mark = "+HTML" if html_path else ""
+                    print(f"[MD{has_html_mark}] {title[:35]}...")
                     
                 except Exception as e:
                     print(f"[错误] {filepath}: {e}")
     
     return reports
 
-def scan_html_only():
+def scan_html_only(md_reports):
     """扫描只有HTML的报告（简略版本）"""
     reports = []
-    report_id = 1000  # 从1000开始区分
+    report_id = 1000
     
     if not os.path.exists('pages'):
         return reports
+    
+    # 获取已有MD的文件名集合（不带扩展名）
+    md_basenames = set()
+    for r in md_reports:
+        basename = r['filename'].replace('.md', '')
+        md_basenames.add(basename)
     
     for root, dirs, files in os.walk('pages'):
         for filename in files:
@@ -222,11 +242,11 @@ def scan_html_only():
                 continue
             
             filepath = os.path.join(root, filename)
-            relpath = os.path.relpath(filepath)
+            relpath = os.path.relpath(filepath).replace('\\', '/')
             
-            # 检查是否有对应的MD文件（统一用正斜杠处理）
-            md_path = relpath.replace('.html', '.md').replace('pages/', '').replace('\\', '/')
-            if os.path.exists(md_path):
+            # 检查是否有对应的MD文件
+            basename = filename.replace('.html', '')
+            if basename in md_basenames:
                 continue  # 已有MD版本，跳过
             
             try:
@@ -239,48 +259,50 @@ def scan_html_only():
                 tags = extract_tags(content, title)
                 category, subcategory = get_category(relpath)
                 
-                github_url = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{relpath.replace('\\', '/')}"
-                
-                # Pages URL (GitHub Pages直接访问)
-                pages_url = f"https://{REPO_OWNER}.github.io/{REPO_NAME}/{relpath.replace('\\', '/')}"
+                github_url = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{relpath}"
                 
                 reports.append({
                     'id': report_id,
                     'title': title,
                     'filename': filename,
-                    'path': relpath.replace('\\', '/'),
+                    'path': relpath,
                     'githubUrl': github_url,
-                    'pagesUrl': pages_url,
                     'hasHtml': True,
                     'category': category,
                     'subcategory': subcategory,
                     'date': date,
                     'summary': summary + ' (HTML简略版)',
                     'tags': tags,
-                    'type': 'summary'  # HTML是简略版本
+                    'type': 'summary'
                 })
                 
                 report_id += 1
-                print(f"[HTML] {title[:40]}... (仅HTML)")
+                print(f"[HTML] {title[:35]}... (仅HTML)")
                 
             except Exception as e:
                 print(f"[错误] {filepath}: {e}")
     
     return reports
 
-def generate_data_js(reports):
+def generate_data_js(all_reports):
     """生成 data.js"""
+    md_count = len([r for r in all_reports if r['type'] == 'detailed'])
+    html_only_count = len([r for r in all_reports if r['type'] == 'summary'])
+    both_count = len([r for r in all_reports if r['type'] == 'detailed' and r['hasHtml']])
+    
     data = {
         'lastUpdate': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-        'totalCount': len(reports),
-        'detailedCount': len([r for r in reports if r['type'] == 'detailed']),
-        'summaryCount': len([r for r in reports if r['type'] == 'summary']),
-        'reports': reports
+        'totalCount': len(all_reports),
+        'detailedCount': md_count,
+        'summaryCount': html_only_count,
+        'bothVersionsCount': both_count,
+        'reports': all_reports
     }
     
     js_content = f"""// 自动生成于 {data['lastUpdate']}
 // 详细版(MD): {data['detailedCount']} 份
-// 简略版(HTML): {data['summaryCount']} 份
+// 仅简略版(HTML): {data['summaryCount']} 份
+// 双版本: {data['bothVersionsCount']} 份
 
 const REPORTS_DATA = {json.dumps(data, ensure_ascii=False, indent=2)};
 
@@ -293,13 +315,15 @@ if (typeof module !== 'undefined' && module.exports) {{
         f.write(js_content)
     
     print(f"\n[完成] 生成 data.js")
-    print(f"  - 详细版(MD): {data['detailedCount']} 份")
-    print(f"  - 简略版(HTML): {data['summaryCount']} 份")
+    print(f"  - MD详细版: {md_count} 份")
+    print(f"  - 其中带HTML: {both_count} 份")
+    print(f"  - 仅HTML简略版: {html_only_count} 份")
 
 def generate_readme(all_reports):
     """生成 README.md"""
     md_reports = [r for r in all_reports if r['type'] == 'detailed']
-    html_reports = [r for r in all_reports if r['type'] == 'summary']
+    html_only_reports = [r for r in all_reports if r['type'] == 'summary']
+    both_count = len([r for r in md_reports if r['hasHtml']])
     
     # 按分类统计
     categories = {}
@@ -321,13 +345,15 @@ def generate_readme(all_reports):
 | **详细版** | Markdown | 完整分析 | 深度阅读、编辑 |
 | **简略版** | HTML | 总结展示 | 快速浏览、分享 |
 
+**当前统计**:
+- 📄 MD详细版: {len(md_reports)} 份（其中{both_count}份含HTML简略版）
+- 📱 HTML简略版: {len(html_only_reports)} 份（仅HTML）
+
 ---
 
 ## 📈 概览
 
 - **总报告数**: {len(all_reports)} 份
-  - 详细版(MD): {len(md_reports)} 份
-  - 简略版(HTML): {len(html_reports)} 份
 - **最后更新**: {datetime.now().strftime('%Y-%m-%d %H:%M')}
 
 **分类统计**:
@@ -346,9 +372,9 @@ def generate_readme(all_reports):
 
 支持：
 - 🔍 全文搜索
-- 📁 分类筛选
+- 📁 分类筛选  
 - 🏷️ 标签浏览
-- 📖 选择阅读版本（详细MD/简略HTML）
+- 📖 选择阅读版本（详细MD / 简略HTML）
 
 ### 目录结构
 
@@ -371,9 +397,9 @@ Wiki/
 │
 ├── 📁 pages/                  # HTML简略版
 │   └── research/
-│       ├── sector/03-technology/  # 科技行业HTML
-│       ├── sector/02-healthcare/  # 医疗行业HTML
-│       └── index/                 # 指数HTML
+│       ├── sector/           # 行业研究HTML
+│       ├── index/            # 指数研究HTML
+│       └── ...
 │
 ├── 📁 03-data/                # 数据资料
 └── 📁 04-library/             # 资料库
@@ -419,12 +445,12 @@ def main():
     print("=" * 60)
     
     print("\n[扫描] MD详细版...\n")
-    md_reports = scan_reports()
+    md_reports = scan_md_reports()
     
     print("\n[扫描] HTML简略版（仅HTML的报告）...\n")
-    html_reports = scan_html_only()
+    html_only_reports = scan_html_only(md_reports)
     
-    all_reports = md_reports + html_reports
+    all_reports = md_reports + html_only_reports
     
     if all_reports:
         print(f"\n[生成] 索引文件...")
