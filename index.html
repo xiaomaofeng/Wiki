@@ -162,8 +162,9 @@
                 if (r.mdPath) {
                     buttons += '<a href="' + r.mdGithubUrl + '" class="btn btn-md" target="_blank">📄 阅读详细版</a>';
                 }
-                if (r.hasHtml && r.htmlPath) {
-                    buttons += '<a href="' + r.htmlGithubUrl + '" class="btn btn-html" target="_blank">📱 查看简略版</a>';
+                if (r.hasHtml && r.htmlPagesUrl) {
+                    // 使用 GitHub Pages URL 直接渲染 HTML
+                    buttons += '<a href="' + r.htmlPagesUrl + '" class="btn btn-html" target="_blank">📱 查看简略版</a>';
                 }
                 
                 // 标签

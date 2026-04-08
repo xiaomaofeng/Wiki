@@ -229,6 +229,9 @@ def scan_reports():
         has_html = basename in html_files
         html_path = html_files[basename]['path'] if has_html else None
         
+        # GitHub Pages URL for HTML (直接渲染)
+        html_pages_url = f"https://{REPO_OWNER}.github.io/{REPO_NAME}/{html_path}" if has_html else None
+        
         report = {
             'id': report_id,
             'title': title,
@@ -243,6 +246,7 @@ def scan_reports():
             'hasHtml': has_html,
             'htmlPath': html_path,
             'htmlGithubUrl': f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{html_path}" if has_html else None,
+            'htmlPagesUrl': html_pages_url,  # 用于直接渲染HTML
             'versions': ['md'] + (['html'] if has_html else [])
         }
         
@@ -264,6 +268,9 @@ def scan_reports():
         tags = extract_tags(content, title)
         category, subcategory = get_category(html_info['path'])
         
+        # GitHub Pages URL for HTML only report
+        html_pages_url = f"https://{REPO_OWNER}.github.io/{REPO_NAME}/{html_info['path']}"
+        
         report = {
             'id': report_id,
             'title': title,
@@ -278,6 +285,7 @@ def scan_reports():
             'hasHtml': True,
             'htmlPath': html_info['path'],
             'htmlGithubUrl': f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{html_info['path']}",
+            'htmlPagesUrl': html_pages_url,  # 用于直接渲染HTML
             'versions': ['html']
         }
         
