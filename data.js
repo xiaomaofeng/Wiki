@@ -1,11 +1,11 @@
-// 自动生成于 2026-04-08 02:46:23
+// 自动生成于 2026-04-08 03:45:11
 // 报告总数: 5 份
 // 双版本(MD+HTML): 3 份
 // 仅MD: 0 份
 // 仅HTML: 2 份
 
 const REPORTS_DATA = {
-  "lastUpdate": "2026-04-08 02:46:23",
+  "lastUpdate": "2026-04-08 03:45:11",
   "totalCount": 5,
   "mdOnlyCount": 0,
   "htmlOnlyCount": 2,
@@ -32,6 +32,7 @@ const REPORTS_DATA = {
       "hasHtml": true,
       "htmlPath": "pages/research/index/恒生科技指数2025年下半年深度分析.html",
       "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/index/恒生科技指数2025年下半年深度分析.html",
+      "htmlPagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/index/恒生科技指数2025年下半年深度分析.html",
       "versions": [
         "md",
         "html"
@@ -58,6 +59,7 @@ const REPORTS_DATA = {
       "hasHtml": true,
       "htmlPath": "pages/research/sector/03-technology/光伏深度回调分析.html",
       "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/03-technology/光伏深度回调分析.html",
+      "htmlPagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/sector/03-technology/光伏深度回调分析.html",
       "versions": [
         "md",
         "html"
@@ -84,6 +86,7 @@ const REPORTS_DATA = {
       "hasHtml": true,
       "htmlPath": "pages/research/sector/03-technology/光伏行业周期分析.html",
       "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/03-technology/光伏行业周期分析.html",
+      "htmlPagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/sector/03-technology/光伏行业周期分析.html",
       "versions": [
         "md",
         "html"
@@ -107,6 +110,7 @@ const REPORTS_DATA = {
       "hasHtml": true,
       "htmlPath": "pages/research/sector/02-healthcare/恒生医疗创新药板块.html",
       "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/research/sector/02-healthcare/恒生医疗创新药板块.html",
+      "htmlPagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/research/sector/02-healthcare/恒生医疗创新药板块.html",
       "versions": [
         "html"
       ]
@@ -128,6 +132,7 @@ const REPORTS_DATA = {
       "hasHtml": true,
       "htmlPath": "pages/reviews/2026第一季度投资组合优化.html",
       "htmlGithubUrl": "https://github.com/xiaomaofeng/Wiki/blob/main/pages/reviews/2026第一季度投资组合优化.html",
+      "htmlPagesUrl": "https://xiaomaofeng.github.io/Wiki/pages/reviews/2026第一季度投资组合优化.html",
       "versions": [
         "html"
       ]
