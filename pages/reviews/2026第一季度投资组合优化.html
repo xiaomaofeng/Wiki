@@ -1,0 +1,1474 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>中期投资组合优化研究报告：基于&#34;十五五&#34;规划与全球动荡环境的战略配置</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'warm-gray': {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                        },
+                        'sage': {
+                            50: '#f6f7f6',
+                            100: '#e3e7e3',
+                            200: '#c7d2c7',
+                            300: '#a4b5a4',
+                            400: '#7f947f',
+                            500: '#627962',
+                            600: '#4c614c',
+                            700: '#3f503f',
+                            800: '#344234',
+                            900: '#2d372d',
+                        },
+                        'charcoal': {
+                            50: '#f6f6f6',
+                            100: '#e7e7e7',
+                            200: '#d1d1d1',
+                            300: '#b0b0b0',
+                            400: '#888888',
+                            500: '#6d6d6d',
+                            600: '#5d5d5d',
+                            700: '#4f4f4f',
+                            800: '#454545',
+                            900: '#3d3d3d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#ffffff',
+                primaryTextColor: '#1c1917',
+                primaryBorderColor: '#78716c',
+                lineColor: '#627962',
+                secondaryColor: '#f6f7f6',
+                tertiaryColor: '#e3e7e3',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondBkg: '#f6f7f6',
+                tertiaryBkg: '#e3e7e3',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px',
+                // Enhanced contrast for different node types
+                primaryBorderColor: '#627962',
+                primaryTextColor: '#1c1917',
+                secondaryTextColor: '#44403c',
+                tertiaryTextColor: '#44403c',
+                // Node background colors with good contrast
+                primaryColor: '#ffffff',
+                secondaryColor: '#f6f7f6',
+                tertiaryColor: '#e3e7e3',
+                // Additional contrast improvements
+                nodeBorder: '#627962',
+                clusterBkg: '#f6f7f6',
+                clusterBorder: '#a4b5a4'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            sequence: {
+                useMaxWidth: true,
+                wrap: true
+            },
+            gantt: {
+                useMaxWidth: true
+            }
+        });
+    </script>
+    <style>
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(98, 121, 98, 0.1) 0%, rgba(120, 113, 108, 0.05) 100%);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .citation-link {
+            @apply text-sage-600 hover:text-sage-800 text-sm transition-colors duration-200;
+        }
+        
+        .toc-link {
+            @apply text-warm-gray-600 hover:text-sage-600 transition-colors duration-200 block py-1;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+            height: 400px;
+        }
+        
+        .bento-main {
+            grid-row: 1 / -1;
+        }
+        
+        .bento-stats {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        
+        .bento-insight {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        
+        .pull-quote {
+            @apply border-l-4 border-sage-400 pl-6 italic text-lg text-warm-gray-700 mb-8;
+        }
+        
+        .data-highlight {
+            @apply bg-sage-50 text-sage-800 px-3 py-1 rounded font-semibold;
+        }
+        
+        .section-divider {
+            @apply border-t border-warm-gray-200 my-12;
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                height: auto;
+            }
+            
+            .bento-main {
+                grid-row: 1;
+            }
+            
+            .analysis-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .fixed-toc {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid #e7e5e4;
+            z-index: 1000;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        @media (max-width: 1024px) {
+            .fixed-toc {
+                display: none;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body class="bg-warm-gray-50 text-warm-gray-900 font-sans smooth-scroll">
+    <!-- Fixed Table of Contents -->
+    <nav class="fixed-toc">
+      <div class="mb-8">
+        <h3 class="font-serif font-bold text-lg text-charcoal-800 mb-4">目录</h3>
+        <ul class="space-y-1 text-sm">
+          <li>
+            <a href="#executive-summary" class="toc-link">执行摘要</a>
+          </li>
+          <li>
+            <a href="#situation-diagnosis" class="toc-link">1. 现状诊断</a>
+          </li>
+          <li class="ml-4">
+            <a href="#asset-allocation" class="toc-link">1.1 资产配置分析</a>
+          </li>
+          <li class="ml-4">
+            <a href="#concentration-risk" class="toc-link">1.2 集中度风险评估</a>
+          </li>
+          <li>
+            <a href="#macro-environment" class="toc-link">2. 宏观环境分析</a>
+          </li>
+          <li class="ml-4">
+            <a href="#fifteen-five" class="toc-link">2.1 &#34;十五五&#34;政策红利</a>
+          </li>
+          <li class="ml-4">
+            <a href="#global-uncertainty" class="toc-link">2.2 全球动荡环境</a>
+          </li>
+          <li>
+            <a href="#sector-prospects" class="toc-link">3. 板块前景评估</a>
+          </li>
+          <li class="ml-4">
+            <a href="#high-weight-stocks" class="toc-link">3.1 高权重板块</a>
+          </li>
+          <li class="ml-4">
+            <a href="#policy-beneficiaries" class="toc-link">3.2 政策受益板块</a>
+          </li>
+          <li>
+            <a href="#optimization-plan" class="toc-link">4. 优化配置方案</a>
+          </li>
+          <li class="ml-4">
+            <a href="#core-satellite" class="toc-link">4.1 核心-卫星架构</a>
+          </li>
+          <li class="ml-4">
+            <a href="#rotation-timing" class="toc-link">4.2 轮动时机安排</a>
+          </li>
+          <li>
+            <a href="#execution-framework" class="toc-link">5. 执行监测框架</a>
+          </li>
+          <li class="ml-4">
+            <a href="#implementation-path" class="toc-link">5.1 实施路径</a>
+          </li>
+          <li class="ml-4">
+            <a href="#monitoring-indicators" class="toc-link">5.2 监测指标</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section with Bento Layout -->
+      <header class="gradient-overlay py-16 px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="bento-grid">
+            <!-- Main Hero Content -->
+            <div class="bento-main flex flex-col justify-center">
+              <h1 class="hero-title font-serif font-bold text-charcoal-800 mb-6 text-shadow">
+                <em class="text-sage-700">中期投资组合优化</em>
+                <br/>
+                研究报告
+              </h1>
+              <p class="text-xl text-warm-gray-600 mb-8 leading-relaxed">
+                基于&#34;十五五&#34;规划与全球动荡环境的战略配置
+              </p>
+              <div class="flex items-center space-x-6 text-sm text-warm-gray-500">
+                <span><i class="fas fa-calendar-alt mr-2"></i>2026年3月</span>
+                <span><i class="fas fa-chart-line mr-2"></i>中期投资期限</span>
+                <span><i class="fas fa-globe mr-2"></i>全球化配置</span>
+              </div>
+            </div>
+
+            <!-- Key Statistics -->
+            <div class="bento-stats bg-white rounded-lg p-6 shadow-sm border border-warm-gray-200">
+              <h3 class="font-serif font-semibold text-lg mb-4 text-charcoal-800">核心数据</h3>
+              <div class="space-y-4">
+                <div>
+                  <div class="text-2xl font-bold text-sage-700">77</div>
+                  <div class="text-sm text-warm-gray-600">投资单位总额</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold text-sage-700">28.6%</div>
+                  <div class="text-sm text-warm-gray-600">石油板块占比</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold text-sage-700">25.6%</div>
+                  <div class="text-sm text-warm-gray-600">科技成长配置</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Insight -->
+            <div class="bento-insight bg-sage-50 rounded-lg p-6 border border-sage-200">
+              <h3 class="font-serif font-semibold text-lg mb-3 text-charcoal-800">核心判断</h3>
+              <p class="text-sm text-warm-gray-700 leading-relaxed">
+                当前组合<strong>石油占比过高（28.6%）</strong>、<strong>科技成长配置不足（25.6%）</strong>，与&#34;十五五&#34;科技创新导向存在偏离。
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Executive Summary -->
+      <section id="executive-summary" class="py-16 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif text-3xl font-bold text-charcoal-800 mb-8">执行摘要</h2>
+
+          <div class="analysis-grid">
+            <div>
+              <div class="pull-quote">
+                &#34;当前组合石油占比过高、科技成长配置不足，与&#39;十五五&#39;科技创新导向存在偏离。&#34;
+              </div>
+
+              <h3 class="font-serif text-xl font-semibold mb-4 text-charcoal-800">核心建议</h3>
+              <p class="text-warm-gray-700 leading-relaxed mb-6">
+                建议采取<strong class="text-sage-700">&#34;上半年减仓石油、加仓港股科技，下半年完成风格切换&#34;</strong>的渐进策略，目标构建<strong class="text-sage-700">&#34;核心-卫星&#34;架构</strong>：核心仓位60%聚焦恒生科技（18%）、恒生生物（15%）、红利（15%）、黄金（12%）；卫星仓位30%保留化工（10%）、石油（10%）、黄金补充（10%）；机动仓位10%配置纳斯达克（3%）与现金管理（7%）。预期年化收益8%-12%，夏普比率&gt;1.0。
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-serif text-xl font-semibold mb-4 text-charcoal-800">诊断结论</h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center p-3 bg-warm-gray-50 rounded">
+                  <span class="text-warm-gray-700">周期资源板块合计</span>
+                  <span class="data-highlight">42.8%</span>
+                </div>
+                <div class="flex justify-between items-center p-3 bg-warm-gray-50 rounded">
+                  <span class="text-warm-gray-700">港股科技板块合计</span>
+                  <span class="data-highlight">22.5%</span>
+                </div>
+                <div class="flex justify-between items-center p-3 bg-warm-gray-50 rounded">
+                  <span class="text-warm-gray-700">防御性资产合计</span>
+                  <span class="data-highlight">31.6%</span>
+                </div>
+                <div class="flex justify-between items-center p-3 bg-warm-gray-50 rounded">
+                  <span class="text-warm-gray-700">美股科技敞口</span>
+                  <span class="data-highlight">3.1%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Situation Diagnosis -->
+      <section id="situation-diagnosis" class="py-16 px-8 bg-warm-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif text-3xl font-bold text-charcoal-800 mb-12">1. 现状诊断</h2>
+
+          <div id="asset-allocation" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">1.1 资产配置比例分析</h3>
+
+            <div class="bg-white rounded-lg p-8 shadow-sm border border-warm-gray-200 mb-8">
+              <h4 class="font-semibold text-lg mb-6 text-charcoal-800">各板块投资金额与占比测算</h4>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-warm-gray-200">
+                      <th class="text-left py-3 font-semibold">板块名称</th>
+                      <th class="text-right py-3 font-semibold">投资金额</th>
+                      <th class="text-right py-3 font-semibold">配置占比</th>
+                      <th class="text-left py-3 font-semibold">资产类别属性</th>
+                      <th class="text-left py-3 font-semibold">风险等级</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-warm-gray-100">
+                      <td class="py-3 font-medium">石油</td>
+                      <td class="py-3 text-right">22.0</td>
+                      <td class="py-3 text-right text-red-600 font-semibold">28.6%</td>
+                      <td class="py-3">周期资源/能源</td>
+                      <td class="py-3"><span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">高</span></td>
+                    </tr>
+                    <tr class="border-b border-warm-gray-100">
+                      <td class="py-3 font-medium">红利</td>
+                      <td class="py-3 text-right">13.0</td>
+                      <td class="py-3 text-right">16.9%</td>
+                      <td class="py-3">防御/高股息</td>
+                      <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">中低</span></td>
+                    </tr>
+                    <tr class="border-b border-warm-gray-100">
+                      <td class="py-3 font-medium">黄金</td>
+                      <td class="py-3 text-right">11.3</td>
+                      <td class="py-3 text-right">14.7%</td>
+                      <td class="py-3">避险/大宗商品</td>
+                      <td class="py-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs">中</span></td>
+                    </tr>
+                    <tr class="border-b border-warm-gray-100">
+                      <td class="py-3 font-medium">化工</td>
+                      <td class="py-3 text-right">10.9</td>
+                      <td class="py-3 text-right">14.2%</td>
+                      <td class="py-3">周期资源/制造</td>
+                      <td class="py-3"><span class="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">中高</span></td>
+                    </tr>
+                    <tr class="border-b border-warm-gray-100">
+                      <td class="py-3 font-medium">恒生生物</td>
+                      <td class="py-3 text-right">9.6</td>
+                      <td class="py-3 text-right">12.5%</td>
+                      <td class="py-3">科技成长/医药</td>
+                      <td class="py-3"><span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">高</span></td>
+                    </tr>
+                    <tr class="border-b border-warm-gray-100">
+                      <td class="py-3 font-medium">恒生科技</td>
+                      <td class="py-3 text-right">7.7</td>
+                      <td class="py-3 text-right">10.0%</td>
+                      <td class="py-3">科技成长/互联网</td>
+                      <td class="py-3"><span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">高</span></td>
+                    </tr>
+                    <tr class="border-b border-warm-gray-100">
+                      <td class="py-3 font-medium">纳斯达克</td>
+                      <td class="py-3 text-right">2.4</td>
+                      <td class="py-3 text-right">3.1%</td>
+                      <td class="py-3">海外科技/美股</td>
+                      <td class="py-3"><span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">高</span></td>
+                    </tr>
+                    <tr class="bg-sage-50 font-semibold">
+                      <td class="py-3">合计</td>
+                      <td class="py-3 text-right">77.0</td>
+                      <td class="py-3 text-right">100%</td>
+                      <td class="py-3">—</td>
+                      <td class="py-3">—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="concentration-risk" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">1.2 集中度风险评估</h3>
+
+            <div class="analysis-grid">
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-warm-gray-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">石油板块集中度风险</h4>
+                <p class="text-warm-gray-700 text-sm leading-relaxed mb-4">
+                  石油板块以28.6%的占比接近30%警戒线，远超审慎配置框架下通常建议的15%-20%单一资产上限。这一高配置的形成可能源于2024-2025年油价上涨周期的获利积累。
+                  <a href="https://www.21jingji.com/article/20260305/herald/f0f43c87bed29ee14c43451888f94238.html" class="citation-link block mt-2" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>西部证券策略分析 [401]
+                  </a>
+                </p>
+                <div class="bg-red-50 border-l-4 border-red-400 p-3">
+                  <p class="text-red-700 text-sm">过高的单一板块敞口使组合对油价单边走势的依赖性过强，亟需通过再平衡降低系统性风险。</p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-warm-gray-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">板块相关性风险</h4>
+                <p class="text-warm-gray-700 text-sm leading-relaxed">
+                  石油与化工同属上游资源产业链，PPI走势、库存周期、产能政策等因素对二者盈利预期具有同步影响。42.8%的周期资源合计占比意味着组合对宏观经济周期的高度敏感性。
+                  <a href="https://www.163.com/dy/article/KMHP6BN10521M6ND.html" class="citation-link block mt-2" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>地缘冲突对油价影响分析 [362]
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Macro Environment Analysis -->
+      <section id="macro-environment" class="py-16 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif text-3xl font-bold text-charcoal-800 mb-12">2. 宏观环境分析</h2>
+
+          <div id="fifteen-five" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">2.1 &#34;十五五&#34;规划政策红利解析</h3>
+
+            <div class="bg-sage-50 rounded-lg p-8 mb-8 border border-sage-200">
+              <h4 class="font-serif text-xl font-semibold mb-4 text-charcoal-800">科技创新战略升级：从&#34;跟跑&#34;到&#34;并跑领跑&#34;</h4>
+              <p class="text-warm-gray-700 leading-relaxed mb-6">
+                &#34;十五五&#34;规划（2026-2030年）作为中国迈向2035年远景目标的关键冲刺阶段，将科技创新提升至前所未有的战略高度。规划建议明确提出<strong class="text-sage-700">&#34;科技自立自强水平大幅提高&#34;</strong>的核心目标，较&#34;十四五&#34;的&#34;科技自立自强&#34;增加了&#34;水平大幅提高&#34;的量化导向。
+                <a href="https://finance.sina.com.cn/stock/hyyj/2025-10-28/doc-infvnaff4093416.shtml?froms=ggmp" class="citation-link block mt-2" target="_blank">
+                  <i class="fas fa-external-link-alt mr-1"></i>&#34;十五五&#34;规划科技政策分析 [384]
+                </a>
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg p-4 border border-sage-200">
+                  <h5 class="font-semibold text-sage-700 mb-2">第一层次：AI产业链</h5>
+                  <p class="text-sm text-warm-gray-600">政策支持力度最高，恒生科技指数成分股直接受益</p>
+                  <div class="mt-3 text-xs text-sage-600">投资时点：2026年全年</div>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-sage-200">
+                  <h5 class="font-semibold text-sage-700 mb-2">第二层次：半导体设备</h5>
+                  <p class="text-sm text-warm-gray-600">国产算力等&#34;卡脖子&#34;突破方向</p>
+                  <div class="mt-3 text-xs text-sage-600">投资时点：2026年下半年起</div>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-sage-200">
+                  <h5 class="font-semibold text-sage-700 mb-2">第三层次：未来产业</h5>
+                  <p class="text-sm text-warm-gray-600">量子科技、脑机接口、具身智能等</p>
+                  <div class="mt-3 text-xs text-sage-600">投资时点：2027年后逐步兑现</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="global-uncertainty" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">2.2 全球动荡环境下的资产定价重构</h3>
+
+            <div class="analysis-grid">
+              <div class="bg-warm-gray-50 rounded-lg p-6 border border-warm-gray-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">地缘冲突的市场冲击特征</h4>
+                <p class="text-warm-gray-700 text-sm leading-relaxed mb-4">
+                  2026年全球地缘政治格局呈现&#34;多点开花、此起彼伏&#34;的复杂态势：中东局势持续发酵、俄乌冲突长期化、台海局势紧张、中美科技博弈深化。
+                </p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3">
+                  <p class="text-yellow-700 text-sm">
+                    <strong>关键洞察：</strong>地缘冲突后首月油价回落概率较高，投资者需警惕过度追逐短期波动。
+                    <a href="https://www.163.com/dy/article/KMHP6BN10521M6ND.html" class="citation-link block mt-1" target="_blank">
+                      <i class="fas fa-external-link-alt mr-1"></i>地缘冲突对油价影响研究 [362]
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-sage-50 rounded-lg p-6 border border-sage-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">美联储政策转向预期</h4>
+                <p class="text-warm-gray-700 text-sm leading-relaxed mb-4">
+                  华鑫证券预测，&#34;5月鲍威尔卸任后新主席偏鸽，但整体可控。非农走弱+通胀降温+鸽派人选，联储预计降息2-3次&#34;。
+                  <a href="https://pdf.dfcfw.com/pdf/H3_AP202512311812149169_1.pdf?1767215547000.pdf" class="citation-link block mt-2" target="_blank">
+                    <i class="fas fa-external-link-alt mr-1"></i>华鑫证券2026年宏观策略 [373]
+                  </a>
+                </p>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between text-sm">
+                    <span class="text-warm-gray-600">美元走弱</span>
+                    <span class="text-sage-700">利好新兴市场</span>
+                  </div>
+                  <div class="flex justify-between text-sm">
+                    <span class="text-warm-gray-600">美债收益率下行</span>
+                    <span class="text-sage-700">成长股估值扩张</span>
+                  </div>
+                  <div class="flex justify-between text-sm">
+                    <span class="text-warm-gray-600">资金再配置</span>
+                    <span class="text-sage-700">流向非美资产</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sector Prospects -->
+      <section id="sector-prospects" class="py-16 px-8 bg-warm-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif text-3xl font-bold text-charcoal-800 mb-12">3. 板块中期前景评估</h2>
+
+          <div id="high-weight-stocks" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">3.1 高权重板块深度评估</h3>
+
+            <div class="analysis-grid">
+              <div class="bg-white rounded-lg p-8 shadow-sm border border-warm-gray-200">
+                <h4 class="font-serif text-xl font-semibold mb-6 text-charcoal-800">石油板块（28.6%）：周期顶部的战术调整</h4>
+
+                <div class="mb-6">
+                  <h5 class="font-semibold text-sage-700 mb-3">时间维度与配置策略</h5>
+                  <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                      <div class="w-3 h-3 bg-red-400 rounded-full mt-1.5"></div>
+                      <div>
+                        <div class="font-medium text-sm">短期（1-3个月）</div>
+                        <div class="text-xs text-warm-gray-600">利用地缘冲突溢价逐步减仓</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <div class="w-3 h-3 bg-yellow-400 rounded-full mt-1.5"></div>
+                      <div>
+                        <div class="font-medium text-sm">中期（3-12个月）</div>
+                        <div class="text-xs text-warm-gray-600">目标降至20%以下</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                      <div class="w-3 h-3 bg-green-400 rounded-full mt-1.5"></div>
+                      <div>
+                        <div class="font-medium text-sm">长期（1-3年）</div>
+                        <div class="text-xs text-warm-gray-600">战略配置15%以下</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <h6 class="font-semibold text-red-800 mb-2">风险提示</h6>
+                  <p class="text-red-700 text-sm">
+                    能源转型长期趋势、地缘政治缓和预期以及全球需求增速放缓构成潜在压制。过高的单一板块敞口使组合对油价单边走势的依赖性过强。
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-8 shadow-sm border border-warm-gray-200">
+                <h4 class="font-serif text-xl font-semibold mb-6 text-charcoal-800">红利板块（16.9%）：防御底仓的稳固价值</h4>
+
+                <div class="mb-6">
+                  <h5 class="font-semibold text-sage-700 mb-3">红利策略优势</h5>
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between py-2 border-b border-warm-gray-100">
+                      <span class="text-sm">高股息率</span>
+                      <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">稳定现金流</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-warm-gray-100">
+                      <span class="text-sm">低估值特征</span>
+                      <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">下行保护</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2 border-b border-warm-gray-100">
+                      <span class="text-sm">行业分布契合</span>
+                      <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">内需复苏</span>
+                    </div>
+                    <div class="flex items-center justify-between py-2">
+                      <span class="text-sm">哑铃平衡</span>
+                      <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">风险对冲</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h6 class="font-semibold text-blue-800 mb-2">配置建议</h6>
+                  <p class="text-blue-700 text-sm">
+                    维持或微增至18%，作为哑铃配置的&#34;防守端&#34;，与科技成长形成风险收益互补。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="policy-beneficiaries" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">3.2 政策受益板块机遇挖掘</h3>
+
+            <div class="analysis-grid">
+              <div class="bg-sage-50 rounded-lg p-8 border border-sage-200">
+                <h4 class="font-serif text-xl font-semibold mb-6 text-charcoal-800">恒生科技（10.0%）：战略加仓窗口</h4>
+
+                <div class="mb-6">
+                  <h5 class="font-semibold text-sage-700 mb-3">核心驱动因素</h5>
+                  <div class="space-y-3">
+                    <div class="bg-white rounded-lg p-4 border border-sage-200">
+                      <div class="flex items-center mb-2">
+                        <i class="fas fa-robot text-sage-600 mr-2"></i>
+                        <span class="font-medium text-sm">AI产业趋势</span>
+                      </div>
+                      <p class="text-xs text-warm-gray-600">阿里Qwen3-Max-Thinking性能媲美GPT-5.2，港股AI龙头技术实力获重估</p>
+                      <a href="https://finance.sina.com.cn/money/fund/etf/2026-01-27/doc-inhithmx7550996.shtml?cre=tianyi&amp;mod=pchp&amp;loc=18&amp;r=0&amp;rfunc=61&amp;tj=cxvertical_pc_hp&amp;tr=12" class="citation-link block mt-1" target="_blank">
+                        <i class="fas fa-external-link-alt mr-1"></i>阿里AI模型发布 [398]
+                      </a>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 border border-sage-200">
+                      <div class="flex items-center mb-2">
+                        <i class="fas fa-chart-line text-sage-600 mr-2"></i>
+                        <span class="font-medium text-sm">估值吸引力</span>
+                      </div>
+                      <p class="text-xs text-warm-gray-600">PE约20倍，处于历史30%分位以下，风险收益比优于美股同类</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <h6 class="font-semibold text-green-800 mb-2">加仓建议</h6>
+                  <p class="text-green-700 text-sm">
+                    目标提升至15%-18%，通过恒生科技ETF（513130/513010）等低成本工具获取beta收益。
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-blue-50 rounded-lg p-8 border border-blue-200">
+                <h4 class="font-serif text-xl font-semibold mb-6 text-charcoal-800">恒生生物（12.5%）：创新药景气上行</h4>
+
+                <div class="mb-6">
+                  <h5 class="font-semibold text-blue-700 mb-3">政策红利释放</h5>
+                  <div class="space-y-3">
+                    <div class="flex items-start space-x-2">
+                      <div class="w-2 h-2 bg-blue-400 rounded-full mt-1.5"></div>
+                      <div>
+                        <div class="font-medium text-sm">审评审批优化</div>
+                        <div class="text-xs text-warm-gray-600">创新药加速审评通道、突破性疗法认定</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                      <div class="w-2 h-2 bg-blue-400 rounded-full mt-1.5"></div>
+                      <div>
+                        <div class="font-medium text-sm">医保支付改善</div>
+                        <div class="text-xs text-warm-gray-600">医保谈判规则优化、续约降价幅度收窄</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start space-x-2">
+                      <div class="w-2 h-2 bg-blue-400 rounded-full mt-1.5"></div>
+                      <div>
+                        <div class="font-medium text-sm">金融支持加强</div>
+                        <div class="text-xs text-warm-gray-600">科创板/港股通纳入标准调整</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-blue-100 border border-blue-300 rounded-lg p-4">
+                  <h6 class="font-semibold text-blue-800 mb-2">配置优化</h6>
+                  <p class="text-blue-700 text-sm">
+                    适度加仓至15%左右，关注创新药研发龙头和医疗器械领军企业，通过指数基金分散个股风险。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Optimization Plan -->
+      <section id="optimization-plan" class="py-16 px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif text-3xl font-bold text-charcoal-800 mb-12">4. 优化配置方案</h2>
+
+          <div id="core-satellite" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">4.1 核心-卫星架构设计</h3>
+
+            <div class="bg-gradient-to-r from-sage-50 to-warm-gray-50 rounded-lg p-8 mb-8 border border-sage-200">
+              <h4 class="font-serif text-xl font-semibold mb-6 text-charcoal-800">目标组合结构示意</h4>
+              <div class="mermaid-container bg-white rounded-lg p-4 shadow-sm">
+                <div class="mermaid-controls">
+                  <button class="mermaid-control-btn zoom-in" title="放大">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                  <button class="mermaid-control-btn zoom-out" title="缩小">
+                    <i class="fas fa-search-minus"></i>
+                  </button>
+                  <button class="mermaid-control-btn reset-zoom" title="重置">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                  </button>
+                  <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+                <div class="mermaid">
+                  graph TD
+                  A[&#34;投资组合 100%&#34;] --&gt; B[&#34;核心仓位 60%&#34;]
+                  A --&gt; C[&#34;卫星仓位 30%&#34;]
+                  A --&gt; D[&#34;机动仓位 10%&#34;]
+
+                  B --&gt; E[&#34;恒生科技 18%&#34;]
+                  B --&gt; F[&#34;恒生生物 15%&#34;]
+                  B --&gt; G[&#34;红利 15%&#34;]
+                  B --&gt; H[&#34;黄金 12%&#34;]
+
+                  C --&gt; I[&#34;化工 10%&#34;]
+                  C --&gt; J[&#34;石油 10%&#34;]
+                  C --&gt; K[&#34;黄金补充 10%&#34;]
+
+                  D --&gt; L[&#34;纳斯达克 3%&#34;]
+                  D --&gt; M[&#34;现金管理 7%&#34;]
+
+                  style A fill:#ffffff,stroke:#627962,stroke-width:2px,color:#1c1917
+                  style B fill:#f6f7f6,stroke:#5d5d5d,stroke-width:2px,color:#1c1917
+                  style C fill:#f6f7f6,stroke:#5d5d5d,stroke-width:2px,color:#1c1917
+                  style D fill:#f6f7f6,stroke:#5d5d5d,stroke-width:2px,color:#1c1917
+                  style E fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style F fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style G fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style H fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style I fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style J fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style K fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style L fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                  style M fill:#e3e7e3,stroke:#44403c,stroke-width:1px,color:#1c1917
+                </div>
+              </div>
+            </div>
+
+            <div class="analysis-grid">
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-warm-gray-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">核心仓位（60%）</h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center py-2 border-b border-warm-gray-100">
+                    <span class="text-sm">恒生科技</span>
+                    <span class="data-highlight">18%</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-warm-gray-100">
+                    <span class="text-sm">恒生生物</span>
+                    <span class="data-highlight">15%</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-warm-gray-100">
+                    <span class="text-sm">红利</span>
+                    <span class="data-highlight">15%</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-sm">黄金</span>
+                    <span class="data-highlight">12%</span>
+                  </div>
+                </div>
+                <div class="mt-4 text-xs text-warm-gray-600">
+                  功能：长期战略配置，获取政策红利和市场beta
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-warm-gray-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">卫星仓位（30%）</h4>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center py-2 border-b border-warm-gray-100">
+                    <span class="text-sm">化工</span>
+                    <span class="data-highlight">10%</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2 border-b border-warm-gray-100">
+                    <span class="text-sm">石油</span>
+                    <span class="data-highlight text-red-600">10%</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-sm">黄金补充</span>
+                    <span class="data-highlight">10%</span>
+                  </div>
+                </div>
+                <div class="mt-4 text-xs text-warm-gray-600">
+                  功能：战术性配置，捕捉周期机会和通胀保护
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="rotation-timing" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">4.2 行业轮动时序安排</h3>
+
+            <div class="bg-warm-gray-50 rounded-lg p-8 border border-warm-gray-200">
+              <h4 class="font-serif text-xl font-semibold mb-6 text-charcoal-800">2026年轮动节奏</h4>
+
+              <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 border border-warm-gray-200">
+                  <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                      <span class="text-red-700 font-semibold text-sm">Q1-Q2</span>
+                    </div>
+                    <h5 class="font-semibold text-charcoal-800">上半年：资源周期收尾 + 科技成长建仓</h5>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h6 class="font-medium text-sm mb-2 text-sage-700">超配板块</h6>
+                      <ul class="text-xs text-warm-gray-600 space-y-1">
+                        <li>• 化工（持有）</li>
+                        <li>• 恒生科技（加仓）</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h6 class="font-medium text-sm mb-2 text-red-600">低配板块</h6>
+                      <ul class="text-xs text-warm-gray-600 space-y-1">
+                        <li>• 石油（减仓）</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mt-4 text-sm text-warm-gray-700">
+                    <strong>核心操作：</strong>石油25%→20%，恒生科技10%→15%
+                    <a href="https://www.21jingji.com/article/20260305/herald/f0f43c87bed29ee14c43451888f94238.html" class="citation-link block mt-1" target="_blank">
+                      <i class="fas fa-external-link-alt mr-1"></i>西部证券行业轮动建议 [401]
+                    </a>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 border border-warm-gray-200">
+                  <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <span class="text-green-700 font-semibold text-sm">Q3-Q4</span>
+                    </div>
+                    <h5 class="font-semibold text-charcoal-800">下半年：科技成长发力 + 消费修复观察</h5>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h6 class="font-medium text-sm mb-2 text-sage-700">超配板块</h6>
+                      <ul class="text-xs text-warm-gray-600 space-y-1">
+                        <li>• 恒生科技（加仓）</li>
+                        <li>• 恒生生物（加仓）</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h6 class="font-medium text-sm mb-2 text-red-600">低配板块</h6>
+                      <ul class="text-xs text-warm-gray-600 space-y-1">
+                        <li>• 石油（减仓）</li>
+                        <li>• 化工（微调）</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mt-4 text-sm text-warm-gray-700">
+                    <strong>核心操作：</strong>石油20%→10%，恒生科技15%→18%，恒生生物12.5%→15%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Execution Framework -->
+      <section id="execution-framework" class="py-16 px-8 bg-warm-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif text-3xl font-bold text-charcoal-800 mb-12">5. 执行监测框架</h2>
+
+          <div id="implementation-path" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">5.1 实施路径</h3>
+
+            <div class="space-y-8">
+              <div class="bg-white rounded-lg p-8 shadow-sm border border-warm-gray-200">
+                <div class="flex items-center mb-6">
+                  <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-red-700 font-bold">1</span>
+                  </div>
+                  <h4 class="font-serif text-xl font-semibold text-charcoal-800">第一阶段（1-2个月）：石油减仓与科技加仓启动</h4>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-semibold text-sage-700 mb-3">操作事项</h5>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between items-center py-1">
+                        <span>石油减仓</span>
+                        <span class="text-red-600">28.6% → 25%</span>
+                      </div>
+                      <div class="flex justify-between items-center py-1">
+                        <span>恒生科技加仓</span>
+                        <span class="text-green-600">10.0% → 12%</span>
+                      </div>
+                      <div class="flex justify-between items-center py-1">
+                        <span>现金储备建立</span>
+                        <span class="text-blue-600">0% → 3%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-sage-700 mb-3">关键监测</h5>
+                    <ul class="text-sm text-warm-gray-600 space-y-1">
+                      <li>• 布伦特原油价格波动</li>
+                      <li>• OPEC+会议结果</li>
+                      <li>• 南向资金流向</li>
+                      <li>• 盈利预期修正</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-red-50 border-l-4 border-red-400">
+                  <p class="text-red-700 text-sm">
+                    <strong>核心任务：</strong>完成战略转型的关键一步，将石油单一板块风险降至可控水平，同时建立科技成长的初步仓位。
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-8 shadow-sm border border-warm-gray-200">
+                <div class="flex items-center mb-6">
+                  <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-yellow-700 font-bold">2</span>
+                  </div>
+                  <h4 class="font-serif text-xl font-semibold text-charcoal-800">第二阶段（3-6个月）：观察政策落地与业绩验证</h4>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-semibold text-sage-700 mb-3">操作事项</h5>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between items-center py-1">
+                        <span>石油进一步减仓</span>
+                        <span class="text-red-600">25% → 20%</span>
+                      </div>
+                      <div class="flex justify-between items-center py-1">
+                        <span>恒生科技加仓</span>
+                        <span class="text-green-600">12% → 15%</span>
+                      </div>
+                      <div class="flex justify-between items-center py-1">
+                        <span>恒生生物加仓</span>
+                        <span class="text-green-600">12.5% → 14%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-sage-700 mb-3">关键监测</h5>
+                    <ul class="text-sm text-warm-gray-600 space-y-1">
+                      <li>• 全球石油库存变化</li>
+                      <li>• PPI走势与周期股相对收益</li>
+                      <li>• 科技企业一季报验证</li>
+                      <li>• AI商业化进展</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+                  <p class="text-yellow-700 text-sm">
+                    <strong>核心任务：</strong>验证&#34;十五五&#34;政策落地节奏和科技成长业绩兑现能力，为下半年风格切换做准备。
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-8 shadow-sm border border-warm-gray-200">
+                <div class="flex items-center mb-6">
+                  <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-green-700 font-bold">3</span>
+                  </div>
+                  <h4 class="font-serif text-xl font-semibold text-charcoal-800">第三阶段（6-12个月）：评估风格切换与战略再平衡</h4>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-semibold text-sage-700 mb-3">操作事项</h5>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between items-center py-1">
+                        <span>石油降至战略配置</span>
+                        <span class="text-red-600">20% → 10%</span>
+                      </div>
+                      <div class="flex justify-between items-center py-1">
+                        <span>恒生科技加仓至目标</span>
+                        <span class="text-green-600">15% → 18%</span>
+                      </div>
+                      <div class="flex justify-between items-center py-1">
+                        <span>恒生生物加仓至目标</span>
+                        <span class="text-green-600">14% → 15%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-semibold text-sage-700 mb-3">关键监测</h5>
+                    <ul class="text-sm text-warm-gray-600 space-y-1">
+                      <li>• PPI转正信号确认</li>
+                      <li>• 科技企业财报与估值修复</li>
+                      <li>• 研发管线进展与商业化放量</li>
+                      <li>• &#34;十五五&#34;中期评估</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-green-50 border-l-4 border-green-400">
+                  <p class="text-green-700 text-sm">
+                    <strong>核心任务：</strong>完成目标组合结构构建，建立年度再平衡机制，为2027年及以后的配置调整做准备。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="monitoring-indicators" class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold text-charcoal-800 mb-8">5.2 关键监测指标体系</h3>
+
+            <div class="analysis-grid">
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-warm-gray-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">宏观层监测</h4>
+                <div class="space-y-3 text-sm">
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-warm-gray-700">美联储利率决议</span>
+                    <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">每次会议</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-warm-gray-700">中国PPI同比</span>
+                    <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">月度</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-warm-gray-700">中美利差</span>
+                    <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs">日度</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-warm-gray-200">
+                <h4 class="font-semibold text-lg mb-4 text-charcoal-800">市场层监测</h4>
+                <div class="space-y-3 text-sm">
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-warm-gray-700">恒生科技指数PE</span>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">周度</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-warm-gray-700">沪深300风险溢价</span>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">周度</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span class="text-warm-gray-700">VIX指数</span>
+                    <span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">日度</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 bg-sage-50 rounded-lg p-6 border border-sage-200">
+              <h4 class="font-serif text-xl font-semibold mb-4 text-charcoal-800">再平衡触发机制</h4>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg p-4 border border-sage-200">
+                  <h5 class="font-semibold text-sage-700 mb-2">阈值触发</h5>
+                  <p class="text-sm text-warm-gray-600 mb-2">单一板块偏离目标配置±5%</p>
+                  <p class="text-xs text-sage-600">5个交易日内完成调整，单次调整幅度不超过目标比例的50%</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-sage-200">
+                  <h5 class="font-semibold text-sage-700 mb-2">事件触发</h5>
+                  <p class="text-sm text-warm-gray-600 mb-2">重大政策发布、地缘冲突升级、美联储政策转向</p>
+                  <p class="text-xs text-sage-600">3个交易日内完成组合检视，必要时启动战术调整</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-sage-200">
+                  <h5 class="font-semibold text-sage-700 mb-2">时间触发</h5>
+                  <p class="text-sm text-warm-gray-600 mb-2">季度定期回顾、年度战略修订</p>
+                  <p class="text-xs text-sage-600">每季度末归因分析，每年初修订目标配置</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="py-16 px-8 bg-charcoal-800 text-white">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif text-3xl font-bold mb-8">报告结论与核心建议</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <div class="pull-quote text-white mb-8">
+                &#34;当前投资组合呈现&#39;高周期暴露、低成长弹性&#39;的偏防御姿态，石油板块28.6%的单一超配与&#39;十五五&#39;科技创新导向存在显著偏离。&#34;
+              </div>
+
+              <h3 class="font-serif text-xl font-semibold mb-4">关键发现</h3>
+              <ul class="space-y-2 text-warm-gray-200">
+                <li class="flex items-start space-x-2">
+                  <i class="fas fa-circle text-red-400 text-xs mt-1.5"></i>
+                  <span>石油板块28.6%占比显著超限，集中度风险突出</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <i class="fas fa-circle text-yellow-400 text-xs mt-1.5"></i>
+                  <span>科技成长配置25.6%，与&#34;十五五&#34;导向不完全匹配</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <i class="fas fa-circle text-blue-400 text-xs mt-1.5"></i>
+                  <span>港股科技板块22.5%具备提升空间</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <i class="fas fa-circle text-green-400 text-xs mt-1.5"></i>
+                  <span>防御性资产31.6%提供安全边际</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-serif text-xl font-semibold mb-4">核心建议</h3>
+              <div class="bg-warm-gray-700 rounded-lg p-6">
+                <p class="text-warm-gray-200 leading-relaxed mb-4">
+                  采取<strong class="text-sage-400">&#34;上半年减仓石油、加仓港股科技，下半年完成风格切换&#34;</strong>的渐进策略，目标构建<strong class="text-sage-400">&#34;核心-卫星-机动&#34;三层架构</strong>：
+                </p>
+
+                <div class="space-y-3 text-sm">
+                  <div class="flex justify-between items-center py-2">
+                    <span>核心仓位</span>
+                    <span class="text-sage-400 font-semibold">60%</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span>卫星仓位</span>
+                    <span class="text-sage-400 font-semibold">30%</span>
+                  </div>
+                  <div class="flex justify-between items-center py-2">
+                    <span>机动仓位</span>
+                    <span class="text-sage-400 font-semibold">10%</span>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-warm-gray-600">
+                  <p class="text-sage-300 text-sm">
+                    预期实现年化收益8%-12%，夏普比率&gt;1.0的中期投资目标。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('text-sage-700', 'font-semibold');
+                link.classList.add('text-warm-gray-600');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.remove('text-warm-gray-600');
+                    link.classList.add('text-sage-700', 'font-semibold');
+                }
+            });
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+                const mermaidElement = container.querySelector('.mermaid');
+                let scale = 1;
+                let isDragging = false;
+                let startX, startY, translateX = 0, translateY = 0;
+
+                // 触摸相关状态
+                let isTouch = false;
+                let touchStartTime = 0;
+                let initialDistance = 0;
+                let initialScale = 1;
+                let isPinching = false;
+
+                // Zoom controls
+                const zoomInBtn = container.querySelector('.zoom-in');
+                const zoomOutBtn = container.querySelector('.zoom-out');
+                const resetBtn = container.querySelector('.reset-zoom');
+                const fullscreenBtn = container.querySelector('.fullscreen');
+
+                function updateTransform() {
+                    mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                    if (scale > 1) {
+                        container.classList.add('zoomed');
+                    } else {
+                        container.classList.remove('zoomed');
+                    }
+
+                    mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+                }
+
+                if (zoomInBtn) {
+                    zoomInBtn.addEventListener('click', () => {
+                        scale = Math.min(scale * 1.25, 4);
+                        updateTransform();
+                    });
+                }
+
+                if (zoomOutBtn) {
+                    zoomOutBtn.addEventListener('click', () => {
+                        scale = Math.max(scale / 1.25, 0.3);
+                        if (scale <= 1) {
+                            translateX = 0;
+                            translateY = 0;
+                        }
+                        updateTransform();
+                    });
+                }
+
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', () => {
+                        scale = 1;
+                        translateX = 0;
+                        translateY = 0;
+                        updateTransform();
+                    });
+                }
+
+                if (fullscreenBtn) {
+                    fullscreenBtn.addEventListener('click', () => {
+                        if (container.requestFullscreen) {
+                            container.requestFullscreen();
+                        } else if (container.webkitRequestFullscreen) {
+                            container.webkitRequestFullscreen();
+                        } else if (container.msRequestFullscreen) {
+                            container.msRequestFullscreen();
+                        }
+                    });
+                }
+
+                // Mouse Events
+                mermaidElement.addEventListener('mousedown', (e) => {
+                    if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                    isDragging = true;
+                    startX = e.clientX - translateX;
+                    startY = e.clientY - translateY;
+                    mermaidElement.style.cursor = 'grabbing';
+                    updateTransform();
+                    e.preventDefault();
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (isDragging && !isTouch) {
+                        translateX = e.clientX - startX;
+                        translateY = e.clientY - startY;
+                        updateTransform();
+                    }
+                });
+
+                document.addEventListener('mouseup', () => {
+                    if (isDragging && !isTouch) {
+                        isDragging = false;
+                        mermaidElement.style.cursor = 'grab';
+                        updateTransform();
+                    }
+                });
+
+                document.addEventListener('mouseleave', () => {
+                    if (isDragging && !isTouch) {
+                        isDragging = false;
+                        mermaidElement.style.cursor = 'grab';
+                        updateTransform();
+                    }
+                });
+
+                // 获取两点之间的距离
+                function getTouchDistance(touch1, touch2) {
+                    return Math.hypot(
+                        touch2.clientX - touch1.clientX,
+                        touch2.clientY - touch1.clientY
+                    );
+                }
+
+                // Touch Events - 触摸事件处理
+                mermaidElement.addEventListener('touchstart', (e) => {
+                    isTouch = true;
+                    touchStartTime = Date.now();
+
+                    if (e.touches.length === 1) {
+                        // 单指拖动
+                        isPinching = false;
+                        isDragging = true;
+
+                        const touch = e.touches[0];
+                        startX = touch.clientX - translateX;
+                        startY = touch.clientY - translateY;
+
+                    } else if (e.touches.length === 2) {
+                        // 双指缩放
+                        isPinching = true;
+                        isDragging = false;
+
+                        const touch1 = e.touches[0];
+                        const touch2 = e.touches[1];
+                        initialDistance = getTouchDistance(touch1, touch2);
+                        initialScale = scale;
+                    }
+
+                    e.preventDefault();
+                }, { passive: false });
+
+                mermaidElement.addEventListener('touchmove', (e) => {
+                    if (e.touches.length === 1 && isDragging && !isPinching) {
+                        // 单指拖动
+                        const touch = e.touches[0];
+                        translateX = touch.clientX - startX;
+                        translateY = touch.clientY - startY;
+                        updateTransform();
+
+                    } else if (e.touches.length === 2 && isPinching) {
+                        // 双指缩放
+                        const touch1 = e.touches[0];
+                        const touch2 = e.touches[1];
+                        const currentDistance = getTouchDistance(touch1, touch2);
+
+                        if (initialDistance > 0) {
+                            const newScale = Math.min(Math.max(
+                                initialScale * (currentDistance / initialDistance),
+                                0.3
+                            ), 4);
+                            scale = newScale;
+                            updateTransform();
+                        }
+                    }
+
+                    e.preventDefault();
+                }, { passive: false });
+
+                mermaidElement.addEventListener('touchend', (e) => {
+                    // 重置状态
+                    if (e.touches.length === 0) {
+                        isDragging = false;
+                        isPinching = false;
+                        initialDistance = 0;
+
+                        // 延迟重置isTouch，避免鼠标事件立即触发
+                        setTimeout(() => {
+                            isTouch = false;
+                        }, 100);
+                    } else if (e.touches.length === 1 && isPinching) {
+                        // 从双指变为单指，切换为拖动模式
+                        isPinching = false;
+                        isDragging = true;
+
+                        const touch = e.touches[0];
+                        startX = touch.clientX - translateX;
+                        startY = touch.clientY - translateY;
+                    }
+
+                    updateTransform();
+                });
+
+                mermaidElement.addEventListener('touchcancel', (e) => {
+                    isDragging = false;
+                    isPinching = false;
+                    initialDistance = 0;
+
+                    setTimeout(() => {
+                        isTouch = false;
+                    }, 100);
+
+                    updateTransform();
+                });
+
+                // Enhanced wheel zoom with better center point handling
+                container.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    const rect = container.getBoundingClientRect();
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                    const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                    // Adjust translation to zoom towards center
+                    if (newScale !== scale) {
+                        const scaleDiff = newScale / scale;
+                        translateX = translateX * scaleDiff;
+                        translateY = translateY * scaleDiff;
+                        scale = newScale;
+
+                        if (scale <= 1) {
+                            translateX = 0;
+                            translateY = 0;
+                        }
+
+                        updateTransform();
+                    }
+                });
+
+                // Initialize display
+                updateTransform();
+            });
+        }
+
+        // Initialize the mermaid controls
+        initializeMermaidControls();
+    </script>
+  
+
+</body></html>

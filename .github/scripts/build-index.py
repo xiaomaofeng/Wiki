@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-GitHub Actions 用：自动生成知识库索引
+GitHub Actions: 生成知识库索引 (支持MD+HTML双版本)
+MD = 详细内容
+HTML = 简略展示
 """
 
 import os
@@ -11,12 +13,12 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-# 设置UTF-8输出
+# UTF-8输出
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
-REPO_NAME = "Wiki"  # 仓库名
-REPO_OWNER = "xiaomaofeng"  # 用户名
+REPO_OWNER = "xiaomaofeng"
+REPO_NAME = "Wiki"
 
 def extract_title(content, filename):
     """提取标题"""
@@ -27,6 +29,11 @@ def extract_title(content, filename):
     
     # 第一个#标题
     match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+    if match:
+        return match.group(1).strip()
+    
+    # HTML title标签
+    match = re.search(r'<title>(.+?)</title>', content, re.IGNORECASE)
     if match:
         return match.group(1).strip()
     
@@ -44,7 +51,6 @@ def extract_date(content, filename):
     if match:
         return f"{match.group(1)}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
     
-    # git 修改时间（备用）
     return datetime.now().strftime('%Y-%m-%d')
 
 def extract_summary(content, max_len=200):
@@ -81,15 +87,16 @@ def extract_tags(content, title):
         '港股': ['恒生', '港股', '南向资金', '香港'],
         'AI': ['ai', '人工智能', '大模型', 'deepseek'],
         '美联储': ['美联储', '降息', '加息', '货币政策'],
+        '医疗': ['医药', '医疗', '创新药', 'cxo', '恒生医疗'],
         '技术分析': ['技术面', '支撑位', '阻力位', 'macd', 'kdj', '均线'],
         '基本面': ['基本面', '景气度', '产能', '供需'],
         '周期': ['周期', '底部', '拐点', '复苏'],
         '策略': ['策略', '操作', '仓位', '止损', '止盈'],
         '新能源': ['新能源', '储能', '风电'],
-        '医药': ['医药', '医疗', '创新药', 'cxo'],
         '科技': ['科技', '半导体', '芯片', 'tmt'],
         '消费': ['消费', '白酒', '食品饮料', '家电'],
         '金融': ['银行', '券商', '保险', '地产'],
+        '投资组合': ['投资组合', '配置', '优化'],
     }
     
     for tag, keywords_list in keywords.items():
@@ -105,7 +112,7 @@ def get_category(path):
     if 'sector' in path_str:
         if 'consumer' in path_str:
             return ('行业研究', '大消费')
-        elif 'healthcare' in path_str:
+        elif 'healthcare' in path_str or '医疗' in path_str:
             return ('行业研究', '医疗健康')
         elif 'technology' in path_str:
             return ('行业研究', 'TMT科技')
@@ -124,19 +131,16 @@ def get_category(path):
         return ('宏观研究', '宏观')
     elif 'strategy' in path_str:
         return ('投资策略', '策略')
-    elif 'reviews/trade' in path_str:
+    elif 'reviews' in path_str or 'review' in path_str:
         return ('交易复盘', '复盘')
-    elif 'reviews/insight' in path_str:
-        return ('投资随想', '随想')
     
     return ('其他', '其他')
 
 def scan_reports():
-    """扫描所有报告"""
+    """扫描所有MD报告（详细版本）"""
     reports = []
     report_id = 1
     
-    # 扫描的目录
     scan_dirs = ['01-research', '02-reviews']
     
     for scan_dir in scan_dirs:
@@ -144,7 +148,6 @@ def scan_reports():
             continue
             
         for root, dirs, files in os.walk(scan_dir):
-            # 跳过模板目录
             if '_templates' in root:
                 continue
                 
@@ -165,27 +168,103 @@ def scan_reports():
                     tags = extract_tags(content, title)
                     category, subcategory = get_category(relpath)
                     
-                    # GitHub URL
+                    # GitHub URL (MD文件)
                     github_url = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{relpath}"
+                    
+                    # 查找对应的HTML文件
+                    html_path = None
+                    html_github_url = None
+                    
+                    # 计算对应的HTML路径
+                    html_relative = relpath.replace('.md', '.html')
+                    pages_html_path = os.path.join('pages', html_relative)
+                    
+                    if os.path.exists(pages_html_path):
+                        html_path = pages_html_path.replace('\\', '/')
+                        html_github_url = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{html_path}"
                     
                     reports.append({
                         'id': report_id,
                         'title': title,
                         'filename': filename,
-                        'path': relpath,
+                        'path': relpath.replace('\\', '/'),
                         'githubUrl': github_url,
+                        'htmlPath': html_path,
+                        'htmlGithubUrl': html_github_url,
+                        'hasHtml': html_path is not None,
                         'category': category,
                         'subcategory': subcategory,
                         'date': date,
                         'summary': summary,
-                        'tags': tags
+                        'tags': tags,
+                        'type': 'detailed'  # MD是详细版本
                     })
                     
                     report_id += 1
-                    print(f"[发现] {title[:40]}...")
+                    print(f"[MD] {title[:40]}...")
                     
                 except Exception as e:
                     print(f"[错误] {filepath}: {e}")
+    
+    return reports
+
+def scan_html_only():
+    """扫描只有HTML的报告（简略版本）"""
+    reports = []
+    report_id = 1000  # 从1000开始区分
+    
+    if not os.path.exists('pages'):
+        return reports
+    
+    for root, dirs, files in os.walk('pages'):
+        for filename in files:
+            if not filename.endswith('.html'):
+                continue
+            
+            filepath = os.path.join(root, filename)
+            relpath = os.path.relpath(filepath)
+            
+            # 检查是否有对应的MD文件（统一用正斜杠处理）
+            md_path = relpath.replace('.html', '.md').replace('pages/', '').replace('\\', '/')
+            if os.path.exists(md_path):
+                continue  # 已有MD版本，跳过
+            
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                title = extract_title(content, filename)
+                date = extract_date(content, filename)
+                summary = extract_summary(content)
+                tags = extract_tags(content, title)
+                category, subcategory = get_category(relpath)
+                
+                github_url = f"https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/main/{relpath.replace('\\', '/')}"
+                
+                # Pages URL (GitHub Pages直接访问)
+                pages_url = f"https://{REPO_OWNER}.github.io/{REPO_NAME}/{relpath.replace('\\', '/')}"
+                
+                reports.append({
+                    'id': report_id,
+                    'title': title,
+                    'filename': filename,
+                    'path': relpath.replace('\\', '/'),
+                    'githubUrl': github_url,
+                    'pagesUrl': pages_url,
+                    'hasHtml': True,
+                    'category': category,
+                    'subcategory': subcategory,
+                    'date': date,
+                    'summary': summary + ' (HTML简略版)',
+                    'tags': tags,
+                    'type': 'summary'  # HTML是简略版本
+                })
+                
+                report_id += 1
+                print(f"[HTML] {title[:40]}... (仅HTML)")
+                
+            except Exception as e:
+                print(f"[错误] {filepath}: {e}")
     
     return reports
 
@@ -194,15 +273,17 @@ def generate_data_js(reports):
     data = {
         'lastUpdate': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'totalCount': len(reports),
+        'detailedCount': len([r for r in reports if r['type'] == 'detailed']),
+        'summaryCount': len([r for r in reports if r['type'] == 'summary']),
         'reports': reports
     }
     
     js_content = f"""// 自动生成于 {data['lastUpdate']}
-// 报告总数: {data['totalCount']}
+// 详细版(MD): {data['detailedCount']} 份
+// 简略版(HTML): {data['summaryCount']} 份
 
 const REPORTS_DATA = {json.dumps(data, ensure_ascii=False, indent=2)};
 
-// 兼容导出
 if (typeof module !== 'undefined' && module.exports) {{
     module.exports = REPORTS_DATA;
 }}
@@ -211,34 +292,49 @@ if (typeof module !== 'undefined' && module.exports) {{
     with open('data.js', 'w', encoding='utf-8') as f:
         f.write(js_content)
     
-    print(f"\n[完成] 生成 data.js，共 {len(reports)} 份报告")
+    print(f"\n[完成] 生成 data.js")
+    print(f"  - 详细版(MD): {data['detailedCount']} 份")
+    print(f"  - 简略版(HTML): {data['summaryCount']} 份")
 
-def generate_readme(reports):
+def generate_readme(all_reports):
     """生成 README.md"""
+    md_reports = [r for r in all_reports if r['type'] == 'detailed']
+    html_reports = [r for r in all_reports if r['type'] == 'summary']
+    
     # 按分类统计
     categories = {}
-    for r in reports:
+    for r in all_reports:
         cat = r['category']
         categories[cat] = categories.get(cat, 0) + 1
     
     # 最新报告
-    recent = sorted(reports, key=lambda x: x['date'], reverse=True)[:5]
+    recent = sorted(all_reports, key=lambda x: x['date'], reverse=True)[:5]
     
     readme = f"""# 📊 金融研究知识库
 
 > 个人金融研究报告管理系统 | [在线浏览](https://{REPO_OWNER}.github.io/{REPO_NAME}/)
 
+## 📖 双版本说明
+
+| 版本 | 格式 | 内容 | 用途 |
+|------|------|------|------|
+| **详细版** | Markdown | 完整分析 | 深度阅读、编辑 |
+| **简略版** | HTML | 总结展示 | 快速浏览、分享 |
+
 ---
 
 ## 📈 概览
 
-- **报告总数**: {len(reports)} 份
+- **总报告数**: {len(all_reports)} 份
+  - 详细版(MD): {len(md_reports)} 份
+  - 简略版(HTML): {len(html_reports)} 份
 - **最后更新**: {datetime.now().strftime('%Y-%m-%d %H:%M')}
-- **分类统计**:
+
+**分类统计**:
 """
     
     for cat, count in sorted(categories.items(), key=lambda x: -x[1]):
-        readme += f"  - {cat}: {count} 份\n"
+        readme += f"- {cat}: {count} 份\n"
     
     readme += f"""
 ---
@@ -252,30 +348,35 @@ def generate_readme(reports):
 - 🔍 全文搜索
 - 📁 分类筛选
 - 🏷️ 标签浏览
-- 📱 移动端适配
+- 📖 选择阅读版本（详细MD/简略HTML）
 
 ### 目录结构
 
 ```
 Wiki/
-├── 01-research/          # 研究报告
-│   ├── sector/           # 行业研究
-│   │   ├── 01-consumer/  # 大消费
-│   │   ├── 02-healthcare/# 医疗健康
-│   │   ├── 03-technology/# TMT科技
-│   │   ├── 04-manufacturing/ # 先进制造
-│   │   ├── 05-cyclical/  # 周期资源
-│   │   └── 06-financial/ # 金融地产
-│   ├── index/            # 指数研究
-│   ├── company/          # 个股研究
-│   ├── macro/            # 宏观研究
-│   └── strategy/         # 投资策略
-├── 02-reviews/           # 复盘思考
-│   ├── trade/            # 交易复盘
-│   ├── research/         # 研究方法论
-│   └── insight/          # 投资随想
-├── 03-data/              # 数据资料
-└── 04-library/           # 资料库
+├── 📄 index.html              # 在线索引入口
+├── 📊 data.js                 # 索引数据
+│
+├── 📁 01-research/            # 研究报告（MD详细版）
+│   ├── sector/               # 行业研究
+│   ├── index/                # 指数研究
+│   ├── company/              # 个股研究
+│   ├── macro/                # 宏观研究
+│   └── strategy/             # 投资策略
+│
+├── 📁 02-reviews/             # 复盘思考（MD详细版）
+│   ├── trade/                # 交易复盘
+│   ├── research/             # 研究方法论
+│   └── insight/              # 投资随想
+│
+├── 📁 pages/                  # HTML简略版
+│   └── research/
+│       ├── sector/03-technology/  # 科技行业HTML
+│       ├── sector/02-healthcare/  # 医疗行业HTML
+│       └── index/                 # 指数HTML
+│
+├── 📁 03-data/                # 数据资料
+└── 📁 04-library/             # 资料库
 ```
 
 ---
@@ -285,9 +386,10 @@ Wiki/
 """
     
     for r in recent:
+        version_tag = "📄 详细版" if r['type'] == 'detailed' else "📱 简略版"
         readme += f"""### [{r['title']}]({r['path']})
-- **日期**: {r['date']} | **分类**: {r['category']} - {r['subcategory']}
-- **标签**: {', '.join(r['tags'])}
+- **日期**: {r['date']} | **分类**: {r['category']} | {version_tag}
+- **标签**: {', '.join(r['tags'][:5])}
 - {r['summary'][:100]}...
 
 """
@@ -296,10 +398,10 @@ Wiki/
 
 ## 🔧 自动更新
 
-本知识库使用 GitHub Actions 自动维护：
-- 推送新报告后自动生成索引
-- 自动更新在线浏览页面
-- 无需手动运行脚本
+GitHub Actions 自动维护：
+- 自动生成索引
+- 自动部署 Pages
+- 推送即更新，无需手动操作
 
 ---
 
@@ -313,20 +415,24 @@ Wiki/
 
 def main():
     print("=" * 60)
-    print("[构建] 知识库索引")
+    print("[构建] 知识库索引 (MD详细版 + HTML简略版)")
     print("=" * 60)
     
-    print("\n[扫描] 报告...\n")
-    reports = scan_reports()
+    print("\n[扫描] MD详细版...\n")
+    md_reports = scan_reports()
     
-    if reports:
+    print("\n[扫描] HTML简略版（仅HTML的报告）...\n")
+    html_reports = scan_html_only()
+    
+    all_reports = md_reports + html_reports
+    
+    if all_reports:
         print(f"\n[生成] 索引文件...")
-        generate_data_js(reports)
-        generate_readme(reports)
+        generate_data_js(all_reports)
+        generate_readme(all_reports)
         print("\n[完成] 构建完成！")
     else:
         print("\n[警告] 未发现报告")
-        # 仍然生成空文件
         generate_data_js([])
         generate_readme([])
 

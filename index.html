@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>金融研究知识库</title>
+    <title>金融研究知识库 - MD详细版 + HTML简略版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        :root {
+            --primary: #1a237e;
+            --primary-light: #283593;
+            --accent: #ff6f00;
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --text: #333333;
+            --text-secondary: #666666;
+            --border: #e0e0e0;
+            --success: #4caf50;
+            --info: #2196f3;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: #f5f7fa;
-            color: #333;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
         }
         
         .header {
-            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             padding: 20px;
             position: sticky;
@@ -30,8 +43,14 @@
         }
         
         .header h1 {
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .header-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 15px;
         }
         
         .search-box {
@@ -49,12 +68,11 @@
         
         .search-btn {
             padding: 12px 20px;
-            background: #ff6f00;
+            background: var(--accent);
             color: white;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
         }
         
         .main {
@@ -66,12 +84,12 @@
         }
         
         .sidebar {
-            width: 220px;
+            width: 240px;
             flex-shrink: 0;
         }
         
         .card {
-            background: white;
+            background: var(--card);
             border-radius: 10px;
             padding: 16px;
             margin-bottom: 16px;
@@ -85,6 +103,26 @@
             text-transform: uppercase;
         }
         
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .version-badge.md {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .version-badge.html {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
         .filter-item {
             padding: 10px 12px;
             margin: 4px 0;
@@ -96,7 +134,7 @@
         }
         
         .filter-item:hover { background: #f5f5f5; }
-        .filter-item.active { background: #e8eaf6; color: #1a237e; font-weight: 500; }
+        .filter-item.active { background: #e8eaf6; color: var(--primary); font-weight: 500; }
         
         .filter-count {
             background: #e0e0e0;
@@ -106,7 +144,7 @@
         }
         
         .filter-item.active .filter-count {
-            background: #1a237e;
+            background: var(--primary);
             color: white;
         }
         
@@ -115,18 +153,40 @@
         }
         
         .stats-bar {
-            background: white;
+            background: var(--card);
             border-radius: 10px;
             padding: 16px 20px;
             margin-bottom: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .stats-bar strong {
-            color: #1a237e;
+            color: var(--primary);
             font-size: 20px;
+        }
+        
+        .version-filter {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .version-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .version-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
         
         .report-list {
@@ -136,32 +196,57 @@
         }
         
         .report-card {
-            background: white;
+            background: var(--card);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            border-left: 3px solid #1a237e;
+            border-left: 3px solid var(--primary);
+            transition: all 0.2s;
         }
         
         .report-card:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         }
         
+        .report-card.summary-only {
+            border-left-color: var(--info);
+        }
+        
         .report-header {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 10px;
+            gap: 10px;
         }
         
         .report-title {
             font-size: 17px;
             font-weight: 600;
-            color: #1a237e;
+            color: var(--primary);
+            flex: 1;
         }
         
-        .report-date {
-            font-size: 13px;
-            color: #666;
+        .report-version-tag {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+        
+        .report-version-tag.md {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .report-version-tag.html {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .report-version-tag.both {
+            background: #fff3e0;
+            color: #e65100;
         }
         
         .report-meta {
@@ -191,7 +276,7 @@
         .tag {
             padding: 4px 10px;
             background: #e8eaf6;
-            color: #1a237e;
+            color: var(--primary);
             border-radius: 4px;
             font-size: 12px;
         }
@@ -199,6 +284,7 @@
         .report-actions {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
         
         .btn {
@@ -208,17 +294,28 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
+            cursor: pointer;
+            border: none;
         }
         
-        .btn-primary {
-            background: #1a237e;
+        .btn-md {
+            background: #4caf50;
             color: white;
         }
         
-        .btn-secondary {
+        .btn-html {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .btn-github {
             background: #f5f5f5;
             color: #333;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
         }
         
         .empty {
@@ -236,7 +333,7 @@
             width: 40px;
             height: 40px;
             border: 3px solid #e0e0e0;
-            border-top-color: #1a237e;
+            border-top-color: var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 16px;
@@ -247,6 +344,9 @@
         @media (max-width: 900px) {
             .main { flex-direction: column; }
             .sidebar { width: 100%; }
+            .stats-bar { flex-direction: column; align-items: flex-start; }
+            .report-actions { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -254,6 +354,7 @@
     <header class="header">
         <div class="header-content">
             <h1>📊 金融研究知识库</h1>
+            <div class="header-subtitle">MD详细版 + HTML简略版 双版本管理</div>
             <div class="search-box">
                 <input type="text" class="search-input" id="searchInput" placeholder="搜索报告标题、关键词...">
                 <button class="search-btn" onclick="doSearch()">🔍 搜索</button>
@@ -263,6 +364,14 @@
 
     <div class="main">
         <aside class="sidebar">
+            <div class="card">
+                <h3>📄 版本说明</h3>
+                <div class="version-badge md">📄 Markdown 详细版</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 10px;">完整分析内容，适合深度阅读</div>
+                <div class="version-badge html">📱 HTML 简略版</div>
+                <div style="font-size: 12px; color: #666;">总结展示，适合快速浏览</div>
+            </div>
+            
             <div class="card">
                 <h3>📁 分类</h3>
                 <div id="categoryFilters"></div>
@@ -278,12 +387,14 @@
             <div class="stats-bar">
                 <div>
                     共 <strong id="totalCount">0</strong> 份报告
+                    <span style="margin-left: 15px; color: #4caf50; font-size: 13px;">(<span id="mdCount">0</span> 详细版 + <span id="htmlCount">0</span> 简略版)</span>
                     <span id="updateTime" style="margin-left: 15px; color: #999; font-size: 13px;"></span>
                 </div>
-                <select id="sortSelect" onchange="renderList()" style="border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px;">
-                    <option value="newest">最新发布</option>
-                    <option value="oldest">最早发布</option>
-                </select>
+                <div class="version-filter">
+                    <button class="version-btn active" onclick="setVersionFilter('all')">全部</button>
+                    <button class="version-btn" onclick="setVersionFilter('detailed')">📄 详细版</button>
+                    <button class="version-btn" onclick="setVersionFilter('summary')">📱 简略版</button>
+                </div>
             </div>
             
             <div id="reportList" class="report-list">
@@ -300,6 +411,7 @@
         let allReports = [];
         let filteredReports = [];
         let currentFilter = { type: 'all', value: null };
+        let versionFilter = 'all';
         let searchQuery = '';
         
         function init() {
@@ -311,7 +423,11 @@
             allReports = REPORTS_DATA.reports;
             filteredReports = [...allReports];
             
+            // 更新统计
             document.getElementById('totalCount').textContent = allReports.length;
+            document.getElementById('mdCount').textContent = REPORTS_DATA.detailedCount || 0;
+            document.getElementById('htmlCount').textContent = REPORTS_DATA.summaryCount || 0;
+            
             if (REPORTS_DATA.lastUpdate) {
                 document.getElementById('updateTime').textContent = 
                     '更新: ' + REPORTS_DATA.lastUpdate.split(' ')[0];
@@ -362,7 +478,6 @@
         function setFilter(type, value) {
             currentFilter = { type, value };
             
-            // 更新UI
             document.querySelectorAll('#categoryFilters .filter-item').forEach((item, idx) => {
                 item.classList.remove('active');
                 if (type === 'all' && idx === 0) item.classList.add('active');
@@ -372,18 +487,43 @@
             applyFilters();
         }
         
+        function setVersionFilter(type) {
+            versionFilter = type;
+            
+            document.querySelectorAll('.version-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (type === 'all' && btn.textContent.includes('全部')) btn.classList.add('active');
+                if (type === 'detailed' && btn.textContent.includes('详细')) btn.classList.add('active');
+                if (type === 'summary' && btn.textContent.includes('简略')) btn.classList.add('active');
+            });
+            
+            applyFilters();
+        }
+        
         function applyFilters() {
             filteredReports = allReports.filter(r => {
+                // 分类筛选
                 if (currentFilter.type === 'category' && r.category !== currentFilter.value) {
                     return false;
                 }
                 if (currentFilter.type === 'tag' && !(r.tags || []).includes(currentFilter.value)) {
                     return false;
                 }
+                
+                // 版本筛选
+                if (versionFilter === 'detailed' && r.type !== 'detailed') {
+                    return false;
+                }
+                if (versionFilter === 'summary' && r.type !== 'summary') {
+                    return false;
+                }
+                
+                // 搜索
                 if (searchQuery) {
                     const text = (r.title + ' ' + r.summary + ' ' + (r.tags || []).join(' ')).toLowerCase();
                     if (!text.includes(searchQuery)) return false;
                 }
+                
                 return true;
             });
             
@@ -397,43 +537,74 @@
         
         function renderList() {
             const container = document.getElementById('reportList');
-            const sortType = document.getElementById('sortSelect').value;
             
             let reports = [...filteredReports];
-            reports.sort((a, b) => {
-                const dateA = new Date(a.date || '2000-01-01');
-                const dateB = new Date(b.date || '2000-01-01');
-                return sortType === 'newest' ? dateB - dateA : dateA - dateB;
-            });
+            reports.sort((a, b) => new Date(b.date) - new Date(a.date));
             
             if (reports.length === 0) {
                 container.innerHTML = '<div class="empty"><h3>没有找到报告</h3></div>';
                 return;
             }
             
-            container.innerHTML = reports.map(r => `
-                <div class="report-card">
-                    <div class="report-header">
-                        <div class="report-title">${escapeHtml(r.title)}</div>
-                        <div class="report-date">${r.date}</div>
+            container.innerHTML = reports.map(r => {
+                const isSummaryOnly = r.type === 'summary';
+                const hasBoth = r.type === 'detailed' && r.hasHtml;
+                
+                let versionTag = '';
+                let cardClass = 'report-card';
+                
+                if (isSummaryOnly) {
+                    versionTag = '<span class="report-version-tag html">📱 仅简略版</span>';
+                    cardClass += ' summary-only';
+                } else if (hasBoth) {
+                    versionTag = '<span class="report-version-tag both">📄📱 双版本</span>';
+                } else {
+                    versionTag = '<span class="report-version-tag md">📄 仅详细版</span>';
+                }
+                
+                let actions = '';
+                
+                if (isSummaryOnly) {
+                    // 只有HTML简略版
+                    actions = `
+                        <a href="${r.pagesUrl || r.githubUrl}" class="btn btn-html" target="_blank">📱 查看简略版</a>
+                        <a href="${r.githubUrl}" class="btn btn-github" target="_blank">🔗 GitHub</a>
+                    `;
+                } else if (hasBoth) {
+                    // 有MD详细版 + HTML简略版
+                    actions = `
+                        <a href="${r.githubUrl}" class="btn btn-md" target="_blank">📄 阅读详细版</a>
+                        <a href="${r.htmlGithubUrl}" class="btn btn-html" target="_blank">📱 查看简略版</a>
+                    `;
+                } else {
+                    // 只有MD详细版
+                    actions = `
+                        <a href="${r.githubUrl}" class="btn btn-md" target="_blank">📄 阅读详细版</a>
+                    `;
+                }
+                
+                return `
+                    <div class="${cardClass}">
+                        <div class="report-header">
+                            <div class="report-title">${escapeHtml(r.title)}</div>
+                            ${versionTag}
+                        </div>
+                        <div class="report-meta">
+                            <span>📅 ${r.date}</span>
+                            <span>📁 ${r.category}</span>
+                            <span>🏭 ${r.subcategory}</span>
+                        </div>
+                        <div class="report-summary">${escapeHtml(r.summary)}</div>
+                        ${r.tags && r.tags.length ? `<div class="report-tags">${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
+                        <div class="report-actions">${actions}</div>
                     </div>
-                    <div class="report-meta">
-                        <span>📁 ${r.category}</span>
-                        <span>🏭 ${r.subcategory}</span>
-                    </div>
-                    <div class="report-summary">${escapeHtml(r.summary)}</div>
-                    ${r.tags && r.tags.length ? `<div class="report-tags">${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
-                    <div class="report-actions">
-                        <a href="${r.githubUrl}" class="btn btn-primary" target="_blank">📖 阅读报告</a>
-                        <a href="${r.path}" class="btn btn-secondary" target="_blank">📄 原始文件</a>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
         
         function showError(msg) {
             document.getElementById('reportList').innerHTML = 
-                `<div class="empty"><h3>${msg}</h3><p>请刷新重试</p></div>`;
+                `<div class="empty"><h3>${msg}</h3></div>`;
         }
         
         function escapeHtml(text) {

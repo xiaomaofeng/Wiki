@@ -1,0 +1,1016 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>光伏行业周期定位与ETF投资策略分析</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #e53e3e;
+            --muted: #718096;
+            --background: #f7fafc;
+            --surface: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--secondary);
+            line-height: 1.7;
+        }
+        
+        .serif {
+            font-family: 'Merriweather', serif;
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid #e2e8f0;
+            z-index: 50;
+            overflow-y: auto;
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .main-content {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+        
+        /* Obsidian HTML Reader 适配 */
+        @media (max-width: 1200px) {
+            .toc-fixed {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        
+        /* 确保标题不换行 */
+        h1, h2, h3 {
+            word-break: keep-all;
+            white-space: normal;
+        }
+        
+        .hero-grid h1 {
+            min-width: 400px;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .chart-container {
+            background: var(--surface);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+        }
+        
+        .citation {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        .citation:hover {
+            text-decoration: underline;
+        }
+        
+        .insight-highlight {
+            background: linear-gradient(120deg, rgba(229, 62, 62, 0.1) 0%, rgba(229, 62, 62, 0.05) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+            margin: 3rem 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .px-6 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .hero-grid h1 {
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+            }
+            .hero-grid p {
+                font-size: 1rem;
+            }
+            .relative.z-10 {
+                padding: 1.5rem;
+            }
+            .insight-highlight,
+            .bg-red-50,
+            .bg-green-50,
+            .bg-yellow-50 {
+                padding: 1rem;
+            }
+            .grid-cols-2,
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body>
+    <!-- Fixed Table of Contents -->
+    <nav class="toc-fixed">
+      <h3 class="text-lg font-bold text-gray-900 mb-4 serif">目录导航</h3>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="#hero" class="block py-1 text-gray-600 hover:text-gray-900 transition-colors">封面概览</a>
+        </li>
+        <li>
+          <a href="#section1" class="block py-1 text-gray-600 hover:text-gray-900 transition-colors">1. 光伏行业周期定位</a>
+          <ul class="ml-3 mt-1 space-y-1">
+            <li>
+              <a href="#section1-1" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">1.1 周期阶段判定</a>
+            </li>
+            <li>
+              <a href="#section1-2" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">1.2 底部核心特征</a>
+            </li>
+            <li>
+              <a href="#section1-3" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">1.3 转折关键变量</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#section2" class="block py-1 text-gray-600 hover:text-gray-900 transition-colors">2. 震荡加剧驱动因素</a>
+          <ul class="ml-3 mt-1 space-y-1">
+            <li>
+              <a href="#section2-1" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">2.1 产业层面内因</a>
+            </li>
+            <li>
+              <a href="#section2-2" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">2.2 政策外部环境</a>
+            </li>
+            <li>
+              <a href="#section2-3" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">2.3 宏观市场情绪</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#section3" class="block py-1 text-gray-600 hover:text-gray-900 transition-colors">3. ETF持仓策略评估</a>
+          <ul class="ml-3 mt-1 space-y-1">
+            <li>
+              <a href="#section3-1" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">3.1 持仓结构诊断</a>
+            </li>
+            <li>
+              <a href="#section3-2" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">3.2 短期交易策略</a>
+            </li>
+            <li>
+              <a href="#section3-3" class="block py-1 text-gray-500 hover:text-gray-700 transition-colors">3.3 中期观察信号</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#section4" class="block py-1 text-gray-600 hover:text-gray-900 transition-colors">4. 后市展望与配置建议</a>
+        </li>
+        <li>
+          <a href="#conclusion" class="block py-1 text-gray-600 hover:text-gray-900 transition-colors">结论与建议</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section id="hero" class="bg-gradient-to-br from-slate-50 to-blue-50 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="hero-grid">
+            <div class="space-y-6">
+              <div class="inline-block px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium">
+                行业深度分析
+              </div>
+              <h1 class="text-5xl font-black text-gray-900 leading-tight serif">
+                光伏行业周期定位
+                <br/>
+                <span class="text-4xl text-gray-700 font-light">与ETF投资策略分析</span>
+              </h1>
+              <p class="text-xl text-gray-600 leading-relaxed">
+                深度解析光伏行业第四轮周期底部的结构性特征，评估20%ETF持仓的战略风险，构建短期交易与中期布局的投资框架
+              </p>
+              <div class="flex items-center space-x-6 text-sm text-gray-500">
+                <span><i class="fas fa-calendar mr-2"></i>2026年3月</span>
+                <span><i class="fas fa-chart-line mr-2"></i>行业周期分析</span>
+                <span><i class="fas fa-coins mr-2"></i>投资策略</span>
+              </div>
+            </div>
+
+            <div class="relative">
+              <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/305114fea1cf6a793a7b2b39fca5f2c385911282.jpg" alt="太阳能电池板阵列" class="w-full h-80 object-cover rounded-lg shadow-lg" size="medium" aspect="wide" color="blue" style="photo" query="太阳能电池板阵列" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-lg"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <p class="text-sm opacity-90">行业深度调整期</p>
+                <p class="text-lg font-semibold">寻找周期转折点</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Insights Grid -->
+      <section class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-exclamation-triangle text-red-600 text-xl mr-3"></i>
+                <h3 class="font-bold text-red-800">风险警示</h3>
+              </div>
+              <p class="text-red-700 text-sm">20%持仓占比偏高，短期交易策略与周期底部特征存在结构性错配</p>
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-chart-line text-blue-600 text-xl mr-3"></i>
+                <h3 class="font-bold text-blue-800">周期定位</h3>
+              </div>
+              <p class="text-blue-700 text-sm">第四轮周期深度底部，预计2026年为&#34;预期拐点之年&#34;</p>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+              <div class="flex items-center mb-3">
+                <i class="fas fa-target text-green-600 text-xl mr-3"></i>
+                <h3 class="font-bold text-green-800">操作建议</h3>
+              </div>
+              <p class="text-green-700 text-sm">建议降至10%以内或设置硬性止损，关注4-5月旺季排产数据</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: 光伏行业周期定位 -->
+      <section id="section1" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8 serif">1. 光伏行业当前周期定位</h2>
+
+          <div id="section1-1" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">1.1 周期阶段判定</h3>
+
+            <div class="insight-highlight">
+              <h4 class="font-bold text-lg mb-2">核心结论</h4>
+              <p>光伏行业正处于第四轮周期的深度底部阶段，本轮周期的显著特点是产能扩张幅度史无前例——2020-2023年间各环节产能扩张3-5倍，而同期全球需求仅增长约1.5倍，供需错配程度远超历史任何时期。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+              <h4 class="font-semibold text-lg mb-4">第四轮周期底部确认</h4>
+              <p class="text-gray-700 mb-4">
+                本轮周期起始于2020年&#34;双碳&#34;目标提出后的政策红利期，2021-2022年迎来需求爆发与产能疯狂扩张，2023年下半年开始进入下行通道，2024-2025年呈现加速探底特征，2026年一季度仍处于筑底过程中<a href="#ref-409" class="citation">[409]</a>
+                <a href="#ref-410" class="citation">[410]</a>。
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div>
+                  <h5 class="font-medium text-gray-800 mb-2">历史周期对比</h5>
+                  <ul class="space-y-1 text-sm text-gray-600">
+                    <li>• 第一轮（2008-2012年）：持续约4年</li>
+                    <li>• 第二轮（2013-2018年）：&#34;531新政&#34;后约5年</li>
+                    <li>• 第三轮（2019-2023年）：约4年</li>
+                    <li>• <strong>第四轮（2023-?）：预计4-5年</strong></li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium text-gray-800 mb-2">2026年政策定调</h5>
+                  <p class="text-sm text-gray-600">
+                    工信部将2026年定义为&#34;光伏行业治理的攻坚之年&#34;，&#34;反内卷&#34;被列为工作重中之重，这一官方定调本身就揭示了行业所处的特殊阶段<a href="#ref-408" class="citation">[408]</a>
+                    <a href="#ref-493" class="citation">[493]</a>。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="section1-2" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">1.2 周期底部核心特征</h3>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+              <h4 class="font-semibold text-lg mb-4">供给侧：产能出清进入深水区</h4>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm border-collapse border border-gray-300">
+                  <thead>
+                    <tr class="bg-gray-100">
+                      <th class="border border-gray-300 px-4 py-2 text-left">环节</th>
+                      <th class="border border-gray-300 px-4 py-2 text-center">2022年高点价格</th>
+                      <th class="border border-gray-300 px-4 py-2 text-center">2025年底价格</th>
+                      <th class="border border-gray-300 px-4 py-2 text-center">跌幅</th>
+                      <th class="border border-gray-300 px-4 py-2 text-center">盈利状态</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border border-gray-300 px-4 py-2 font-medium">硅料（万元/吨）</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">30</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">4.5</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center text-red-600">-85%</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">现金成本附近</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-gray-300 px-4 py-2 font-medium">硅片（元/片）</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">7.5</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">1.2</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center text-red-600">-84%</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">跌破现金成本</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-gray-300 px-4 py-2 font-medium">组件（元/瓦）</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">2.0</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">0.65</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center text-red-600">-68%</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">多数企业亏损</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="text-sm text-gray-600 mt-3">
+                数据来源：<a href="#ref-308" class="citation">[308]</a>
+                <a href="#ref-370" class="citation">[370]</a>
+              </p>
+            </div>
+          </div>
+
+          <div id="section1-3" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">1.3 周期转折关键变量</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-3 flex items-center">
+                  <i class="fas fa-gavel text-blue-600 mr-2"></i>
+                  政策驱动：&#34;反内卷&#34;政策
+                </h4>
+                <p class="text-gray-700 text-sm mb-3">
+                  2024年以来政策层面对&#34;内卷式&#34;竞争的关注度显著提升，中央政治局会议首次提出&#34;防止&#39;内卷式&#39;恶性竞争&#34;<a href="#ref-393" class="citation">[393]</a>
+                  <a href="#ref-484" class="citation">[484]</a>。
+                </p>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• 能耗标准约束</li>
+                  <li>• 产能置换要求</li>
+                  <li>• 价格监管机制</li>
+                  <li>• 金融信贷引导</li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h4 class="font-semibold text-lg mb-3 flex items-center">
+                  <i class="fas fa-microchip text-green-600 mr-2"></i>
+                  技术迭代：钙钛矿产业化
+                </h4>
+                <p class="text-gray-700 text-sm mb-3">
+                  钙钛矿-晶硅叠层电池实验室效率已超过33%，但量产稳定性和寿命问题尚未解决<a href="#ref-452" class="citation">[452]</a>
+                  <a href="#ref-481" class="citation">[481]</a>。
+                </p>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• TOPCon市占率&gt;80%</li>
+                  <li>• BC电池效率优势</li>
+                  <li>• HJT工艺简化</li>
+                  <li>• 钙钛矿潜力待释放</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 2: 震荡加剧驱动因素 -->
+      <section id="section2" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8 serif">2. 光伏板块震荡加剧的驱动因素</h2>
+
+          <div id="section2-1" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">2.1 产业层面内因</h3>
+
+            <div class="insight-highlight mb-6">
+              <h4 class="font-bold text-lg mb-2">核心矛盾：产能扩张3倍 vs 需求增速放缓</h4>
+              <p>2020-2023年的产能扩张狂潮与2024-2025年的需求增速放缓形成剧烈碰撞，导致价格体系崩塌和企业盈利恶化。硅料产能扩张4倍，硅片产能扩张4倍，而同期全球需求仅增长3倍。</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+              <h4 class="font-semibold text-lg mb-4">企业盈利恶化现状</h4>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div>
+                  <div class="text-2xl font-bold text-red-600">80%+</div>
+                  <div class="text-sm text-gray-600">2024年净利润同比下滑</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold text-red-600">60%+</div>
+                  <div class="text-sm text-gray-600">2025年预计亏损面</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold text-red-600">85%</div>
+                  <div class="text-sm text-gray-600">企业自由现金流为负</div>
+                </div>
+              </div>
+              <p class="text-sm text-gray-600 mt-4">
+                数据来源：<a href="#ref-498" class="citation">[498]</a>
+                <a href="#ref-534" class="citation">[534]</a>
+                <a href="#ref-370" class="citation">[370]</a>
+              </p>
+            </div>
+          </div>
+
+          <div id="section2-2" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">2.2 政策与外部环境</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-lg mb-3 text-blue-800">国内政策不确定性</h4>
+                <p class="text-blue-700 text-sm mb-3">
+                  2025年2月&#34;136号文&#34;标志着新能源上网电量全面进入市场化阶段，光伏项目收益模式发生重大变化<a href="#ref-410" class="citation">[410]</a>
+                  <a href="#ref-485" class="citation">[485]</a>。
+                </p>
+                <ul class="text-sm text-blue-600 space-y-1">
+                  <li>• 电价机制改革</li>
+                  <li>• 分布式光伏管理收紧</li>
+                  <li>• 消纳瓶颈凸显</li>
+                </ul>
+              </div>
+
+              <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
+                <h4 class="font-semibold text-lg mb-3 text-orange-800">海外贸易壁垒升级</h4>
+                <p class="text-orange-700 text-sm mb-3">
+                  美国反规避调查、欧盟《净零工业法案》、印度高额关税等多重壁垒限制出口空间<a href="#ref-474" class="citation">[474]</a>
+                  <a href="#ref-425" class="citation">[425]</a>。
+                </p>
+                <ul class="text-sm text-orange-600 space-y-1">
+                  <li>• 美国UFLPA执法加强</li>
+                  <li>• 欧盟CBAM实施</li>
+                  <li>• 新兴市场反倾销调查</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="section2-3" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">2.3 宏观与市场情绪</h3>
+
+            <div class="bg-white border border-gray-200 rounded-lg p-6">
+              <h4 class="font-semibold text-lg mb-4">市场情绪特征</h4>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <i class="fas fa-building text-xl text-gray-600 mb-2"></i>
+                  <div class="font-medium text-gray-800">机构撤离</div>
+                  <div class="text-sm text-gray-600">配置比例从8%降至2.5%</div>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <i class="fas fa-users text-xl text-gray-600 mb-2"></i>
+                  <div class="font-medium text-gray-800">散户套牢</div>
+                  <div class="text-sm text-gray-600">占比超70%多为高位买入</div>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <i class="fas fa-chart-bar text-xl text-gray-600 mb-2"></i>
+                  <div class="font-medium text-gray-800">游资博弈</div>
+                  <div class="text-sm text-gray-600">利用政策传闻炒作</div>
+                </div>
+              </div>
+              <p class="text-sm text-gray-600 mt-4">
+                数据来源：<a href="#ref-399" class="citation">[399]</a>
+                <a href="#ref-430" class="citation">[430]</a>
+                <a href="#ref-370" class="citation">[370]</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 3: ETF持仓策略评估 -->
+      <section id="section3" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8 serif">3. 光伏ETF持仓策略评估</h2>
+
+          <div id="section3-1" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">3.1 持仓结构诊断</h3>
+
+            <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-6">
+              <h4 class="font-semibold text-lg mb-3 text-red-800 flex items-center">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                20%集中度风险评估
+              </h4>
+              <p class="text-red-700 mb-3">
+                标准投资组合理论建议单一行业配置比例不宜超过10%-15%。光伏ETF年化波动率约35%，20%权重对组合波动率贡献约7个百分点。
+              </p>
+              <div class="bg-white p-4 rounded border border-red-100">
+                <div class="text-sm text-red-600">
+                  <strong>风险测算：</strong>若光伏板块下跌20%，对组合净值拖累约4个百分点
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+              <h4 class="font-semibold text-lg mb-3 text-yellow-800 flex items-center">
+                <i class="fas fa-clock mr-2"></i>
+                短期交易定位与周期底部特征错配
+              </h4>
+              <p class="text-yellow-700 mb-3">
+                周期底部典型特征：高波动、低趋势、假突破多。短期交易容易陷入&#34;追涨杀跌&#34;陷阱，2024年以来多次出现&#34;一日游&#34;行情<a href="#ref-293" class="citation">[293]</a>
+                <a href="#ref-294" class="citation">[294]</a>。
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <strong class="text-yellow-800">建议调整：</strong>
+                  <ul class="mt-2 space-y-1 text-yellow-700">
+                    <li>• 缩短持仓周期至1-2周</li>
+                    <li>• 降低盈利预期至3%-5%</li>
+                    <li>• 严格止损纪律</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong class="text-yellow-800">关注重点：</strong>
+                  <ul class="mt-2 space-y-1 text-yellow-700">
+                    <li>• 政策发布事件</li>
+                    <li>• 排产数据变化</li>
+                    <li>• 季报业绩催化</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="section3-2" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">3.2 短期交易策略选项</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <h4 class="font-semibold text-lg mb-3 text-blue-800">
+                  <i class="fas fa-shield-alt mr-2"></i>风险管控
+                </h4>
+                <div class="space-y-3 text-sm">
+                  <div class="border-l-4 border-blue-500 pl-3">
+                    <div class="font-medium">技术止损</div>
+                    <div class="text-gray-600">前期低点下方5%-10%</div>
+                  </div>
+                  <div class="border-l-4 border-green-500 pl-3">
+                    <div class="font-medium">时间止损</div>
+                    <div class="text-gray-600">2-4周未达预期退出</div>
+                  </div>
+                  <div class="border-l-4 border-red-500 pl-3">
+                    <div class="font-medium">比例止损</div>
+                    <div class="text-gray-600">单笔亏损2%强制止损</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <h4 class="font-semibold text-lg mb-3 text-green-800">
+                  <i class="fas fa-chart-line mr-2"></i>波段操作
+                </h4>
+                <div class="space-y-3 text-sm">
+                  <div class="border-l-4 border-green-500 pl-3">
+                    <div class="font-medium">明确震荡区间</div>
+                    <div class="text-gray-600">判断ETF波动区间</div>
+                  </div>
+                  <div class="border-l-4 border-blue-500 pl-3">
+                    <div class="font-medium">控制做T仓位</div>
+                    <div class="text-gray-600">每次不超过1/3</div>
+                  </div>
+                  <div class="border-l-4 border-yellow-500 pl-3">
+                    <div class="font-medium">设置做T止损</div>
+                    <div class="text-gray-600">价格突破区间止损</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <h4 class="font-semibold text-lg mb-3 text-purple-800">
+                  <i class="fas fa-calendar-alt mr-2"></i>事件驱动
+                </h4>
+                <div class="space-y-3 text-sm">
+                  <div class="border-l-4 border-purple-500 pl-3">
+                    <div class="font-medium">政策窗口</div>
+                    <div class="text-gray-600">两会、反内卷细则</div>
+                  </div>
+                  <div class="border-l-4 border-orange-500 pl-3">
+                    <div class="font-medium">业绩披露</div>
+                    <div class="text-gray-600">一季报验证排产</div>
+                  </div>
+                  <div class="border-l-4 border-red-500 pl-3">
+                    <div class="font-medium">出口退税</div>
+                    <div class="text-gray-600">4月1日政策落地</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="section3-3" class="mb-12">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">3.3 中期观察信号</h3>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-lg mb-4">关键验证指标</h4>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium text-gray-800 mb-3">产能出清进度</h5>
+                  <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center">
+                      <i class="fas fa-circle text-xs text-red-500 mr-2"></i>
+                      破产重整案例数量（月度2-3起以上）
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-circle text-xs text-blue-500 mr-2"></i>
+                      并购交易活跃度（头部企业收购）
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-circle text-xs text-green-500 mr-2"></i>
+                      产能利用率变化（回升至60%以上）
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h5 class="font-medium text-gray-800 mb-3">价格盈利信号</h5>
+                  <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="flex items-center">
+                      <i class="fas fa-circle text-xs text-purple-500 mr-2"></i>
+                      硅料价格回升至5.5万元/吨以上
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-circle text-xs text-orange-500 mr-2"></i>
+                      组件价格站稳0.75元/瓦以上
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-circle text-xs text-teal-500 mr-2"></i>
+                      季度毛利率转正并持续改善
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <p class="text-sm text-gray-600 mt-4">
+                重点关注2026年4-5月旺季排产数据验证，以及一季报、二季报业绩改善情况<a href="#ref-370" class="citation">[370]</a>
+                <a href="#ref-439" class="citation">[439]</a>。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 4: 后市展望与配置建议 -->
+      <section id="section4" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <h2 class="text-4xl font-bold text-gray-900 mb-8 serif">4. 后市展望与配置建议</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-200">
+              <h3 class="text-2xl font-bold text-blue-900 mb-6 serif">周期视角分析</h3>
+
+              <div class="space-y-4">
+                <div class="bg-white p-4 rounded border border-blue-100">
+                  <h4 class="font-semibold text-blue-800 mb-2">历史周期对比</h4>
+                  <p class="text-sm text-blue-700">
+                    本轮周期特殊性：产能扩张规模史无前例、地方保护主义延缓出清、技术迭代加剧结构性矛盾、全球贸易环境恶化。实质复苏或需等待至2026年下半年至2027年<a href="#ref-482" class="citation">[482]</a>
+                    <a href="#ref-519" class="citation">[519]</a>。
+                  </p>
+                </div>
+
+                <div class="bg-white p-4 rounded border border-blue-100">
+                  <h4 class="font-semibold text-blue-800 mb-2">2026年关键验证窗口</h4>
+                  <ul class="text-sm text-blue-700 space-y-1">
+                    <li>• 4-5月旺季排产数据验证</li>
+                    <li>• 一季报、二季报业绩改善</li>
+                    <li>• &#34;反内卷&#34;政策执行力度</li>
+                    <li>• 价格走势确认成本线支撑</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-lg border border-green-200">
+              <h3 class="text-2xl font-bold text-green-900 mb-6 serif">技术变革维度</h3>
+
+              <div class="space-y-4">
+                <div class="bg-white p-4 rounded border border-green-100">
+                  <h4 class="font-semibold text-green-800 mb-2">电池技术迭代</h4>
+                  <p class="text-sm text-green-700">
+                    N型技术全面替代P型已成共识，TOPCon、HJT、BC等路线竞争激烈。设备更新需求创造投资机会<a href="#ref-291" class="citation">[291]</a>
+                    <a href="#ref-319" class="citation">[319]</a>。
+                  </p>
+                </div>
+
+                <div class="bg-white p-4 rounded border border-green-100">
+                  <h4 class="font-semibold text-green-800 mb-2">新兴应用场景</h4>
+                  <ul class="text-sm text-green-700 space-y-1">
+                    <li>• 建筑光伏一体化（BIPV）</li>
+                    <li>• 海上光伏开发</li>
+                    <li>• 太空光伏技术突破</li>
+                    <li>• 光储一体化趋势</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-900 text-white p-8 rounded-lg mb-12">
+            <h3 class="text-2xl font-bold mb-6 serif">最终操作建议</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="text-xl font-semibold mb-4 text-yellow-300">
+                  <i class="fas fa-exclamation-triangle mr-2"></i>
+                  核心原则
+                </h4>
+                <ul class="space-y-2 text-gray-200">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-2 mt-1 text-sm"></i>
+                    <span>短期交易严格纪律，避免&#34;抄底&#34;变&#34;套牢&#34;</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-2 mt-1 text-sm"></i>
+                    <span>不预测底部，只应对价格变化</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-2 mt-1 text-sm"></i>
+                    <span>不补仓摊低成本，严格执行止损</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-400 mr-2 mt-1 text-sm"></i>
+                    <span>小赚即安，积小胜为大胜</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="text-xl font-semibold mb-4 text-blue-300">
+                  <i class="fas fa-cogs mr-2"></i>
+                  具体措施
+                </h4>
+                <ul class="space-y-2 text-gray-200">
+                  <li class="flex items-start">
+                    <i class="fas fa-arrow-down text-red-400 mr-2 mt-1 text-sm"></i>
+                    <span>立即减仓1/3至1/2，降至10%-15%</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-stop-circle text-red-400 mr-2 mt-1 text-sm"></i>
+                    <span>设置硬性止损位（如ETF跌破0.60元）</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chart-line text-blue-400 mr-2 mt-1 text-sm"></i>
+                    <span>关注4-5月旺季排产数据验证</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-lock text-green-400 mr-2 mt-1 text-sm"></i>
+                    <span>反弹至成本线附近优先减仓锁定流动性</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">
+              <i class="fas fa-target mr-2 text-red-600"></i>
+              情景推演与应对策略
+            </h3>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="bg-gray-100">
+                    <th class="px-4 py-3 text-left font-semibold">情景</th>
+                    <th class="px-4 py-3 text-center font-semibold">概率</th>
+                    <th class="px-4 py-3 text-left font-semibold">核心假设</th>
+                    <th class="px-4 py-3 text-left font-semibold">应对策略</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                  <tr class="bg-green-50">
+                    <td class="px-4 py-3 font-medium text-green-800">乐观情景</td>
+                    <td class="px-4 py-3 text-center text-green-700">20%-25%</td>
+                    <td class="px-4 py-3 text-green-700">Q2-Q3排产+价格+库存三重复苏，连续季报改善</td>
+                    <td class="px-4 py-3 text-green-700">信号确认后加仓至25%-30%，持有至估值修复至20倍PE以上</td>
+                  </tr>
+                  <tr class="bg-yellow-50">
+                    <td class="px-4 py-3 font-medium text-yellow-800">中性情景</td>
+                    <td class="px-4 py-3 text-center text-yellow-700">50%-55%</td>
+                    <td class="px-4 py-3 text-yellow-700">底部震荡延续至2026年下半年，出清慢于预期</td>
+                    <td class="px-4 py-3 text-yellow-700">维持10%-15%仓位，波段操作降低成本，严格止损止盈</td>
+                  </tr>
+                  <tr class="bg-red-50">
+                    <td class="px-4 py-3 font-medium text-red-800">悲观情景</td>
+                    <td class="px-4 py-3 text-center text-red-700">25%-30%</td>
+                    <td class="px-4 py-3 text-red-700">需求超预期下滑，出清周期延长至2027年</td>
+                    <td class="px-4 py-3 text-red-700">果断减仓至5%以下或清仓，配置防御性资产</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section id="conclusion" class="py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4 serif">核心结论与投资建议</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+              基于深度周期分析，为投资者提供明确的风险控制与操作策略
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20">
+              <h3 class="text-2xl font-bold mb-6 text-yellow-300 serif">周期定位</h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-chart-line text-red-400 mr-3 mt-1"></i>
+                  <div>
+                    <div class="font-semibold">深度底部确认</div>
+                    <div class="text-sm text-gray-300">全产业链价格跌破现金成本，企业普遍亏损</div>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-clock text-blue-400 mr-3 mt-1"></i>
+                  <div>
+                    <div class="font-semibold">出清周期延长</div>
+                    <div class="text-sm text-gray-300">产能扩张史无前例，地方保护主义延缓出清</div>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-calendar-check text-green-400 mr-3 mt-1"></i>
+                  <div>
+                    <div class="font-semibold">2026年关键年</div>
+                    <div class="text-sm text-gray-300">预期拐点之年，实质复苏仍需验证</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20">
+              <h3 class="text-2xl font-bold mb-6 text-blue-300 serif">操作策略</h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-arrow-down text-red-400 mr-3 mt-1"></i>
+                  <div>
+                    <div class="font-semibold">立即减仓</div>
+                    <div class="text-sm text-gray-300">20%仓位降至10%以内，释放流动性</div>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-stop-circle text-orange-400 mr-3 mt-1"></i>
+                  <div>
+                    <div class="font-semibold">设置止损</div>
+                    <div class="text-sm text-gray-300">光伏ETF跌破0.60元或亏损10%强制止损</div>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-eye text-green-400 mr-3 mt-1"></i>
+                  <div>
+                    <div class="font-semibold">密切关注</div>
+                    <div class="text-sm text-gray-300">4-5月旺季排产数据，验证复苏信号</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-red-600 to-red-700 p-8 rounded-lg text-center">
+            <h3 class="text-2xl font-bold mb-4">
+              <i class="fas fa-exclamation-triangle mr-2"></i>
+              重要风险提示
+            </h3>
+            <p class="text-lg mb-4">
+              光伏行业正处于深度调整期，短期交易风险极高，20%的持仓占比存在显著单行业风险暴露。
+            </p>
+            <p class="text-xl font-bold">
+              建议立即采取行动，降低仓位至合理水平，等待明确的右侧信号再考虑加仓。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- References -->
+      <section class="py-12 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6 serif">参考资料</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div class="space-y-2">
+              <div id="ref-308">[308] <a href="http://www.gfex.com.cn/gfex/mtjj/202506/b32ca29786784b01b08dda06aca283e6.shtml" class="citation">广州期货交易所行业分析</a>
+              </div>
+              <div id="ref-370">[370] <a href="https://xueqiu.com/8577329114/340621580" class="citation">雪球光伏行业深度分析</a>
+              </div>
+              <div id="ref-393">[393] <a href="http://paper.people.com.cn/zgcsb/pc/content/202412/02/content_30032482.html" class="citation">中国房地产报政策分析</a>
+              </div>
+              <div id="ref-399">[399] <a href="https://finance.sina.com.cn/roll/2025-12-29/doc-inheneyq4834723.shtml" class="citation">新浪财经行业报告</a>
+              </div>
+              <div id="ref-409">[409] <a href="https://www.ditan.com/industry/pv/100725.html" class="citation">低碳网光伏行业分析</a>
+              </div>
+              <div id="ref-410">[410] <a href="https://rmi.org.cn/wp-content/uploads/2025/12/final-1217-中国分布式光伏韧性发展路径：2026与2027年展望报告-1.pdf" class="citation">RMI光伏发展路径报告</a>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div id="ref-452">[452] <a href="https://pdf.dfcfw.com/pdf/H3_AP202401011615911144_1.pdf" class="citation">东方财富钙钛矿技术报告</a>
+              </div>
+              <div id="ref-462">[462] <a href="https://cj.sina.com.cn/articles/view/7879848900/1d5acf3c401902vj30?froms=ggmp" class="citation">新浪财经市场分析</a>
+              </div>
+              <div id="ref-482">[482] <a href="https://www.stcn.com/article/detail/3628783.html" class="citation">证券时报行业深度</a>
+              </div>
+              <div id="ref-484">[484] <a href="https://www.glqh.com/u/cms/www/202512/24165135oomi.pdf" class="citation">国联期货研究报告</a>
+              </div>
+              <div id="ref-485">[485] <a href="https://rmi.org.cn/wp-content/uploads/2025/12/final-1217-中国分布式光伏韧性发展路径：2026与2027年展望报告-1.pdf" class="citation">RMI分布式光伏报告</a>
+              </div>
+              <div id="ref-519">[519] <a href="https://finance.sina.com.cn/roll/2025-12-29/doc-inheneyq4834723.shtml" class="citation">新浪财经光伏行业展望</a>
+              </div>
+              <div id="ref-534">[534] <a href="https://www.spgchinaratings.cn/upload/20251209_Commentary_PV%20Industry_R.pdf" class="citation">标普信评光伏行业评论</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.toc-fixed a[href^="#"]');
+
+        function highlightActiveSection() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-gray-900', 'font-semibold');
+                link.classList.add('text-gray-600');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.remove('text-gray-600');
+                    link.classList.add('text-gray-900', 'font-semibold');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightActiveSection);
+        highlightActiveSection(); // Initial call
+    </script>
+  
+
+</body></html>

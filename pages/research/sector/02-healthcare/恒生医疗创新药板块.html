@@ -1,0 +1,1224 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>恒生医疗创新药板块深度研究报告：下跌逻辑与长期价值分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --slate-gray: #475569;
+            --deep-blue: #1e293b;
+            --muted-gold: #d4af37;
+            --soft-white: #f8fafc;
+            --accent-blue: #3b82f6;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--soft-white) 0%, #f1f5f9 100%);
+            color: var(--slate-gray);
+            line-height: 1.7;
+        }
+        
+        .serif-heading {
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, 
+                rgba(30, 41, 59, 0.95) 0%, 
+                rgba(71, 85, 105, 0.9) 50%, 
+                rgba(59, 130, 246, 0.1) 100%);
+        }
+        
+        .toc-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid #e2e8f0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2rem;
+            height: 70vh;
+        }
+        
+        .hero-title {
+            grid-column: 1 / -1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-visual {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--deep-blue), var(--accent-blue));
+            opacity: 0.1;
+            clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+        
+        .key-insights {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--muted-gold);
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .citation-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            border-bottom: 1px dotted var(--accent-blue);
+        }
+        
+        .citation-link:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--muted-gold), transparent);
+            margin: 4rem 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .hero-title h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .hero-title p {
+                font-size: 1rem;
+            }
+
+            .hero-gradient {
+                padding: 1.5rem;
+            }
+
+            .bento-grid {
+                gap: 1rem;
+            }
+
+            .key-insights .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body>
+    <!-- Mobile TOC Toggle -->
+    <button id="tocToggle" class="fixed top-4 left-4 z-50 lg:hidden bg-white p-2 rounded-lg shadow-lg">
+      <i class="fas fa-bars text-slate-700"></i>
+    </button>
+
+    <!-- Table of Contents Sidebar -->
+    <nav class="toc-sidebar">
+      <div class="mb-8">
+        <h3 class="serif-heading text-lg font-semibold text-slate-800 mb-4">目录导航</h3>
+        <div class="space-y-2 text-sm">
+          <a href="#executive-summary" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">执行摘要</a>
+          <a href="#current-status" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">1. 板块现状与核心矛盾</a>
+          <a href="#decline-logic" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">2. 近期下跌逻辑深度解析</a>
+          <a href="#leading-companies" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">3. 龙头企业深度分析</a>
+          <a href="#policy-trends" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">4. 行业政策长期趋势</a>
+          <a href="#long-term-factors" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">5. 公司基本面长期向好因素</a>
+          <a href="#future-outlook" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">6. 未来方向与投资策略展望</a>
+          <a href="#conclusion" class="block py-2 px-3 rounded-lg hover:bg-slate-100 transition-colors">7. 结论与核心观点</a>
+        </div>
+      </div>
+
+      <div class="border-t pt-4">
+        <p class="text-xs text-slate-500 mb-2">数据来源</p>
+        <div class="space-y-1 text-xs text-slate-600">
+          <div>• 港交所公开数据</div>
+          <div>• 公司财报与公告</div>
+          <div>• 行业研究报告</div>
+          <div>• 政策文件与法规</div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-gradient relative overflow-hidden">
+        <div class="bento-grid container mx-auto px-8 py-12">
+          <div class="hero-title relative">
+            <div class="hero-visual"></div>
+            <div class="relative z-10">
+              <h1 class="serif-heading text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                <em class="text-yellow-300">恒生医疗创新药板块</em>
+                <br/>
+                深度研究报告
+              </h1>
+              <p class="text-xl text-slate-200 mb-8 max-w-3xl">
+                下跌逻辑与长期价值分析：估值体系切换过程中的阵痛与机遇
+              </p>
+              <div class="flex items-center space-x-6 text-slate-300">
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-calendar"></i>
+                  <span>2024-2026年度分析</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-chart-line"></i>
+                  <span>万字深度报告</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="executive-summary" class="key-insights p-8 rounded-xl">
+            <h3 class="serif-heading text-2xl font-semibold text-slate-800 mb-6">执行摘要</h3>
+            <div class="space-y-4 text-slate-700">
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-arrow-trend-down text-red-500 mt-1"></i>
+                <div>
+                  <strong>现状分析：</strong>恒生医疗创新药板块经历深度调整，估值处于历史低位，但龙头企业基本面实质性改善
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-magnifying-glass text-blue-500 mt-1"></i>
+                <div>
+                  <strong>核心矛盾：</strong>估值体系从&#34;管线故事&#34;向&#34;业绩兑现&#34;切换，市场关注重点从&#34;是否盈利&#34;转向&#34;盈利质量&#34;
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-globe text-green-500 mt-1"></i>
+                <div>
+                  <strong>长期价值：</strong>医保+商保双层支付体系构建、创新药全球竞争力提升、人口老龄化需求刚性增长
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <i class="fas fa-clock text-purple-500 mt-1"></i>
+                <div>
+                  <strong>投资时机：</strong>业绩验证窗口（2025年报-2026年中报）及国际化突破等催化剂将触发估值修复
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Content Sections -->
+      <div class="container mx-auto px-8 py-12">
+
+        <!-- Section 1: Current Status -->
+        <section id="current-status" class="mb-16">
+          <h2 class="serif-heading text-4xl font-bold text-slate-800 mb-8">1. 板块现状与核心矛盾</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">指数表现特征</h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center py-2 border-b border-slate-100">
+                  <span class="text-slate-600">2025年涨幅</span>
+                  <span class="font-semibold text-green-600">+100%</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-slate-100">
+                  <span class="text-slate-600">当前PE-TTM</span>
+                  <span class="font-semibold text-blue-600">29.6倍</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-slate-100">
+                  <span class="text-slate-600">历史分位</span>
+                  <span class="font-semibold text-orange-600">19.3%</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-slate-600">vs美股溢价</span>
+                  <span class="font-semibold text-red-600">折价63%</span>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 mt-4">
+                数据来源：<a href="#" class="citation-link">恒生指数公司</a>，
+                <a href="#" class="citation-link">Bloomberg</a>
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">估值悖论解析</h3>
+              <div class="space-y-4">
+                <div class="bg-slate-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-slate-700 mb-2">基本面改善</h4>
+                  <p class="text-sm text-slate-600">2025年创新药对外授权交易总额1357亿美元，同比增长161%</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-slate-700 mb-2">估值压缩</h4>
+                  <p class="text-sm text-slate-600">龙头企业盈利转折但市场给予保守估值，增速换挡担忧</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-slate-700 mb-2">定价逻辑转变</h4>
+                  <p class="text-sm text-slate-600">从&#34;管线故事&#34;向&#34;业绩兑现&#34;切换，关注盈利质量</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">龙头企业表现分化</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-white p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-3">百济神州</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">营收增长</span>
+                    <span class="text-green-600">+40.4%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">首次盈利</span>
+                    <span class="text-blue-600">14.2亿元</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">市场反应</span>
+                    <span class="text-red-600">-9.16%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-3">信达生物</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">营收增长</span>
+                    <span class="text-green-600">+50.6%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">BD交易</span>
+                    <span class="text-blue-600">114亿美元</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">股价表现</span>
+                    <span class="text-red-600">震荡下行</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-3">荣昌生物</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">营收增长</span>
+                    <span class="text-green-600">+89.4%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">扣非净利</span>
+                    <span class="text-orange-600">6505万元</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-600">市场担忧</span>
+                    <span class="text-red-600">盈利质量</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 2: Decline Logic -->
+        <section id="decline-logic" class="mb-16">
+          <h2 class="serif-heading text-4xl font-bold text-slate-800 mb-8">2. 近期下跌逻辑深度解析</h2>
+
+          <div class="grid lg:grid-cols-3 gap-8 mb-12">
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-globe-americas text-3xl text-blue-600 mr-4"></i>
+                <h3 class="serif-heading text-xl font-semibold">外围市场冲击</h3>
+              </div>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-slate-600">美联储政策</span>
+                  <span class="text-red-600">利率高位</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600">中美利差</span>
+                  <span class="text-red-600">持续倒挂</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600">外资撤离</span>
+                  <span class="text-red-600">被动流出</span>
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 mt-3">
+                受<a href="#" class="citation-link">美联储货币政策</a>影响，全球流动性收紧
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-balance-scale text-3xl text-green-600 mr-4"></i>
+                <h3 class="serif-heading text-xl font-semibold">政策环境变化</h3>
+              </div>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-slate-600">医保谈判</span>
+                  <span class="text-orange-600">价值导向</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600">集采扩围</span>
+                  <span class="text-red-600">情绪冲击</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600">审评提速</span>
+                  <span class="text-green-600">竞争加剧</span>
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 mt-3">
+                <a href="#" class="citation-link">医保支付改革</a>深化，政策可预期性提升
+              </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-chart-bar text-3xl text-purple-600 mr-4"></i>
+                <h3 class="serif-heading text-xl font-semibold">基本面分化</h3>
+              </div>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-slate-600">盈利质量</span>
+                  <span class="text-orange-600">市场审视</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600">BD交易</span>
+                  <span class="text-blue-600">质量分化</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-600">业绩暴雷</span>
+                  <span class="text-red-600">连锁反应</span>
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 mt-3">
+                龙头企业面临<a href="#" class="citation-link">增长可持续性</a>质疑
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">外资撤离潮的深层分析</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold text-slate-700 mb-4">撤离原因</h4>
+                <div class="space-y-3">
+                  <div class="flex items-start space-x-3">
+                    <i class="fas fa-circle text-red-400 text-xs mt-2"></i>
+                    <div>
+                      <div class="font-medium text-slate-700">政策风险集中释放</div>
+                      <div class="text-sm text-slate-600">美国生物安全法案担忧，关税政策不确定性</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3">
+                    <i class="fas fa-circle text-orange-400 text-xs mt-2"></i>
+                    <div>
+                      <div class="font-medium text-slate-700">流动性危机深化</div>
+                      <div class="text-sm text-slate-600">港股通扩容条件未满足，MSCI指数调仓</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3">
+                    <i class="fas fa-circle text-yellow-400 text-xs mt-2"></i>
+                    <div>
+                      <div class="font-medium text-slate-700">研发周期与资本错配</div>
+                      <div class="text-sm text-slate-600">外资偏好短期回报，与创新药长周期属性不匹配</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-700 mb-4">影响评估</h4>
+                <div class="space-y-4">
+                  <div class="bg-red-50 p-4 rounded-lg">
+                    <div class="font-semibold text-red-700 mb-2">恒生创新药指数</div>
+                    <div class="text-2xl font-bold text-red-600">-30%+</div>
+                    <div class="text-sm text-red-500">2025年全年跌幅</div>
+                  </div>
+                  <div class="bg-orange-50 p-4 rounded-lg">
+                    <div class="font-semibold text-orange-700 mb-2">外资持仓比例</div>
+                    <div class="text-2xl font-bold text-orange-600">10%</div>
+                    <div class="text-sm text-orange-500">部分机构降至高峰期10%</div>
+                  </div>
+                  <div class="bg-yellow-50 p-4 rounded-lg">
+                    <div class="font-semibold text-yellow-700 mb-2">南向资金</div>
+                    <div class="text-2xl font-bold text-yellow-600">1.3万亿</div>
+                    <div class="text-sm text-yellow-500">2025年净流入港元</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 mt-6">
+              数据来源：<a href="#" class="citation-link">港交所统计</a>，
+              <a href="#" class="citation-link">基金持仓报告</a>
+            </p>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 3: Leading Companies -->
+        <section id="leading-companies" class="mb-16">
+          <h2 class="serif-heading text-4xl font-bold text-slate-800 mb-8">3. 龙头企业深度分析</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">百济神州：盈利元年后的挑战</h3>
+              <div class="mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/g4-img-all.oss-cn-beijing.aliyuncs.com/9811f3ed73a1212c66ed8c7df13d5c123a73e937.jpg" alt="实验室研究" class="w-full h-48 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo" query="实验室研究" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-green-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-green-700 mb-2">财务亮点</h4>
+                  <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <div class="text-green-600 font-semibold">382.05亿元</div>
+                      <div class="text-green-500">营业收入</div>
+                      <div class="text-green-400 text-xs">+40.4%</div>
+                    </div>
+                    <div>
+                      <div class="text-green-600 font-semibold">14.22亿元</div>
+                      <div class="text-green-500">净利润</div>
+                      <div class="text-green-400 text-xs">首次盈利</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-red-700 mb-2">市场担忧</h4>
+                  <ul class="text-sm text-red-600 space-y-1">
+                    <li>• 2026年增速指引降至14%-20%</li>
+                    <li>• 泽布替尼Q4增速回落至38%</li>
+                    <li>• 后续管线接棒能力存疑</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">信达生物：Biopharma转型之路</h3>
+              <div class="mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/www.acroimmune.cn/0a3783e46b0b11dea886ad6ae10e009bef0e5587.jpg" alt="信达生物制药实验室" class="w-full h-48 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo" query="信达生物 实验室" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-blue-700 mb-2">转型进展</h4>
+                  <div class="space-y-2 text-sm">
+                    <div class="flex justify-between">
+                      <span class="text-blue-600">上半年营收</span>
+                      <span class="text-blue-600 font-semibold">59.53亿元</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-blue-600">净利润</span>
+                      <span class="text-blue-600 font-semibold">8.34亿元</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-blue-600">BD交易</span>
+                      <span class="text-blue-600 font-semibold">114亿美元</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-orange-700 mb-2">估值压制</h4>
+                  <ul class="text-sm text-orange-600 space-y-1">
+                    <li>• PD-1单抗依赖度超70%</li>
+                    <li>• &#34;Co-Co&#34;模式成本担忧</li>
+                    <li>• 新产品放量不确定性</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-slate-50 to-gray-50 p-8 rounded-xl">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">估值逻辑重构：从PS向PE切换</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-white p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-3">传统模式</h4>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-blue-600 mb-2">rNPV</div>
+                  <div class="text-sm text-slate-600">风险调整净现值法</div>
+                  <div class="text-xs text-slate-500 mt-2">基于管线期权价值</div>
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-3">过渡期</h4>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-orange-600 mb-2">PS+</div>
+                  <div class="text-sm text-slate-600">市销率+增长预期</div>
+                  <div class="text-xs text-slate-500 mt-2">盈利不稳定阶段</div>
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-700 mb-3">成熟模式</h4>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-green-600 mb-2">PE</div>
+                  <div class="text-sm text-slate-600">市盈率估值法</div>
+                  <div class="text-xs text-slate-500 mt-2">基于可持续盈利</div>
+                </div>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 mt-6">
+              当前龙头企业正处于<strong>估值方法论切换的关键节点</strong>，市场需要更多数据验证盈利可持续性
+            </p>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 4: Policy Trends -->
+        <section id="policy-trends" class="mb-16">
+          <h2 class="serif-heading text-4xl font-bold text-slate-800 mb-8">4. 行业政策长期趋势</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">支付体系改革深化</h3>
+              <div class="space-y-6">
+                <div class="border-l-4 border-blue-500 pl-4">
+                  <h4 class="font-semibold text-slate-700 mb-2">医保+商保双层体系</h4>
+                  <p class="text-sm text-slate-600 mb-2">
+                    首版《商业健康保险创新药品目录》发布，纳入19款创新药，降价幅度15%-50%
+                  </p>
+                  <div class="flex justify-between text-xs">
+                    <span class="text-slate-500">当前商保占比：7.7%</span>
+                    <span class="text-green-600">2035年目标：44%</span>
+                  </div>
+                </div>
+
+                <div class="border-l-4 border-green-500 pl-4">
+                  <h4 class="font-semibold text-slate-700 mb-2">医保谈判优化</h4>
+                  <p class="text-sm text-slate-600 mb-2">
+                    建立&#34;参照药预沟通机制&#34;，将参照药论证从事后确认前置为事前共识
+                  </p>
+                  <div class="text-xs text-slate-500">
+                    2025年谈判成功率88%，较2024年76%显著提升
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">产业支持政策强化</h3>
+              <div class="space-y-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-blue-700 mb-2">研发端</h4>
+                  <ul class="text-sm text-blue-600 space-y-1">
+                    <li>• 突破性治疗药物认定通道</li>
+                    <li>• 真实世界数据支持注册</li>
+                    <li>• 儿童药、罕见病药市场独占期</li>
+                  </ul>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-green-700 mb-2">生产端</h4>
+                  <ul class="text-sm text-green-600 space-y-1">
+                    <li>• MAH制度优化</li>
+                    <li>• 分段生产试点</li>
+                    <li>• 产业分工加速</li>
+                  </ul>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg">
+                  <h4 class="font-semibold text-purple-700 mb-2">支付端</h4>
+                  <ul class="text-sm text-purple-600 space-y-1">
+                    <li>• 创新药&#34;绿色通道&#34;</li>
+                    <li>• 5年内新药优先纳入</li>
+                    <li>• I类新药占比创新高</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">地方政策创新与国际合作</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="text-center p-6 bg-gradient-to-b from-red-50 to-red-100 rounded-lg">
+                <div class="text-3xl font-bold text-red-600 mb-2">北京</div>
+                <div class="text-sm text-red-700 mb-3">审评时限压缩</div>
+                <div class="text-xs text-slate-600">
+                  药物临床试验申请从60日压缩至30日
+                </div>
+              </div>
+              <div class="text-center p-6 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg">
+                <div class="text-3xl font-bold text-blue-600 mb-2">上海</div>
+                <div class="text-sm text-blue-700 mb-3">国际注册支持</div>
+                <div class="text-xs text-slate-600">
+                  FDA、EMA注册成功最高支持1000万元
+                </div>
+              </div>
+              <div class="text-center p-6 bg-gradient-to-b from-green-50 to-green-100 rounded-lg">
+                <div class="text-3xl font-bold text-green-600 mb-2">大湾区</div>
+                <div class="text-sm text-green-700 mb-3">产业集群效应</div>
+                <div class="text-xs text-slate-600">
+                  跨境临床试验与注册申报服务
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 p-4 bg-slate-50 rounded-lg">
+              <h4 class="font-semibold text-slate-700 mb-2">国际合作进展</h4>
+              <p class="text-sm text-slate-600">
+                2025年前三季度，跨国药企从中国License-in交易金额占全球近<strong>40%</strong>，
+                <a href="#" class="citation-link">中国已从&#34;世界工厂&#34;向&#34;创新源头&#34;转型</a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 5: Long-term Factors -->
+        <section id="long-term-factors" class="mb-16">
+          <h2 class="serif-heading text-4xl font-bold text-slate-800 mb-8">5. 公司基本面长期向好因素</h2>
+
+          <div class="grid lg:grid-cols-3 gap-8 mb-12">
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-users text-3xl text-blue-600 mr-4"></i>
+                <h3 class="serif-heading text-xl font-semibold">需求刚性增长</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <div class="font-semibold text-blue-700 mb-2">人口老龄化</div>
+                  <div class="text-sm text-blue-600">
+                    60岁以上人口占比持续上升，慢性病发病率增加
+                  </div>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                  <div class="font-semibold text-green-700 mb-2">创新药占比提升</div>
+                  <div class="text-sm text-green-600">
+                    2030年创新药占比预计达59%，年化增速20%
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-rocket text-3xl text-purple-600 mr-4"></i>
+                <h3 class="serif-heading text-xl font-semibold">核心竞争力</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-purple-50 p-4 rounded-lg">
+                  <div class="font-semibold text-purple-700 mb-2">研发平台跃迁</div>
+                  <div class="text-sm text-purple-600">
+                    从Fast-follow向Best-in-class、First-in-class演进
+                  </div>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg">
+                  <div class="font-semibold text-orange-700 mb-2">商业化基础设施</div>
+                  <div class="text-sm text-orange-600">
+                    千人规模销售团队，覆盖数千家医院
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-globe text-3xl text-green-600 mr-4"></i>
+                <h3 class="serif-heading text-xl font-semibold">全球化突破</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-green-50 p-4 rounded-lg">
+                  <div class="font-semibold text-green-700 mb-2">海外临床能力</div>
+                  <div class="text-sm text-green-600">
+                    百济神州全球超170项临床试验，入组7900+患者
+                  </div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <div class="font-semibold text-blue-700 mb-2">BD交易质量</div>
+                  <div class="text-sm text-blue-600">
+                    2025年BD交易总额1357亿美元，创历史新高
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-slate-50 to-gray-50 p-8 rounded-xl">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">技术平台布局：全球竞争力构建</h3>
+            <div class="grid md:grid-cols-4 gap-6">
+              <div class="bg-white p-6 rounded-lg text-center">
+                <div class="text-3xl mb-3">🔬</div>
+                <h4 class="font-semibold text-slate-700 mb-2">ADC技术</h4>
+                <div class="text-2xl font-bold text-blue-600 mb-2">51%</div>
+                <div class="text-sm text-slate-600">
+                  全球ADC临床试验中中国企业占比
+                </div>
+                <p class="text-xs text-slate-500 mt-2">
+                  来源：<a href="#" class="citation-link">Evaluate Pharma</a>
+                </p>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg text-center">
+                <div class="text-3xl mb-3">🔗</div>
+                <h4 class="font-semibold text-slate-700 mb-2">双抗/多抗</h4>
+                <div class="text-2xl font-bold text-green-600 mb-2">20+</div>
+                <div class="text-sm text-slate-600">
+                  中国企业进入临床的双抗产品数量
+                </div>
+                <p class="text-xs text-slate-500 mt-2">
+                  康方生物、百利天恒等领先
+                </p>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg text-center">
+                <div class="text-3xl mb-3">🧬</div>
+                <h4 class="font-semibold text-slate-700 mb-2">细胞与基因治疗</h4>
+                <div class="text-2xl font-bold text-purple-600 mb-2">15</div>
+                <div class="text-sm text-slate-600">
+                  中国CAR-T细胞治疗产品获批数量
+                </div>
+                <p class="text-xs text-slate-500 mt-2">
+                  传奇生物、药明巨诺等布局
+                </p>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg text-center">
+                <div class="text-3xl mb-3">🤖</div>
+                <h4 class="font-semibold text-slate-700 mb-2">AI制药</h4>
+                <div class="text-2xl font-bold text-orange-600 mb-2">30+</div>
+                <div class="text-sm text-slate-600">
+                  中国AI制药企业数量，快速增长中
+                </div>
+                <p class="text-xs text-slate-500 mt-2">
+                  新技术平台快速发展
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 6: Future Outlook -->
+        <section id="future-outlook" class="mb-16">
+          <h2 class="serif-heading text-4xl font-bold text-slate-800 mb-8">6. 未来方向与投资策略展望</h2>
+
+          <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">估值修复催化剂</h3>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="bg-blue-100 p-3 rounded-full">
+                    <i class="fas fa-chart-line text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-slate-700 mb-2">业绩兑现窗口</h4>
+                    <p class="text-sm text-slate-600 mb-2">
+                      2025年报与2026年中报将验证盈利质量，多家创新药企业预告盈利
+                    </p>
+                    <div class="text-xs text-blue-600">
+                      关键指标：扣非净利润增速、经营现金流、自由现金流
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                  <div class="bg-green-100 p-3 rounded-full">
+                    <i class="fas fa-microscope text-green-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-slate-700 mb-2">临床数据催化</h4>
+                    <p class="text-sm text-slate-600 mb-2">
+                      2026年AACR、ASCO等重要学术会议，国产创新药有望展现优异数据
+                    </p>
+                    <div class="text-xs text-green-600">
+                      重点关注：百济Sonrotoclax、信达玛仕度肽、科伦TROP2-ADC
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                  <div class="bg-purple-100 p-3 rounded-full">
+                    <i class="fas fa-globe text-purple-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-slate-700 mb-2">国际化突破</h4>
+                    <p class="text-sm text-slate-600 mb-2">
+                      FDA/EMA批准与海外销售放量，验证中国创新药全球竞争力
+                    </p>
+                    <div class="text-xs text-purple-600">
+                      关键事件：百济替雷利珠单抗美国上市、多个产品欧盟获批
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+              <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">结构性投资机会</h3>
+              <div class="space-y-4">
+                <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                  <h4 class="font-semibold text-green-700 mb-2">
+                    <i class="fas fa-crown mr-2"></i>
+                    已盈利龙头
+                  </h4>
+                  <p class="text-sm text-green-600 mb-2">
+                    百济神州、信达生物等具备估值回归基础，2026年业绩持续验证
+                  </p>
+                  <div class="text-xs text-green-500">
+                    估值修复空间：PE从当前低位向行业均值回归
+                  </div>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                  <h4 class="font-semibold text-blue-700 mb-2">
+                    <i class="fas fa-rocket mr-2"></i>
+                    高弹性二线企业
+                  </h4>
+                  <p class="text-sm text-blue-600 mb-2">
+                    临床后期管线具备期权价值，ADC、双抗、细胞治疗等前沿领域
+                  </p>
+                  <div class="text-xs text-blue-500">
+                    关注：科伦博泰、康方生物、传奇生物等
+                  </div>
+                </div>
+
+                <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                  <h4 class="font-semibold text-purple-700 mb-2">
+                    <i class="fas fa-gem mr-2"></i>
+                    细分赛道隐形冠军
+                  </h4>
+                  <p class="text-sm text-purple-600 mb-2">
+                    在特定技术领域具备全球竞争力，市场认知度不足存在估值修复空间
+                  </p>
+                  <div class="text-xs text-purple-500">
+                    技术平台延展性、国际合作质量是关键验证点
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-red-50 via-yellow-50 to-green-50 p-8 rounded-xl">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800">风险因素与应对策略</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="bg-white p-4 rounded-lg">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                  <h4 class="font-semibold text-red-700">政策风险</h4>
+                </div>
+                <p class="text-sm text-slate-600 mb-3">
+                  医保控费力度超预期，价格天花板压缩
+                </p>
+                <div class="text-xs text-green-600">
+                  应对：优选差异化临床价值、国际化布局企业
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-users text-orange-500 mr-2"></i>
+                  <h4 class="font-semibold text-orange-700">竞争风险</h4>
+                </div>
+                <p class="text-sm text-slate-600 mb-3">
+                  同质化研发与靶点扎堆导致估值侵蚀
+                </p>
+                <div class="text-xs text-green-600">
+                  应对：关注First-in-class或Best-in-class潜力管线
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-globe text-blue-500 mr-2"></i>
+                  <h4 class="font-semibold text-blue-700">出海风险</h4>
+                </div>
+                <p class="text-sm text-slate-600 mb-3">
+                  地缘政治与海外监管不确定性
+                </p>
+                <div class="text-xs text-green-600">
+                  应对：优选已建立海外商业化能力企业
+                </div>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-water text-purple-500 mr-2"></i>
+                  <h4 class="font-semibold text-purple-700">流动性风险</h4>
+                </div>
+                <p class="text-sm text-slate-600 mb-3">
+                  外资持续撤离与港股通资金波动
+                </p>
+                <div class="text-xs text-green-600">
+                  应对：利用ETF分散个股风险，极端低位逆向布局
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Section 7: Conclusion -->
+        <section id="conclusion" class="mb-16">
+          <h2 class="serif-heading text-4xl font-bold text-slate-800 mb-8">7. 结论与核心观点总结</h2>
+
+          <div class="grid lg:grid-cols-3 gap-8 mb-12">
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
+              <div class="text-center mb-6">
+                <i class="fas fa-search text-4xl text-blue-600 mb-4"></i>
+                <h3 class="serif-heading text-xl font-semibold text-blue-800">短期下跌本质</h3>
+              </div>
+              <p class="text-blue-700 text-sm leading-relaxed">
+                估值体系从&#34;管线故事&#34;向&#34;业绩兑现&#34;切换过程中的阵痛，叠加外围流动性收紧、外资撤离、政策预期变化等多重因素的情绪超调。
+              </p>
+              <div class="mt-4 p-3 bg-blue-200 rounded-lg">
+                <div class="text-xs text-blue-800 font-semibold">
+                  当前估值已充分反映悲观预期，优质标的超跌
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl">
+              <div class="text-center mb-6">
+                <i class="fas fa-chart-line text-4xl text-green-600 mb-4"></i>
+                <h3 class="serif-heading text-xl font-semibold text-green-800">长期价值基础</h3>
+              </div>
+              <div class="space-y-3 text-green-700 text-sm">
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                  <span>政策红利释放与企业能力跃迁双重支撑</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                  <span>医保+商保双层支付体系构建完成</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                  <span>中国创新药全球竞争力持续提升</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                  <span>人口老龄化带来需求刚性增长</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl">
+              <div class="text-center mb-6">
+                <i class="fas fa-clock text-4xl text-purple-600 mb-4"></i>
+                <h3 class="serif-heading text-xl font-semibold text-purple-800">投资时机判断</h3>
+              </div>
+              <div class="space-y-3 text-purple-700 text-sm">
+                <div class="bg-purple-200 p-3 rounded-lg">
+                  <div class="font-semibold">业绩验证期</div>
+                  <div class="text-xs">2025年报-2026年中报关键窗口</div>
+                </div>
+                <div class="bg-purple-200 p-3 rounded-lg">
+                  <div class="font-semibold">估值修复窗口</div>
+                  <div class="text-xs">当前PE处于历史低位</div>
+                </div>
+                <div class="bg-purple-200 p-3 rounded-lg">
+                  <div class="font-semibold">催化剂密集期</div>
+                  <div class="text-xs">2026年Q2临床数据密集读出</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-slate-800 to-slate-900 text-white p-8 rounded-xl">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-center">核心投资建议</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold text-yellow-300 mb-4 flex items-center">
+                  <i class="fas fa-target mr-2"></i>
+                  长期投资者策略
+                </h4>
+                <ul class="space-y-2 text-slate-200 text-sm">
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>当前估值低位适合逐步建仓或定投</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>重点配置已盈利龙头（百济、信达）</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>关注技术平台稀缺标的（科伦、康方）</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>建议定投周期2-3年，平滑成本风险</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-yellow-300 mb-4 flex items-center">
+                  <i class="fas fa-balance-scale mr-2"></i>
+                  短期交易者策略
+                </h4>
+                <ul class="space-y-2 text-slate-200 text-sm">
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>等待业绩验证或政策催化后的趋势确认</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>避免在情绪低迷期盲目抄底</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>关注ASCO等学术会议数据催化</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-arrow-right text-yellow-400 mt-1"></i>
+                    <span>重点监测FDA/EMA审批里程碑</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-8 p-4 bg-yellow-400 bg-opacity-20 rounded-lg">
+              <div class="text-center">
+                <div class="text-lg font-bold text-yellow-300 mb-2">
+                  投资核心原则
+                </div>
+                <div class="text-yellow-100 text-sm">
+                  在估值低位买入具备全球竞争力的中国创新药资产，
+                  <br/>
+                  分享行业从&#34;跟随&#34;到&#34;引领&#34;的历史性跨越
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Monitoring Indicators -->
+          <div class="mt-12 bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="serif-heading text-2xl font-semibold mb-6 text-slate-800 text-center">关键监测指标体系</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div class="text-center p-4 bg-blue-50 rounded-lg">
+                <i class="fas fa-chart-bar text-3xl text-blue-600 mb-3"></i>
+                <h4 class="font-semibold text-blue-700 mb-2">盈利质量</h4>
+                <div class="text-sm text-blue-600 space-y-1">
+                  <div>扣非净利润增速&gt;20%</div>
+                  <div>经营现金流/净利润&gt;80%</div>
+                  <div>自由现金流转正</div>
+                </div>
+                <div class="text-xs text-blue-500 mt-2">季度监测</div>
+              </div>
+
+              <div class="text-center p-4 bg-green-50 rounded-lg">
+                <i class="fas fa-globe text-3xl text-green-600 mb-3"></i>
+                <h4 class="font-semibold text-green-700 mb-2">出海进度</h4>
+                <div class="text-sm text-green-600 space-y-1">
+                  <div>FDA/EMA批准数量</div>
+                  <div>海外收入占比&gt;30%</div>
+                  <div>年BD金额&gt;10亿美元</div>
+                </div>
+                <div class="text-xs text-green-500 mt-2">事件驱动</div>
+              </div>
+
+              <div class="text-center p-4 bg-purple-50 rounded-lg">
+                <i class="fas fa-balance-scale text-3xl text-purple-600 mb-3"></i>
+                <h4 class="font-semibold text-purple-700 mb-2">政策信号</h4>
+                <div class="text-sm text-purple-600 space-y-1">
+                  <div>医保谈判结果</div>
+                  <div>商保目录扩展</div>
+                  <div>审评审批政策</div>
+                </div>
+                <div class="text-xs text-purple-500 mt-2">年度/事件</div>
+              </div>
+
+              <div class="text-center p-4 bg-orange-50 rounded-lg">
+                <i class="fas fa-water text-3xl text-orange-600 mb-3"></i>
+                <h4 class="font-semibold text-orange-700 mb-2">资金流向</h4>
+                <div class="text-sm text-orange-600 space-y-1">
+                  <div>南向资金净流入</div>
+                  <div>外资持仓变化</div>
+                  <div>ETF份额变动</div>
+                </div>
+                <div class="text-xs text-orange-500 mt-2">周度/月度</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+        // Mobile TOC Toggle
+        document.getElementById('tocToggle').addEventListener('click', function() {
+            const sidebar = document.querySelector('.toc-sidebar');
+            sidebar.classList.toggle('open');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile TOC when clicking outside
+        document.addEventListener('click', function(e) {
+            const sidebar = document.querySelector('.toc-sidebar');
+            const toggle = document.getElementById('tocToggle');
+            
+            if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+  
+
+</body></html>

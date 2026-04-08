@@ -1,0 +1,2154 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>光伏ETF深度回调分析：政策冲击下的投资策略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e293b',
+                        secondary: '#64748b',
+                        accent: '#3b82f6',
+                        muted: '#f8fafc',
+                        border: '#e2e8f0'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .citation-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.75rem;
+            vertical-align: super;
+        }
+        .citation-link:hover {
+            text-decoration: underline;
+        }
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        .toc-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.875rem;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+            transition: all 0.2s;
+        }
+        .toc-link:hover, .toc-link.active {
+            color: #3b82f6;
+            border-left-color: #3b82f6;
+            background: #f8fafc;
+        }
+        .toc-link.level-2 {
+            padding-left: 2rem;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body class="bg-muted font-sans text-primary leading-relaxed">
+
+    <!-- Fixed Table of Contents -->
+    <nav class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="font-serif text-lg font-bold text-primary mb-4">目录导航</h3>
+        <a href="#hero" class="toc-link">概览</a>
+        <a href="#section1" class="toc-link">1. 近期下跌行情确认</a>
+        <a href="#section1-1" class="toc-link level-2">1.1 下跌幅度与时间窗口</a>
+        <a href="#section1-2" class="toc-link level-2">1.2 下跌特征分析</a>
+        <a href="#section2" class="toc-link">2. 基本面深度分析</a>
+        <a href="#section2-1" class="toc-link level-2">2.1 核心政策变量</a>
+        <a href="#section2-2" class="toc-link level-2">2.2 出口导向型企业冲击</a>
+        <a href="#section2-3" class="toc-link level-2">2.3 行业供需格局</a>
+        <a href="#section2-4" class="toc-link level-2">2.4 行业竞争与盈利困境</a>
+        <a href="#section2-5" class="toc-link level-2">2.5 长期结构性因素</a>
+        <a href="#section3" class="toc-link">3. 技术面系统分析</a>
+        <a href="#section3-1" class="toc-link level-2">3.1 趋势结构研判</a>
+        <a href="#section3-2" class="toc-link level-2">3.2 关键价位分析</a>
+        <a href="#section3-3" class="toc-link level-2">3.3 技术指标解读</a>
+        <a href="#section3-4" class="toc-link level-2">3.4 形态与周期分析</a>
+        <a href="#section4" class="toc-link">4. 中线波段操作策略</a>
+        <a href="#section4-1" class="toc-link level-2">4.1 持仓评估维度</a>
+        <a href="#section4-2" class="toc-link level-2">4.2 持仓者应对策略</a>
+        <a href="#section4-3" class="toc-link level-2">4.3 加仓时机判断</a>
+        <a href="#section4-4" class="toc-link level-2">4.4 不宜加仓信号</a>
+        <a href="#section4-5" class="toc-link level-2">4.5 替代策略与工具</a>
+        <a href="#section5" class="toc-link">5. 情景推演与监测</a>
+        <a href="#section5-1" class="toc-link level-2">5.1 乐观情景</a>
+        <a href="#section5-2" class="toc-link level-2">5.2 中性情景</a>
+        <a href="#section5-3" class="toc-link level-2">5.3 悲观情景</a>
+        <a href="#section5-4" class="toc-link level-2">5.4 核心监测指标</a>
+        <a href="#section6" class="toc-link">6. 结论与行动建议</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Hero Section -->
+      <section id="hero" class="hero-gradient min-h-screen flex items-center">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+
+            <!-- Left Column - Title &amp; Key Info -->
+            <div class="lg:col-span-7">
+              <div class="mb-6 sm:mb-8">
+                <span class="inline-block bg-accent/20 text-accent px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                  <i class="fas fa-solar-panel mr-1 sm:mr-2"></i>新能源投资分析
+                </span>
+                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white text-shadow italic leading-tight mb-4 sm:mb-6">
+                  光伏ETF深度回调
+                  <br/>
+                  <span class="text-amber-300">政策冲击下的投资策略</span>
+                </h1>
+                <p class="text-base sm:text-lg lg:text-xl text-gray-200 font-light leading-relaxed">
+                  出口退税取消引发板块连续下跌超13%，技术性熊市中的风险与机遇分析
+                </p>
+              </div>
+
+              <!-- Key Metrics Grid -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+                  <div class="text-xl sm:text-2xl font-bold text-red-300">-14.17%</div>
+                  <div class="text-xs sm:text-sm text-gray-200">中证光伏指数20日跌幅</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+                  <div class="text-xl sm:text-2xl font-bold text-red-300">-13.5%</div>
+                  <div class="text-xs sm:text-sm text-gray-200">光伏ETF累计跌幅</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+                  <div class="text-xl sm:text-2xl font-bold text-amber-300">0%</div>
+                  <div class="text-xs sm:text-sm text-gray-200">增值税出口退税</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 text-center">
+                  <div class="text-xl sm:text-2xl font-bold text-blue-300">19.35倍</div>
+                  <div class="text-xs sm:text-sm text-gray-200">当前PE估值</div>
+                </div>
+              </div>
+
+              <!-- Executive Summary -->
+              <div class="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
+                <h3 class="font-serif text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
+                  <i class="fas fa-chart-line mr-2 sm:mr-3 text-amber-300"></i>核心观点
+                </h3>
+                <ul class="space-y-2 sm:space-y-3 text-gray-100">
+                  <li class="flex items-start">
+                    <i class="fas fa-exclamation-triangle text-red-300 mr-2 sm:mr-3 mt-1 text-xs sm:text-sm"></i>
+                    <span class="text-xs sm:text-sm">政策冲击：4月1日起全面取消13%增值税出口退税，直接削弱海外价格竞争力</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chart-line-down text-red-300 mr-2 sm:mr-3 mt-1 text-xs sm:text-sm"></i>
+                    <span class="text-xs sm:text-sm">技术面：指数进入技术性熊市，短期下行压力尚未完全释放</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-balance-scale text-amber-300 mr-2 sm:mr-3 mt-1 text-xs sm:text-sm"></i>
+                    <span class="text-xs sm:text-sm">操作建议：已持仓者控制仓位设止损，空仓者等待右侧信号，定投者可利用下跌摊薄成本</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Column - Visual Elements -->
+            <div class="lg:col-span-5">
+              <div class="relative">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.shopify.com/f914d1d37706f2b1741e197ebde5aa2a3ef5d1d5.jpg" alt="工业太阳能电池板阵列" class="w-full h-64 sm:h-80 object-cover rounded-2xl shadow-2xl opacity-90" size="medium" aspect="wide" style="photo" query="太阳能电池板阵列" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
+                <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
+                  <div class="text-lg sm:text-xl font-bold mb-1">技术转型关键期</div>
+                  <div class="text-xs sm:text-sm opacity-90">N型技术渗透率从35%提升至97%</div>
+                </div>
+              </div>
+
+              <!-- Market Status Card -->
+              <div class="mt-4 sm:mt-6 bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
+                <h4 class="font-serif text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">市场状态评估</h4>
+                <div class="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                  <div class="flex justify-between">
+                    <span class="text-gray-200">趋势方向</span>
+                    <span class="text-red-300 font-semibold">空头主导</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-200">风险偏好</span>
+                    <span class="text-amber-300 font-semibold">谨慎</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-200">估值水平</span>
+                    <span class="text-blue-300 font-semibold">历史低位</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Recent Decline -->
+      <section id="section1" class="py-20 bg-white">
+        <div class="container mx-auto px-12">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-8">1. 近期下跌行情确认与量化描述</h2>
+
+            <div id="section1-1" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">1.1 下跌幅度与时间窗口</h3>
+
+              <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg mb-4 text-primary">中证光伏产业指数表现</h4>
+                  <div class="space-y-3">
+                    <div class="flex justify-between">
+                      <span class="text-secondary">20日跌幅</span>
+                      <span class="font-semibold text-red-600">-14.17%</span>
+                      <a href="https://quotes.sina.cn/hs/company/quotes/view/si931151" class="citation-link" target="_blank">[258]</a>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-secondary">5日跌幅</span>
+                      <span class="font-semibold text-red-600">-8.02%</span>
+                      <a href="http://quote.eastmoney.com/zz/2.931151.html" class="citation-link" target="_blank">[204]</a>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-secondary">年初至今</span>
+                      <span class="font-semibold text-green-600">+2.32%</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-secondary">近1年</span>
+                      <span class="font-semibold text-red-600">-13.09%</span>
+                      <a href="https://oss-ch.csindex.com.cn/static/html/csindex/public/uploads/indices/detail/files/zh_CN/931151factsheet.pdf" class="citation-link" target="_blank">[273]</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg mb-4 text-primary">华泰柏瑞光伏ETF表现</h4>
+                  <div class="space-y-3">
+                    <div class="flex justify-between">
+                      <span class="text-secondary">4月7日收盘价</span>
+                      <span class="font-semibold">0.983元</span>
+                      <a href="http://quote.eastmoney.com/sh515790.html" class="citation-link" target="_blank">[342]</a>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-secondary">单日涨跌</span>
+                      <span class="font-semibold text-green-600">+0.10%</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-secondary">成交额</span>
+                      <span class="font-semibold">2.763亿元</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-secondary">量比</span>
+                      <span class="font-semibold text-red-600">0.54</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+                <div class="flex items-start">
+                  <i class="fas fa-chart-line-down text-red-500 text-xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-red-800 mb-2">技术性熊市确认</h4>
+                    <p class="text-red-700">光伏板块自2026年2月高点累计最大回撤已超过20%，符合技术分析中&#34;技术性熊市&#34;的定义标准。这一转折具有重要策略含义：此前的上升趋势已告终结，市场进入空头主导阶段。<a href="https://quotes.sina.cn/hs/company/quotes/view/si931151" class="citation-link" target="_blank">[375]</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section1-2" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">1.2 下跌特征分析</h3>
+
+              <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <i class="fas fa-chart-area text-amber-600 text-xl mr-3"></i>
+                    <h4 class="font-semibold text-amber-800">阶梯式下行</h4>
+                  </div>
+                  <p class="text-amber-700 text-sm">主跌浪与弱反弹交替，反弹高点逐级降低，形成清晰下降通道。10个交易日内下跌交易日达7个，平均跌幅2.8%。<a href="https://www.21jingji.com/article/20260330/herald/1859e40f74b12abbfdaf5f2873595f14.html" class="citation-link" target="_blank">[370]</a>
+                  </p>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <i class="fas fa-volume-down text-red-600 text-xl mr-3"></i>
+                    <h4 class="font-semibold text-red-800">量价背离</h4>
+                  </div>
+                  <p class="text-red-700 text-sm">下跌放量、反弹缩量，显示抛压持续而买盘不足。4月7日量比仅0.54，反弹质量存疑。<a href="http://quote.eastmoney.com/sh515790.html" class="citation-link" target="_blank">[342]</a>
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <i class="fas fa-chart-pie text-gray-600 text-xl mr-3"></i>
+                    <h4 class="font-semibold text-gray-800">普跌格局</h4>
+                  </div>
+                  <p class="text-gray-700 text-sm">成分股高度同步下跌，龙头与二三线企业同步承压。3月30日迈为股份领跌14.19%，金开新能跌9.33%。<a href="https://www.jiemian.com/article/14181489.html" class="citation-link" target="_blank">[281]</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h4 class="font-semibold text-blue-800 mb-4">资金流向分析</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-medium text-blue-700 mb-2">散户行为特征</h5>
+                    <ul class="text-sm text-blue-600 space-y-1">
+                      <li>• 试图&#34;抄底&#34;，光伏ETF（159857）3月27日单日净流入1217.59万元</li>
+                      <li>• 连续3日累计净流入1791.2万元</li>
+                      <li>• 近5日累计净流入超1亿元</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-blue-700 mb-2">机构资金动向</h5>
+                    <ul class="text-sm text-blue-600 space-y-1">
+                      <li>• 大单持续流出，4月7日主力净流入-43.33亿元</li>
+                      <li>• 超大单净流入14.85亿元</li>
+                      <li>• 大单净流出-58.18亿元</li>
+                    </ul>
+                  </div>
+                </div>
+                <a href="http://quote.eastmoney.com/zz/2.931151.html" class="citation-link" target="_blank">[204]</a>
+                <a href="http://quote.eastmoney.com/sz159857.html" class="citation-link" target="_blank">[307]</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Fundamental Analysis -->
+      <section id="section2" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-12">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-8">2. 基本面深度分析：政策冲击与行业周期共振</h2>
+
+            <div id="section2-1" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">2.1 核心政策变量：出口退税取消</h3>
+
+              <div class="bg-white rounded-lg p-8 mb-8 shadow-sm">
+                <div class="flex items-start mb-6">
+                  <div class="bg-red-100 rounded-full p-3 mr-4">
+                    <i class="fas fa-gavel text-red-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-xl text-primary mb-2">政策核心内容</h4>
+                    <p class="text-secondary leading-relaxed">2026年4月1日起，中国正式取消光伏产品增值税出口退税，标志着光伏产业从&#34;政策驱动&#34;向&#34;市场驱动&#34;的范式转换。<a href="https://fgk.chinatax.gov.cn/zcfgk/c102416/c5246745/content.html" class="citation-link" target="_blank">[220]</a>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <h5 class="font-medium text-primary mb-3">全面取消时间表</h5>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex items-center">
+                        <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                        <span><strong>2026年4月1日：</strong>硅片、组件13%退税完全取消</span>
+                      </div>
+                      <div class="flex items-center">
+                        <div class="w-3 h-3 bg-amber-500 rounded-full mr-2"></div>
+                        <span><strong>2026年4-12月：</strong>电池片退税率从9%降至6%</span>
+                      </div>
+                      <div class="flex items-center">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                        <span><strong>2027年1月1日：</strong>电池片退税彻底取消</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <h5 class="font-medium text-primary mb-3">政策意图解读</h5>
+                    <p class="text-sm text-secondary">工信部电子信息司副司长王世江指出，当前光伏行业深层次供需错配尚未解决，取消出口退税是行业治理内卷、实现供需动态平衡的必然过程。<a href="https://www.seetao.com/details/259075.html" class="citation-link" target="_blank">[154]</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                <div class="flex items-start">
+                  <i class="fas fa-lightbulb text-amber-600 text-xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-amber-800 mb-2">政策深意：倒逼升级</h4>
+                    <p class="text-amber-700">通过移除制度性补贴，打破&#34;低价竞争—出口退税—再低价竞争&#34;的恶性循环，引导资源向高效率、高技术含量产能集中。这与2025年以来多部委的&#34;反内卷&#34;组合拳形成呼应。<a href="https://news.qq.com/rain/a/20260331A02OQB00" class="citation-link" target="_blank">[74]</a>
+                      <a href="https://solar.ofweek.com/2026-01/ART-260001-8120-30679096.html" class="citation-link" target="_blank">[155]</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section2-2" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">2.2 出口导向型企业的直接冲击</h3>
+
+              <div class="bg-white rounded-lg p-8 shadow-sm mb-8">
+                <h4 class="font-semibold text-xl text-primary mb-6">成本冲击量化分析</h4>
+                <div class="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-primary mb-4">毛利率直接冲击</h5>
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+                      <div class="text-center">
+                        <div class="text-3xl font-bold text-red-600 mb-2">11-12%</div>
+                        <div class="text-sm text-red-700">毛利率直接下降幅度</div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-secondary">以组件出口FOB价格0.10美元/瓦计算，原退税率13%提供每瓦约0.0115美元收益，取消后完全消失。<a href="https://finance.sina.com.cn/stock/relnews/cn/2026-02-09/doc-inhmexfp9369808.shtml" class="citation-link" target="_blank">[228]</a>
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 class="font-medium text-primary mb-4">竞争格局变化</h5>
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span class="text-sm">中国产能</span>
+                        <span class="text-sm font-semibold text-red-600">竞争力削弱</span>
+                      </div>
+                      <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span class="text-sm">东南亚产能</span>
+                        <span class="text-sm font-semibold text-green-600">相对优势扩大</span>
+                      </div>
+                      <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span class="text-sm">欧美本土</span>
+                        <span class="text-sm font-semibold text-green-600">IRA政策支持</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h4 class="font-semibold text-blue-800 mb-4">企业分化加剧</h4>
+                <p class="text-blue-700 mb-4">龙头企业凭借规模效应、技术储备、品牌溢价和全球化产能布局，具备更强的成本消化能力；而二三线企业则面临生存危机。<a href="http://quote.eastmoney.com/sh515790.html" class="citation-link" target="_blank">[306]</a>
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-white rounded p-4">
+                    <h6 class="font-medium text-blue-800 mb-2">龙头企业优势</h6>
+                    <ul class="text-sm text-blue-600 space-y-1">
+                      <li>• 规模效应与成本优势</li>
+                      <li>• 技术研发与迭代能力</li>
+                      <li>• 全球化布局与渠道</li>
+                      <li>• 相对健康的财务状况</li>
+                    </ul>
+                  </div>
+                  <div class="bg-white rounded p-4">
+                    <h6 class="font-medium text-blue-800 mb-2">二三线企业困境</h6>
+                    <ul class="text-sm text-blue-600 space-y-1">
+                      <li>• 毛利率处于5%-10%盈亏边缘</li>
+                      <li>• 13%成本上升直接击穿现金成本</li>
+                      <li>• 资金链紧张，现金流压力巨大</li>
+                      <li>• 技术升级投入不足</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section2-3" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">2.3 行业供需格局恶化</h3>
+
+              <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                  <h4 class="font-semibold text-lg text-primary mb-4">需求端挑战</h4>
+                  <div class="space-y-4">
+                    <div class="border-l-4 border-amber-400 pl-4">
+                      <h5 class="font-medium text-amber-800 mb-2">2025年&#34;抢装潮&#34;透支效应</h5>
+                      <p class="text-sm text-amber-700">全年新增装机约315GW，同比增长13.67%，其中5月单月新增93GW创历史新高，导致2026年需求真空。<a href="https://www.futunn.com/en/etfs/516290-SH/news" class="citation-link" target="_blank">[340]</a>
+                      </p>
+                    </div>
+                    <div class="border-l-4 border-red-400 pl-4">
+                      <h5 class="font-medium text-red-800 mb-2">分布式光伏政策收紧</h5>
+                      <p class="text-sm text-red-700">并网管理、电价机制、用地规范、储能配套等多维度约束，投资吸引力大幅下降。<a href="https://www.fxbaogao.com/detail/5187464" class="citation-link" target="_blank">[158]</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                  <h4 class="font-semibold text-lg text-primary mb-4">供给端压力</h4>
+                  <div class="space-y-4">
+                    <div class="border-l-4 border-gray-400 pl-4">
+                      <h5 class="font-medium text-gray-800 mb-2">产能严重过剩</h5>
+                      <p class="text-sm text-gray-700">2025年中国光伏制造产能达到1200 GW，接近全球需求（650 GW）的两倍。<a href="https://enkiai.com/solar-top-10-projects-and-companies-in-china-in-2025-and-2024/" class="citation-link" target="_blank">[330]</a>
+                      </p>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-4">
+                      <h5 class="font-medium text-blue-800 mb-2">价格持续下探</h5>
+                      <p class="text-sm text-blue-700">组件价格从0.25美元/瓦跌至0.10美元/瓦以下，跌幅超60%，项目收益率持续压缩。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h4 class="font-semibold text-red-800 mb-4">全球需求预测调整</h4>
+                <div class="flex items-center mb-4">
+                  <i class="fas fa-exclamation-triangle text-red-600 text-xl mr-3"></i>
+                  <div>
+                    <div class="font-bold text-red-800">InfoLink Consulting预测</div>
+                    <div class="text-red-700">2026年全球组件需求将下修至529-624 GWdc，可能出现&#34;十年来首次负增长&#34;</div>
+                    <a href="https://www.infolink-group.com/energy-article/cn/solar-topic-solar-pv-supply-chain-marks-industry-trough-the-beginning-restructuring" class="citation-link" target="_blank">[159]</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section2-4" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">2.4 行业竞争与盈利困境</h3>
+
+              <div class="bg-white rounded-lg p-8 shadow-sm mb-8">
+                <h4 class="font-semibold text-xl text-primary mb-6">2025年行业亏损现状</h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div class="text-center">
+                    <div class="bg-red-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                      <span class="text-2xl font-bold text-red-600">-541亿</span>
+                    </div>
+                    <div class="font-semibold text-primary">17家样本企业合计亏损</div>
+                    <div class="text-sm text-secondary">营收5892亿元，同比下降31.98%</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="bg-amber-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                      <span class="text-2xl font-bold text-amber-600">3.64%</span>
+                    </div>
+                    <div class="font-semibold text-primary">前三季度毛利率</div>
+                    <div class="text-sm text-secondary">Q3提升至5.61%但仍处低位</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                      <span class="text-2xl font-bold text-gray-600">97%</span>
+                    </div>
+                    <div class="font-semibold text-primary">N型技术渗透率</div>
+                    <div class="text-sm text-secondary">2026年目标，技术迭代加速</div>
+                  </div>
+                </div>
+                <a href="https://finance.sina.com.cn/stock/relnews/cn/2026-02-09/doc-inhmexfp9369808.shtml" class="citation-link" target="_blank">[228]</a>
+                <a href="https://www.163.com/dy/article/KPEV3LVM05568W0A.html" class="citation-link" target="_blank">[189]</a>
+                <a href="https://www.sina.cn/news/detail/5284448151016219.html" class="citation-link" target="_blank">[206]</a>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-blue-800 mb-4">技术迭代压力</h4>
+                  <ul class="text-sm text-blue-700 space-y-2">
+                    <li>• N型TOPCon成为主流，HJT、BC稳步渗透</li>
+                    <li>• PERC加速退出，存量产能面临减值</li>
+                    <li>• 钙钛矿量产效率突破36.2%，颠覆风险加大</li>
+                    <li>• 单GW产线投资约3-5亿元，资本开支需求大</li>
+                  </ul>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-gray-800 mb-4">&#34;内卷式&#34;竞争根源</h4>
+                  <ul class="text-sm text-gray-700 space-y-2">
+                    <li>• 产能扩张的&#34;囚徒困境&#34;</li>
+                    <li>• 技术迭代的&#34;押注风险&#34;</li>
+                    <li>• 地方政府的&#34;GDP竞赛&#34;</li>
+                    <li>• 个体理性导致集体非理性</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="section2-5" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">2.5 长期结构性因素</h3>
+
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <i class="fas fa-leaf text-green-600 text-xl mr-3"></i>
+                    <h4 class="font-semibold text-green-800">碳中和目标</h4>
+                  </div>
+                  <p class="text-sm text-green-700 mb-4">全球主要经济体持续推进碳中和目标，IEA预测2030年全球光伏累计装机需超5000 GW。</p>
+                  <div class="text-xs text-green-600">
+                    <div>中国：2030年碳达峰、2060年碳中和</div>
+                    <div>欧盟：2050年碳中和</div>
+                    <div>美国：2050年净零排放</div>
+                  </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <i class="fas fa-chart-line text-blue-600 text-xl mr-3"></i>
+                    <h4 class="font-semibold text-blue-800">市场成熟期</h4>
+                  </div>
+                  <p class="text-sm text-blue-700 mb-4">中国光伏市场进入&#34;大国大基数&#34;阶段，累计装机超800 GW，增速自然回落。</p>
+                  <div class="text-xs text-blue-600">
+                    <div>全球占比约40%</div>
+                    <div>从&#34;高速增长&#34;转向&#34;成熟稳定&#34;</div>
+                    <div>从&#34;规模扩张&#34;转向&#34;效率提升&#34;</div>
+                  </div>
+                </div>
+
+                <div class="bg-purple-50 border border-purple-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <i class="fas fa-building text-purple-600 text-xl mr-3"></i>
+                    <h4 class="font-semibold text-purple-800">集中度提升</h4>
+                  </div>
+                  <p class="text-sm text-purple-700 mb-4">每一轮调整都是集中度提升契机，龙头企业凭借多重优势加速整合。</p>
+                  <div class="text-xs text-purple-600">
+                    <div>Top4组件厂商占比约50%</div>
+                    <div>TCL中环+隆基硅片产能占比近50%</div>
+                    <div>龙头多元化、国际化布局</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-8 shadow-sm mt-8">
+                <h4 class="font-semibold text-xl text-primary mb-6">龙头企业转型案例</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <h5 class="font-medium text-primary mb-3">阳光电源2025年业绩亮点</h5>
+                    <ul class="text-sm text-secondary space-y-2">
+                      <li>• 储能业务正式成为第一大收入来源</li>
+                      <li>• 海外收入占比首次突破60%</li>
+                      <li>• 通过业务多元化对冲单一产品风险</li>
+                    </ul>
+                    <a href="https://funds.hexun.com/2026-04-01/223898243.html" class="citation-link" target="_blank">[279]</a>
+                  </div>
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <h5 class="font-medium text-primary mb-3">阿特斯国际拓展</h5>
+                    <ul class="text-sm text-secondary space-y-2">
+                      <li>• 斩获英国企业420 MWh储能订单</li>
+                      <li>• 全球化布局成效显著</li>
+                      <li>• 在国际市场建立品牌优势</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Technical Analysis -->
+      <section id="section3" class="py-20 bg-white">
+        <div class="container mx-auto px-12">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-8">3. 技术面系统分析：趋势、支撑与反转信号</h2>
+
+            <div id="section3-1" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">3.1 趋势结构研判</h3>
+
+              <div class="bg-gray-50 rounded-lg p-8 mb-8">
+                <h4 class="font-semibold text-xl text-primary mb-6">中长期趋势：周线级别跌破关键均线</h4>
+                <div class="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-primary mb-4">均线系统状态</h5>
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between p-3 bg-white rounded">
+                        <span class="text-sm">20周均线</span>
+                        <span class="text-sm font-semibold text-red-600">向下运行</span>
+                      </div>
+                      <div class="flex items-center justify-between p-3 bg-white rounded">
+                        <span class="text-sm">60周均线</span>
+                        <span class="text-sm font-semibold text-red-600">向下运行</span>
+                      </div>
+                      <div class="flex items-center justify-between p-3 bg-white rounded">
+                        <span class="text-sm">120周均线</span>
+                        <span class="text-sm font-semibold text-red-600">向下运行</span>
+                      </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-red-50 rounded">
+                      <div class="text-sm text-red-700">典型空头排列：所有均线向下发散，市场缺乏赚钱效应</div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-primary mb-4">趋势形态分析</h5>
+                    <div class="space-y-3">
+                      <div class="p-3 bg-white rounded">
+                        <div class="font-medium text-sm mb-1">C浪下跌延续</div>
+                        <div class="text-xs text-secondary">2021-2022年双顶后进入长期下行通道</div>
+                      </div>
+                      <div class="p-3 bg-white rounded">
+                        <div class="font-medium text-sm mb-1">均线压制效应</div>
+                        <div class="text-xs text-secondary">每次反弹至均线附近即遭遇抛压</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg text-primary mb-4">中期趋势：日线下降通道</h4>
+                  <div class="mb-4">
+                    <div class="h-32 bg-gradient-to-b from-gray-100 to-gray-200 rounded flex items-center justify-center">
+                      <div class="text-center text-gray-500">
+                        <i class="fas fa-chart-line text-2xl mb-2"></i>
+                        <div class="text-sm">下降通道图示</div>
+                        <div class="text-xs">高点下移、低点下移</div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="text-sm text-secondary space-y-2">
+                    <li>• 沿清晰下降通道运行</li>
+                    <li>• 反弹高点逐级降低</li>
+                    <li>• 4月7日微幅反弹未能改变结构</li>
+                    <li>• 缩量特征表明买盘不足</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg text-primary mb-4">短期趋势：超卖反弹</h4>
+                  <div class="mb-4">
+                    <div class="h-32 bg-gradient-to-b from-blue-100 to-blue-200 rounded flex items-center justify-center">
+                      <div class="text-center text-blue-600">
+                        <i class="fas fa-chart-area text-2xl mb-2"></i>
+                        <div class="text-sm">超卖区域</div>
+                        <div class="text-xs">RSI、KDJ等指标低位</div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="text-sm text-secondary space-y-2">
+                    <li>• 30分钟/60分钟级别进入超卖区</li>
+                    <li>• 存在技术性反弹需求</li>
+                    <li>• 反弹力度和持续性有限</li>
+                    <li>• 多为空头回补而非趋势反转</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div id="section3-2" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">3.2 关键价位分析</h3>
+
+              <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-red-800 mb-4 flex items-center">
+                    <i class="fas fa-arrow-down text-red-600 mr-2"></i>压力位层级
+                  </h4>
+                  <div class="space-y-4">
+                    <div class="border-l-4 border-red-400 pl-4">
+                      <div class="font-semibold text-red-800">第一层：1.00元</div>
+                      <div class="text-sm text-red-700">心理阻力，短期反弹目标</div>
+                    </div>
+                    <div class="border-l-4 border-amber-400 pl-4">
+                      <div class="font-semibold text-amber-800">第二层：1.05-1.10元</div>
+                      <div class="text-sm text-amber-700">20日均线，中期趋势分界线</div>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-4">
+                      <div class="font-semibold text-blue-800">第三层：1.15-1.20元</div>
+                      <div class="text-sm text-blue-700">下降通道上轨，趋势反转关键</div>
+                    </div>
+                    <div class="border-l-4 border-green-400 pl-4">
+                      <div class="font-semibold text-green-800">第四层：1.30元以上</div>
+                      <div class="text-sm text-green-700">前期高点平台，牛熊分界</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-green-800 mb-4 flex items-center">
+                    <i class="fas fa-arrow-up text-green-600 mr-2"></i>支撑位层级
+                  </h4>
+                  <div class="space-y-4">
+                    <div class="border-l-4 border-green-400 pl-4">
+                      <div class="font-semibold text-green-800">第一层：0.95-0.98元</div>
+                      <div class="text-sm text-green-700">近期低点密集区，短期支撑</div>
+                    </div>
+                    <div class="border-l-4 border-amber-400 pl-4">
+                      <div class="font-semibold text-amber-800">第二层：0.85-0.90元</div>
+                      <div class="text-sm text-amber-700">2024年低点平台，中期重要支撑</div>
+                    </div>
+                    <div class="border-l-4 border-red-400 pl-4">
+                      <div class="font-semibold text-red-800">第三层：0.75-0.80元</div>
+                      <div class="text-sm text-red-700">2025年极端低点，长期牛熊分界</div>
+                    </div>
+                    <div class="border-l-4 border-gray-400 pl-4">
+                      <div class="font-semibold text-gray-800">极端层：0.632元</div>
+                      <div class="text-sm text-gray-700">52周最低价，历史极端情形</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-6 shadow-sm">
+                <h4 class="font-semibold text-lg text-primary mb-4">当前价位风险评估</h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div class="text-center p-4 bg-gray-50 rounded-lg">
+                    <div class="text-2xl font-bold text-primary mb-2">0.983元</div>
+                    <div class="text-sm text-secondary">当前价位</div>
+                  </div>
+                  <div class="text-center p-4 bg-red-50 rounded-lg">
+                    <div class="text-2xl font-bold text-red-600 mb-2">1.7%</div>
+                    <div class="text-sm text-red-700">至第一层压力</div>
+                  </div>
+                  <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-2xl font-bold text-green-600 mb-2">3.4%</div>
+                    <div class="text-sm text-green-700">至第一层支撑</div>
+                  </div>
+                </div>
+                <div class="mt-4 p-4 bg-amber-50 rounded-lg">
+                  <div class="flex items-start">
+                    <i class="fas fa-exclamation-triangle text-amber-600 mr-3 mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-amber-800">风险收益比评估</div>
+                      <div class="text-amber-700 text-sm">盈亏比接近1:2，不适合重仓介入，更适合观望等待方向明确</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section3-3" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">3.3 技术指标解读</h3>
+
+              <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg text-primary mb-4">均线系统</h4>
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-red-50 rounded">
+                      <span class="text-sm">MA5</span>
+                      <span class="text-sm font-semibold text-red-600">~0.985元</span>
+                      <span class="text-xs text-red-600">短期压力</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-red-50 rounded">
+                      <span class="text-sm">MA10</span>
+                      <span class="text-sm font-semibold text-red-600">~1.005元</span>
+                      <span class="text-xs text-red-600">短期压力</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-red-50 rounded">
+                      <span class="text-sm">MA20</span>
+                      <span class="text-sm font-semibold text-red-600">~1.050元</span>
+                      <span class="text-xs text-red-600">中期压力</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-red-50 rounded">
+                      <span class="text-sm">MA60</span>
+                      <span class="text-sm font-semibold text-red-600">~1.120元</span>
+                      <span class="text-xs text-red-600">中长期压力</span>
+                    </div>
+                  </div>
+                  <div class="mt-4 p-3 bg-red-100 rounded">
+                    <div class="text-sm text-red-800 font-semibold">完全空头排列</div>
+                    <div class="text-xs text-red-600">所有均线向下发散，短期均线位于长期均线下方</div>
+                  </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg text-primary mb-4">MACD指标</h4>
+                  <div class="text-center mb-4">
+                    <div class="text-3xl font-bold text-red-600 mb-2">零轴下方</div>
+                    <div class="text-sm text-red-700">DIF与DEA均运行于零轴下方</div>
+                  </div>
+                  <div class="space-y-2">
+                    <div class="flex items-center">
+                      <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                      <span class="text-sm text-secondary">绿柱持续但有所收缩</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-3 h-3 bg-amber-500 rounded-full mr-2"></div>
+                      <span class="text-sm text-secondary">下跌动能占据主导</span>
+                    </div>
+                    <div class="flex items-center">
+                      <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                      <span class="text-sm text-secondary">反弹力度有限</span>
+                    </div>
+                  </div>
+                  <div class="mt-4 p-3 bg-amber-50 rounded">
+                    <div class="text-sm text-amber-800">金叉信号待确认</div>
+                    <div class="text-xs text-amber-600">零轴下方金叉多为&#34;弱势金叉&#34;，反转概率较低</div>
+                  </div>
+                  <a href="https://www.tingfengjianying.com/stock/zhong-zheng-guang-fu-931151" class="citation-link" target="_blank">[378]</a>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-8 shadow-sm">
+                <h4 class="font-semibold text-xl text-primary mb-6">RSI与成交量分析</h4>
+                <div class="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-primary mb-4">RSI状态评估</h5>
+                    <div class="space-y-4">
+                      <div class="p-4 bg-amber-50 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                          <span class="font-medium text-amber-800">当前RSI</span>
+                          <span class="font-bold text-amber-600">25-28</span>
+                        </div>
+                        <div class="text-sm text-amber-700">超卖但未极端（&lt;20）&lt; /div&gt;
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-lg">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-green-800">反弹概率</span>
+                            <span class="font-bold text-green-600">较高</span>
+                          </div>
+                          <div class="text-sm text-green-700">反弹可能随时发生，但高度不确定</div>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-medium text-blue-800">操作建议</span>
+                            <span class="font-bold text-blue-600">谨慎</span>
+                          </div>
+                          <div class="text-sm text-blue-700">不宜作为单一抄底依据</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h5 class="font-medium text-primary mb-4">成交量特征</h5>
+                      <div class="space-y-4">
+                        <div class="p-4 bg-red-50 rounded-lg">
+                          <div class="font-medium text-red-800 mb-2">下跌放量</div>
+                          <div class="text-sm text-red-700">3月下旬主跌，成交量维持高位，抛压持续释放</div>
+                        </div>
+                        <div class="p-4 bg-amber-50 rounded-lg">
+                          <div class="font-medium text-amber-800 mb-2">反弹缩量</div>
+                          <div class="text-sm text-amber-700">4月初反弹，成交量明显萎缩，量比0.54</div>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                          <div class="font-medium text-gray-800 mb-2">OBV指标</div>
+                          <div class="text-sm text-gray-700">同步下行，未出现底背离，资金仍在净流出</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="http://quote.eastmoney.com/sh515790.html" class="citation-link" target="_blank">[342]</a>
+                </div>
+              </div>
+            </div>
+
+            <div id="section3-4" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">3.4 形态与周期分析</h3>
+
+              <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg text-primary mb-4">头部形态</h4>
+                  <div class="mb-4">
+                    <div class="h-24 bg-gray-100 rounded flex items-center justify-center">
+                      <div class="text-center text-gray-500">
+                        <i class="fas fa-chart-area text-xl mb-1"></i>
+                        <div class="text-xs">双顶/头肩顶结构</div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="text-sm text-secondary space-y-2">
+                    <li>• 2025年底高点与2026年2月高点</li>
+                    <li>• 颈线位约2800-2900点</li>
+                    <li>• 跌破后量度跌幅目标2200-2400点</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg text-primary mb-4">时间周期</h4>
+                  <div class="mb-4">
+                    <div class="h-24 bg-blue-100 rounded flex items-center justify-center">
+                      <div class="text-center text-blue-600">
+                        <i class="fas fa-clock text-xl mb-1"></i>
+                        <div class="text-xs">调整时长对比</div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="text-sm text-secondary space-y-2">
+                    <li>• 当前调整约2个月</li>
+                    <li>• 历史完整周期通常12-36个月</li>
+                    <li>• 时间维度上可能尚未充分</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg text-primary mb-4">波浪结构</h4>
+                  <div class="mb-4">
+                    <div class="h-24 bg-purple-100 rounded flex items-center justify-center">
+                      <div class="text-center text-purple-600">
+                        <i class="fas fa-wave-square text-xl mb-1"></i>
+                        <div class="text-xs">C浪下跌进行中</div>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="text-sm text-secondary space-y-2">
+                    <li>• 2024年低点至2026年2月：B浪反弹</li>
+                    <li>• 2026年2月至今：C浪下跌</li>
+                    <li>• 可能处于C-3或C-5阶段</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                <div class="flex items-start">
+                  <i class="fas fa-info-circle text-amber-600 text-xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-semibold text-amber-800 mb-2">综合技术判断</h4>
+                    <p class="text-amber-700">当前可能处于下跌浪的第3浪末端或第4浪反弹初期。无论哪种情形，趋势反转的信号均未出现，不宜重仓押注底部。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Trading Strategy -->
+      <section id="section4" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-12">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-8">4. 中线波段操作策略：持仓与加仓决策框架</h2>
+
+            <div id="section4-1" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">4.1 继续持仓的评估维度</h3>
+
+              <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                  <h4 class="font-semibold text-lg text-primary mb-4">成本位置评估</h4>
+                  <div class="space-y-4">
+                    <div class="border-l-4 border-red-400 pl-4">
+                      <div class="font-semibold text-red-800">深度套牢（&gt;30%）</div>
+                      <div class="text-sm text-red-700">焦虑、逃避、期待回本，易犯&#34;躺平&#34;错误</div>
+                    </div>
+                    <div class="border-l-4 border-amber-400 pl-4">
+                      <div class="font-semibold text-amber-800">中度浮亏（10%-30%）</div>
+                      <div class="text-sm text-amber-700">犹豫、纠结，需要明确止损标准</div>
+                    </div>
+                    <div class="border-l-4 border-blue-400 pl-4">
+                      <div class="font-semibold text-blue-800">轻度浮亏（&lt;10%）&lt; /div&gt;
+                          <div class="text-sm text-blue-700">谨慎、观望，止损成本较低</div>
+                      </div>
+                      <div class="border-l-4 border-green-400 pl-4">
+                        <div class="font-semibold text-green-800">成本优势</div>
+                        <div class="text-sm text-green-700">担忧利润回吐，需平衡止盈与持有</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h4 class="font-semibold text-lg text-primary mb-4">仓位比例控制</h4>
+                    <div class="space-y-4">
+                      <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                        <div class="flex justify-between items-center mb-2">
+                          <span class="font-semibold text-red-800">&gt;30%</span>
+                          <span class="text-sm text-red-600">高度集中</span>
+                        </div>
+                        <div class="text-sm text-red-700">风险暴露过大，必须减仓，无论盈亏</div>
+                      </div>
+                      <div class="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                        <div class="flex justify-between items-center mb-2">
+                          <span class="font-semibold text-amber-800">15%-30%</span>
+                          <span class="text-sm text-amber-600">中度集中</span>
+                        </div>
+                        <div class="text-sm text-amber-700">需关注波动，趋势向下则减仓</div>
+                      </div>
+                      <div class="p-4 bg-green-50 rounded-lg border border-green-200">
+                        <div class="flex justify-between items-center mb-2">
+                          <span class="font-semibold text-green-800">5%-15%</span>
+                          <span class="text-sm text-green-600">适度配置</span>
+                        </div>
+                        <div class="text-sm text-green-700">可承受波动，可持有观察</div>
+                      </div>
+                      <div class="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <div class="flex justify-between items-center mb-2">
+                          <span class="font-semibold text-blue-800">
+                            &lt;5%&lt; /span&gt;
+                              <span class="text-sm text-blue-600">轻度配置</span>
+                        </span></div>
+                        <div class="text-sm text-blue-700">灵活性高，可作为卫星仓位</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 shadow-sm mb-8">
+                  <h4 class="font-semibold text-xl text-primary mb-6">投资周期与风险承受能力评估</h4>
+                  <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h5 class="font-medium text-primary mb-4">资金属性分类</h5>
+                      <div class="space-y-3">
+                        <div class="p-3 bg-green-50 rounded border border-green-200">
+                          <div class="font-semibold text-green-800 text-sm">长期配置资金（&gt;3年）</div>
+                          <div class="text-xs text-green-600">养老、教育等，可忽略短期波动</div>
+                        </div>
+                        <div class="p-3 bg-amber-50 rounded border border-amber-200">
+                          <div class="font-semibold text-amber-800 text-sm">中期波段资金（6个月-2年）</div>
+                          <div class="text-xs text-amber-600">趋势跟踪，严格止损止盈</div>
+                        </div>
+                        <div class="p-3 bg-red-50 rounded border border-red-200">
+                          <div class="font-semibold text-red-800 text-sm">短期博弈资金（&lt;6个月）&lt; /div&gt;
+                              <div class="text-xs text-red-600">当前环境不建议参与</div>
+                          </div>
+                          <div class="p-3 bg-red-100 rounded border border-red-300">
+                            <div class="font-semibold text-red-900 text-sm">杠杆资金</div>
+                            <div class="text-xs text-red-700">极度危险，建议避免</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 class="font-medium text-primary mb-4">心理账户管理</h5>
+                        <div class="space-y-4">
+                          <div class="p-3 bg-blue-50 rounded">
+                            <div class="font-medium text-blue-800 mb-2">最大回撤容忍度</div>
+                            <div class="text-sm text-blue-700">诚实评估：若再下跌20%（至0.78元），是否能够承受？</div>
+                          </div>
+                          <div class="p-3 bg-purple-50 rounded">
+                            <div class="font-medium text-purple-800 mb-2">止损纪律</div>
+                            <div class="text-sm text-purple-700">设定明确的止损线和目标位，避免情绪化决策</div>
+                          </div>
+                          <div class="p-3 bg-gray-50 rounded">
+                            <div class="font-medium text-gray-800 mb-2">定期审视</div>
+                            <div class="text-sm text-gray-700">定期审视总资产配置，避免单一资产过度暴露</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="section4-2" class="mb-16">
+                  <h3 class="font-serif text-2xl font-semibold text-primary mb-6">4.2 持仓者的应对策略</h3>
+
+                  <div class="bg-white rounded-lg p-8 shadow-sm mb-8">
+                    <h4 class="font-semibold text-xl text-primary mb-6">深度套牢情形决策矩阵</h4>
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-sm">
+                        <thead>
+                          <tr class="bg-gray-50">
+                            <th class="p-3 text-left font-semibold">情形判断</th>
+                            <th class="p-3 text-left font-semibold">基本面状态</th>
+                            <th class="p-3 text-left font-semibold">技术面状态</th>
+                            <th class="p-3 text-left font-semibold">建议策略</th>
+                            <th class="p-3 text-left font-semibold">执行要点</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                          <tr>
+                            <td class="p-3 font-medium text-red-600">基本面恶化+趋势空头</td>
+                            <td class="p-3 text-secondary">产能出清缓慢、价格战恶化</td>
+                            <td class="p-3 text-secondary">跌破关键支撑、下跌加速</td>
+                            <td class="p-3 font-semibold text-red-600">果断止损</td>
+                            <td class="p-3 text-secondary">设定机械止损位，严格执行</td>
+                          </tr>
+                          <tr class="bg-gray-50">
+                            <td class="p-3 font-medium text-amber-600">基本面触底+趋势空头</td>
+                            <td class="p-3 text-secondary">政策利好出现、价格企稳</td>
+                            <td class="p-3 text-secondary">超卖严重、但未反转</td>
+                            <td class="p-3 font-semibold text-amber-600">持有观望</td>
+                            <td class="p-3 text-secondary">不补仓，不割肉，耐心等待</td>
+                          </tr>
+                          <tr>
+                            <td class="p-3 font-medium text-blue-600">基本面恶化+趋势企稳</td>
+                            <td class="p-3 text-secondary">利空出尽、技术反弹</td>
+                            <td class="p-3 text-secondary">但基本面未改善</td>
+                            <td class="p-3 font-semibold text-blue-600">反弹减仓</td>
+                            <td class="p-3 text-secondary">利用反弹机会，逐步降低仓位</td>
+                          </tr>
+                          <tr class="bg-gray-50">
+                            <td class="p-3 font-medium text-green-600">基本面触底+趋势反转</td>
+                            <td class="p-3 text-secondary">多重确认信号出现</td>
+                            <td class="p-3 text-secondary">放量突破、均线金叉</td>
+                            <td class="p-3 font-semibold text-green-600">持有或加仓</td>
+                            <td class="p-3 text-secondary">确认信号后参与</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-amber-800 mb-4">当前状态评估</h4>
+                      <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-amber-600 mb-2">过渡期</div>
+                        <div class="text-sm text-amber-700">基本面触底+趋势空头</div>
+                      </div>
+                      <div class="space-y-3">
+                        <div class="p-3 bg-white rounded border">
+                          <div class="font-medium text-amber-800 mb-1">建议策略</div>
+                          <div class="text-sm text-amber-700">&#34;有条件躺平&#34;——保留底仓、暂停加仓</div>
+                        </div>
+                        <div class="p-3 bg-white rounded border">
+                          <div class="font-medium text-amber-800 mb-1">止损设置</div>
+                          <div class="text-sm text-amber-700">设定止损线（如再跌15%-20%强制止损）</div>
+                        </div>
+                        <div class="p-3 bg-white rounded border">
+                          <div class="font-medium text-amber-800 mb-1">关注重点</div>
+                          <div class="text-sm text-amber-700">政策面和行业数据变化</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-blue-800 mb-4">轻度浮亏应对</h4>
+                      <div class="space-y-4">
+                        <div class="p-3 bg-white rounded border">
+                          <div class="font-medium text-blue-800 mb-2">动态止损策略</div>
+                          <ul class="text-sm text-blue-700 space-y-1">
+                            <li>• 初始止损：买入价下方8%-10%</li>
+                            <li>• 移动止损：反弹时上移至成本价</li>
+                            <li>• 时间止损：3个月未盈利重新评估</li>
+                          </ul>
+                        </div>
+                        <div class="p-3 bg-white rounded border">
+                          <div class="font-medium text-blue-800 mb-2">减仓窗口</div>
+                          <div class="text-sm text-blue-700">反弹至压力位（1.00-1.05元）是减仓机会，而非追涨时机</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-green-800 mb-4">成本优势情形：波段操作策略</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 class="font-medium text-green-800 mb-3">核心底仓管理</h5>
+                        <div class="space-y-2">
+                          <div class="flex justify-between items-center p-2 bg-white rounded">
+                            <span class="text-sm">保留比例</span>
+                            <span class="text-sm font-semibold text-green-600">50%-60%</span>
+                          </div>
+                          <div class="flex justify-between items-center p-2 bg-white rounded">
+                            <span class="text-sm">持有策略</span>
+                            <span class="text-sm text-secondary">长期持有，不参与波动</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 class="font-medium text-green-800 mb-3">战术仓位操作</h5>
+                        <div class="space-y-2">
+                          <div class="flex justify-between items-center p-2 bg-white rounded">
+                            <span class="text-sm">操作比例</span>
+                            <span class="text-sm font-semibold text-green-600">40%-50%</span>
+                          </div>
+                          <div class="flex justify-between items-center p-2 bg-white rounded">
+                            <span class="text-sm">目标</span>
+                            <span class="text-sm text-secondary">高抛低吸，降低成本</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="section4-3" class="mb-16">
+                  <h3 class="font-serif text-2xl font-semibold text-primary mb-6">4.3 加仓时机的判断标准</h3>
+
+                  <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                      <h4 class="font-semibold text-lg text-primary mb-4">左侧加仓条件</h4>
+                      <div class="space-y-4">
+                        <div class="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-amber-800">估值条件</span>
+                            <span class="text-sm text-green-600">✓ 部分满足</span>
+                          </div>
+                          <div class="text-sm text-amber-700">PE 19.35倍，PB 1.88倍，处于历史较低分位</div>
+                        </div>
+                        <div class="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-amber-800">技术条件</span>
+                            <span class="text-sm text-amber-600">~ 接近满足</span>
+                          </div>
+                          <div class="text-sm text-amber-700">RSI超卖但未极端，底背离未确认</div>
+                        </div>
+                        <div class="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-amber-800">政策条件</span>
+                            <span class="text-sm text-green-600">✓ 部分满足</span>
+                          </div>
+                          <div class="text-sm text-amber-700">出口退税已落地，利空部分price in</div>
+                        </div>
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-red-800">基本面条件</span>
+                            <span class="text-sm text-red-600">✗ 尚未满足</span>
+                          </div>
+                          <div class="text-sm text-red-700">产能出清进行中，价格企稳但未回升</div>
+                        </div>
+                      </div>
+                      <div class="mt-4 p-3 bg-amber-100 rounded">
+                        <div class="text-sm text-amber-800 font-semibold">综合评估：条件部分满足，但非最佳时机</div>
+                        <div class="text-xs text-amber-600">建议左侧试探性建仓比例不超过20%-30%，严格止损</div>
+                      </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                      <h4 class="font-semibold text-lg text-primary mb-4">右侧加仓条件</h4>
+                      <div class="space-y-4">
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-red-800">趋势突破</span>
+                            <span class="text-sm text-red-600">✗ 未出现</span>
+                          </div>
+                          <div class="text-sm text-red-700">放量突破下降趋势线，成交量&gt;均量1.5倍</div>
+                        </div>
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-red-800">均线修复</span>
+                            <span class="text-sm text-red-600">✗ 未出现</span>
+                          </div>
+                          <div class="text-sm text-red-700">站稳20日均线3日，均线斜率由负转正</div>
+                        </div>
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-red-800">MACD确认</span>
+                            <span class="text-sm text-red-600">✗ 未出现</span>
+                          </div>
+                          <div class="text-sm text-red-700">零轴附近或上方金叉，红柱持续放大</div>
+                        </div>
+                        <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                          <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-red-800">量价配合</span>
+                            <span class="text-sm text-red-600">✗ 未出现</span>
+                          </div>
+                          <div class="text-sm text-red-700">上涨放量、回调缩量的健康组合</div>
+                        </div>
+                      </div>
+                      <div class="mt-4 p-3 bg-red-100 rounded">
+                        <div class="text-sm text-red-800 font-semibold">当前右侧信号均未出现，建议耐心等待</div>
+                        <div class="text-xs text-red-600">右侧加仓优势是确定性高，劣势是成本较高</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-8 shadow-sm">
+                    <h4 class="font-semibold text-xl text-primary mb-6">分批加仓计划对比</h4>
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-sm">
+                        <thead>
+                          <tr class="bg-gray-50">
+                            <th class="p-3 text-left font-semibold">加仓策略</th>
+                            <th class="p-3 text-left font-semibold">适用情形</th>
+                            <th class="p-3 text-left font-semibold">具体操作</th>
+                            <th class="p-3 text-left font-semibold">风险控制</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                          <tr>
+                            <td class="p-3 font-medium text-primary">金字塔式（左侧）</td>
+                            <td class="p-3 text-secondary">预判底部，越跌越买</td>
+                            <td class="p-3 text-secondary">首批10%-20%，跌10%加20%，再跌10%加30%</td>
+                            <td class="p-3 text-secondary">严格止损，防止&#34;越套越深&#34;</td>
+                          </tr>
+                          <tr class="bg-gray-50">
+                            <td class="p-3 font-medium text-primary">倒金字塔式（右侧）</td>
+                            <td class="p-3 text-secondary">趋势确认，追涨加仓</td>
+                            <td class="p-3 text-secondary">首批30%-40%，确认后加40%，趋势明确加30%</td>
+                            <td class="p-3 text-secondary">止损位明确，跌破趋势线止损</td>
+                          </tr>
+                          <tr>
+                            <td class="p-3 font-medium text-primary">均匀分批（定投）</td>
+                            <td class="p-3 text-secondary">无法精确判断时机</td>
+                            <td class="p-3 text-secondary">资金分为3-5份，按固定间隔投入</td>
+                            <td class="p-3 text-secondary">时间分散，降低择时风险</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 rounded">
+                      <div class="text-sm text-blue-800">
+                        <strong>当前环境建议：</strong>采用&#34;金字塔式左侧试探+右侧确认后加满&#34;的混合策略，或纯定投策略，避免一次性重仓
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="section4-4" class="mb-16">
+                  <h3 class="font-serif text-2xl font-semibold text-primary mb-6">4.4 不宜加仓的风险信号</h3>
+
+                  <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-red-800 mb-4 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-red-600 mr-2"></i>基本面风险
+                      </h4>
+                      <div class="space-y-3">
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-red-800 text-sm">产能出清不及预期</div>
+                          <div class="text-xs text-red-600">落后产能退出缓慢，价格战持续</div>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-red-800 text-sm">龙头企业亏损扩大</div>
+                          <div class="text-xs text-red-600">行业最后的盈利堡垒失守</div>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-red-800 text-sm">海外贸易壁垒升级</div>
+                          <div class="text-xs text-red-600">欧美印提高关税或实施配额</div>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-red-800 text-sm">下游需求断崖</div>
+                          <div class="text-xs text-red-600">装机增速转负，项目大面积推迟</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-amber-800 mb-4 flex items-center">
+                        <i class="fas fa-chart-line-down text-amber-600 mr-2"></i>技术面风险
+                      </h4>
+                      <div class="space-y-3">
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-amber-800 text-sm">跌破0.95元关键支撑</div>
+                          <div class="text-xs text-amber-600">短期支撑失效，下行空间打开</div>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-amber-800 text-sm">下跌加速，长阴线连续</div>
+                          <div class="text-xs text-amber-600">恐慌性抛售，空头力量集中</div>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-amber-800 text-sm">反弹无力，高点持续降低</div>
+                          <div class="text-xs text-amber-600">下降趋势延续，多头信心耗尽</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-blue-800 mb-4 flex items-center">
+                        <i class="fas fa-globe text-blue-600 mr-2"></i>宏观面风险
+                      </h4>
+                      <div class="space-y-3">
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-blue-800 text-sm">利率快速上行</div>
+                          <div class="text-xs text-blue-600">货币政策收紧，成长股估值承压</div>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-blue-800 text-sm">系统性风险</div>
+                          <div class="text-xs text-blue-600">地缘政治冲突、金融危机等</div>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                          <div class="font-medium text-blue-800 text-sm">风格切换</div>
+                          <div class="text-xs text-blue-600">资金从成长板块流向价值板块</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-8 shadow-sm">
+                    <h4 class="font-semibold text-xl text-primary mb-6">监测方法与关键时点</h4>
+                    <div class="grid md:grid-cols-2 gap-8">
+                      <div>
+                        <h5 class="font-medium text-primary mb-4">核心监测指标</h5>
+                        <div class="space-y-3">
+                          <div class="flex items-center p-2 bg-gray-50 rounded">
+                            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
+                            <span class="text-sm">组件价格、硅料价格</span>
+                          </div>
+                          <div class="flex items-center p-2 bg-gray-50 rounded">
+                            <i class="fas fa-industry text-amber-600 mr-2"></i>
+                            <span class="text-sm">行业开工率、库存天数</span>
+                          </div>
+                          <div class="flex items-center p-2 bg-gray-50 rounded">
+                            <i class="fas fa-chart-bar text-blue-600 mr-2"></i>
+                            <span class="text-sm">国内装机、组件出口量</span>
+                          </div>
+                          <div class="flex items-center p-2 bg-gray-50 rounded">
+                            <i class="fas fa-building text-purple-600 mr-2"></i>
+                            <span class="text-sm">龙头毛利率、经营现金流</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 class="font-medium text-primary mb-4">关键验证时点</h5>
+                        <div class="space-y-3">
+                          <div class="p-3 bg-amber-50 rounded border border-amber-200">
+                            <div class="font-medium text-amber-800 text-sm">2026年Q2末</div>
+                            <div class="text-xs text-amber-600">行业半年报业绩预告，龙头企业盈利是否触底</div>
+                          </div>
+                          <div class="p-3 bg-blue-50 rounded border border-blue-200">
+                            <div class="font-medium text-blue-800 text-sm">2026年下半年</div>
+                            <div class="text-xs text-blue-600">政策效果评估，需求回暖验证，行业数据改善</div>
+                          </div>
+                          <div class="p-3 bg-green-50 rounded border border-green-200">
+                            <div class="font-medium text-green-800 text-sm">2026年底-2027年初</div>
+                            <div class="text-xs text-green-600">全年装机数据，行业格局变化，新技术产业化进展</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="section4-5" class="mb-16">
+                  <h3 class="font-serif text-2xl font-semibold text-primary mb-6">4.5 替代策略与工具运用</h3>
+
+                  <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white border border-gray-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-lg text-primary mb-4 flex items-center">
+                        <i class="fas fa-th text-blue-600 mr-2"></i>网格交易
+                      </h4>
+                      <div class="mb-4">
+                        <div class="h-24 bg-blue-100 rounded flex items-center justify-center">
+                          <div class="text-center text-blue-600">
+                            <i class="fas fa-chart-area text-xl mb-1"></i>
+                            <div class="text-xs">震荡区间自动交易</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                          <span class="text-secondary">价格区间</span>
+                          <span class="font-semibold">0.90-1.10元</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-secondary">网格数量</span>
+                          <span class="font-semibold">5-7档</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-secondary">每格仓位</span>
+                          <span class="font-semibold">10%-15%</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-secondary">止损设置</span>
+                          <span class="font-semibold">0.88元</span>
+                        </div>
+                      </div>
+                      <div class="mt-4 p-2 bg-amber-50 rounded">
+                        <div class="text-xs text-amber-700">风险提示：当前尚未明确进入震荡区间，网格交易可能&#34;买套&#34;</div>
+                      </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-lg text-primary mb-4 flex items-center">
+                        <i class="fas fa-shield-alt text-green-600 mr-2"></i>期权保护
+                      </h4>
+                      <div class="mb-4">
+                        <div class="h-24 bg-green-100 rounded flex items-center justify-center">
+                          <div class="text-center text-green-600">
+                            <i class="fas fa-umbrella text-xl mb-1"></i>
+                            <div class="text-xs">对冲下行风险</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="space-y-3">
+                        <div class="p-2 bg-green-50 rounded">
+                          <div class="font-medium text-green-800 text-sm">保护性认沽</div>
+                          <div class="text-xs text-green-600">支付权利金，下跌保护，上涨收益保留</div>
+                        </div>
+                        <div class="p-2 bg-green-50 rounded">
+                          <div class="font-medium text-green-800 text-sm">领口策略</div>
+                          <div class="text-xs text-green-600">权利金净支出较低，牺牲部分上行空间</div>
+                        </div>
+                      </div>
+                      <div class="mt-4 p-2 bg-blue-50 rounded">
+                        <div class="text-xs text-blue-700">需关注期权市场流动性、到期日、行权价等细节</div>
+                      </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-6">
+                      <h4 class="font-semibold text-lg text-primary mb-4 flex items-center">
+                        <i class="fas fa-sync-alt text-purple-600 mr-2"></i>板块轮动
+                      </h4>
+                      <div class="mb-4">
+                        <div class="h-24 bg-purple-100 rounded flex items-center justify-center">
+                          <div class="text-center text-purple-600">
+                            <i class="fas fa-exchange-alt text-xl mb-1"></i>
+                            <div class="text-xs">结构性机会</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="space-y-2 text-xs">
+                        <div class="flex justify-between">
+                          <span class="text-secondary">储能ETF</span>
+                          <span class="font-semibold text-green-600">159866</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-secondary">风电ETF</span>
+                          <span class="font-semibold text-green-600">159885</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-secondary">电力ETF</span>
+                          <span class="font-semibold text-green-600">159611</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-secondary">核电ETF</span>
+                          <span class="font-semibold text-green-600">159855</span>
+                        </div>
+                      </div>
+                      <div class="mt-4 p-2 bg-gray-50 rounded">
+                        <div class="text-xs text-gray-700">2026年3月资金流向显示，电网投资ETF、电力ETF等获得关注</div>
+                        <a href="https://xueqiu.com/S/SH515790" class="citation-link" target="_blank">[182]</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                    <h4 class="font-semibold text-amber-800 mb-4">策略选择建议</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 class="font-medium text-amber-800 mb-3">风险偏好较低</h5>
+                        <div class="space-y-2">
+                          <div class="p-2 bg-white rounded border">
+                            <div class="text-sm text-amber-700">• 优先选择右侧加仓策略</div>
+                          </div>
+                          <div class="p-2 bg-white rounded border">
+                            <div class="text-sm text-amber-700">• 考虑期权保护策略</div>
+                          </div>
+                          <div class="p-2 bg-white rounded border">
+                            <div class="text-sm text-amber-700">• 关注板块轮动机会</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 class="font-medium text-amber-800 mb-3">风险偏好较高</h5>
+                        <div class="space-y-2">
+                          <div class="p-2 bg-white rounded border">
+                            <div class="text-sm text-amber-700">• 可尝试左侧金字塔式建仓</div>
+                          </div>
+                          <div class="p-2 bg-white rounded border">
+                            <div class="text-sm text-amber-700">• 网格交易震荡获利</div>
+                          </div>
+                          <div class="p-2 bg-white rounded border">
+                            <div class="text-sm text-amber-700">• 坚持定投策略摊薄成本</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div></section>
+
+      <!-- Section 5: Scenario Analysis -->
+      <section id="section5" class="py-20 bg-white">
+        <div class="container mx-auto px-12">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold text-primary mb-8">5. 情景推演与关键监测指标</h2>
+
+            <div id="section5-1" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">5.1 乐观情景（概率评估：25%-30%）</h3>
+
+              <div class="bg-green-50 border border-green-200 rounded-lg p-8 mb-8">
+                <div class="flex items-start mb-6">
+                  <div class="bg-green-100 rounded-full p-3 mr-4">
+                    <i class="fas fa-arrow-up text-green-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-green-800 mb-2">触发条件：政策效果快速显现</h4>
+                    <p class="text-green-700">出口退税取消后，中小企业3-6个月内集中退出，行业自律见效，龙头企业主动限产保价，价格企稳回升。</p>
+                  </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-green-800 mb-4">关键验证时点</h5>
+                    <div class="space-y-3">
+                      <div class="p-3 bg-white rounded border">
+                        <div class="font-medium text-green-800 text-sm">2026年Q2末</div>
+                        <div class="text-xs text-green-600">中小企业集中退出，行业数据改善</div>
+                      </div>
+                      <div class="p-3 bg-white rounded border">
+                        <div class="font-medium text-green-800 text-sm">2026年Q3</div>
+                        <div class="text-xs text-green-600">国内分布式政策微调，海外新兴市场爆发</div>
+                      </div>
+                      <div class="p-3 bg-white rounded border">
+                        <div class="font-medium text-green-800 text-sm">2026年8-9月</div>
+                        <div class="text-xs text-green-600">龙头企业Q2业绩触底，Q3指引乐观</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-green-800 mb-4">目标价位预期</h5>
+                    <div class="space-y-3">
+                      <div class="p-4 bg-green-100 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-600 mb-1">1.15-1.30元</div>
+                        <div class="text-sm text-green-700">光伏ETF目标价位</div>
+                      </div>
+                      <div class="p-4 bg-green-100 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-600 mb-1">15%-30%</div>
+                        <div class="text-sm text-green-700">较当前价位上行空间</div>
+                      </div>
+                      <div class="text-sm text-green-700">
+                        中证光伏产业指数有望反弹至3500-4000点区间
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section5-2" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">5.2 中性情景（概率评估：45%-50%）</h3>
+
+              <div class="bg-amber-50 border border-amber-200 rounded-lg p-8 mb-8">
+                <div class="flex items-start mb-6">
+                  <div class="bg-amber-100 rounded-full p-3 mr-4">
+                    <i class="fas fa-balance-scale text-amber-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-amber-800 mb-2">触发条件：行业低位震荡</h4>
+                    <p class="text-amber-700">产能出清进展缓慢，价格战持续但烈度可控，需求增速回落但保持正增长，行业整体微利或盈亏平衡。</p>
+                  </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-amber-800 mb-4">运行特征</h5>
+                    <div class="space-y-3">
+                      <div class="flex items-center p-3 bg-white rounded border">
+                        <i class="fas fa-chart-line text-amber-600 mr-2"></i>
+                        <div>
+                          <div class="font-medium text-amber-800 text-sm">箱体震荡</div>
+                          <div class="text-xs text-amber-600">光伏ETF主要运行区间0.85-1.10元</div>
+                        </div>
+                      </div>
+                      <div class="flex items-center p-3 bg-white rounded border">
+                        <i class="fas fa-clock text-amber-600 mr-2"></i>
+                        <div>
+                          <div class="font-medium text-amber-800 text-sm">时间跨度</div>
+                          <div class="text-xs text-amber-600">可能延续至2027年</div>
+                        </div>
+                      </div>
+                      <div class="flex items-center p-3 bg-white rounded border">
+                        <i class="fas fa-target text-amber-600 mr-2"></i>
+                        <div>
+                          <div class="font-medium text-amber-800 text-sm">策略重点</div>
+                          <div class="text-xs text-amber-600">波段操作优于长期持有</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-amber-800 mb-4">应对策略</h5>
+                    <div class="space-y-3">
+                      <div class="p-3 bg-amber-100 rounded">
+                        <div class="font-medium text-amber-800 mb-2">定投策略适用</div>
+                        <div class="text-sm text-amber-700">利用震荡自动摊薄成本，但需降低收益预期</div>
+                      </div>
+                      <div class="p-3 bg-amber-100 rounded">
+                        <div class="font-medium text-amber-800 mb-2">波段操作</div>
+                        <div class="text-sm text-amber-700">在箱体上下沿进行高抛低吸</div>
+                      </div>
+                      <div class="p-3 bg-amber-100 rounded">
+                        <div class="font-medium text-amber-800 mb-2">等待催化</div>
+                        <div class="text-sm text-amber-700">关注政策变化或技术突破带来的突破机会</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section5-3" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">5.3 悲观情景（概率评估：20%-25%）</h3>
+
+              <div class="bg-red-50 border border-red-200 rounded-lg p-8 mb-8">
+                <div class="flex items-start mb-6">
+                  <div class="bg-red-100 rounded-full p-3 mr-4">
+                    <i class="fas fa-arrow-down text-red-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-red-800 mb-2">触发条件：价格战失控</h4>
+                    <p class="text-red-700">组件价格跌破现金成本，全行业亏损，龙头企业未能幸免，海外贸易壁垒全面升级，系统性风险出现。</p>
+                  </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-red-800 mb-4">潜在后果</h5>
+                    <div class="space-y-3">
+                      <div class="p-3 bg-white rounded border">
+                        <div class="font-medium text-red-800 text-sm">现金流断裂</div>
+                        <div class="text-xs text-red-600">大规模企业破产重组</div>
+                      </div>
+                      <div class="p-3 bg-white rounded border">
+                        <div class="font-medium text-red-800 text-sm">市场信心崩溃</div>
+                        <div class="text-xs text-red-600">估值体系重构，估值中枢下移</div>
+                      </div>
+                      <div class="p-3 bg-white rounded border">
+                        <div class="font-medium text-red-800 text-sm">产能过剩加剧</div>
+                        <div class="text-xs text-red-600">库存积压，价格进一步下跌</div>
+                      </div>
+                      <div class="p-3 bg-white rounded border">
+                        <div class="font-medium text-red-800 text-sm">债务违约</div>
+                        <div class="text-xs text-red-600">金融系统收紧信贷，恶性循环</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-red-800 mb-4">应对预案</h5>
+                    <div class="space-y-3">
+                      <div class="p-4 bg-red-100 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-red-600 mb-1">0.70-0.80元</div>
+                        <div class="text-sm text-red-700">悲观情景下行目标</div>
+                        <div class="text-xs text-red-600">较当前价位20%-30%下行空间</div>
+                      </div>
+                      <div class="p-3 bg-red-100 rounded">
+                        <div class="font-medium text-red-800 mb-2">严格止损</div>
+                        <ul class="text-xs text-red-700 space-y-1">
+                          <li>• 跌破0.90元减仓50%</li>
+                          <li>• 跌破0.85元清仓或降至最低配置</li>
+                          <li>• 等待极端恐慌后的逆向布局机会</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="section5-4" class="mb-16">
+              <h3 class="font-serif text-2xl font-semibold text-primary mb-6">5.4 核心监测指标清单</h3>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm bg-white rounded-lg shadow-sm">
+                  <thead>
+                    <tr class="bg-gray-50">
+                      <th class="p-4 text-left font-semibold">指标类别</th>
+                      <th class="p-4 text-left font-semibold">具体指标</th>
+                      <th class="p-4 text-left font-semibold">数据来源</th>
+                      <th class="p-4 text-left font-semibold">监测频率</th>
+                      <th class="p-4 text-left font-semibold">关键阈值</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="p-4 font-medium text-primary">价格指标</td>
+                      <td class="p-4 text-secondary">组件价格（元/W）</td>
+                      <td class="p-4 text-secondary">PV InfoLink、硅业分会</td>
+                      <td class="p-4 text-secondary">周度</td>
+                      <td class="p-4">
+                        <span class="text-red-600">
+                          &lt;0.70</span> 警示，<span class="text-green-600">&gt;0.90</span> 积极 </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="p-4 font-medium text-primary">价格指标</td>
+                      <td class="p-4 text-secondary">硅料价格（万元/吨）</td>
+                      <td class="p-4 text-secondary">硅业分会</td>
+                      <td class="p-4 text-secondary">周度</td>
+                      <td class="p-4">
+                        <span class="text-red-600">
+                          &lt;4.0</span> 警示，<span class="text-green-600">&gt;6.0</span> 积极 </td>
+                    </tr>
+                    <tr>
+                      <td class="p-4 font-medium text-primary">供需指标</td>
+                      <td class="p-4 text-secondary">行业平均开工率</td>
+                      <td class="p-4 text-secondary">行业协会、券商调研</td>
+                      <td class="p-4 text-secondary">月度</td>
+                      <td class="p-4">
+                        <span class="text-red-600">
+                          &lt;50%</span> 严重过剩，<span class="text-green-600">&gt;70%</span> 改善 </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="p-4 font-medium text-primary">供需指标</td>
+                      <td class="p-4 text-secondary">库存天数（天）</td>
+                      <td class="p-4 text-secondary">企业调研</td>
+                      <td class="p-4 text-secondary">月度</td>
+                      <td class="p-4">
+                        <span class="text-red-600">&gt;30</span> 警示，<span class="text-green-600">
+                          &lt;20</span> 积极 </td>
+                    </tr>
+                    <tr>
+                      <td class="p-4 font-medium text-primary">需求指标</td>
+                      <td class="p-4 text-secondary">国内新增装机（GW）</td>
+                      <td class="p-4 text-secondary">国家能源局</td>
+                      <td class="p-4 text-secondary">月度</td>
+                      <td class="p-4">
+                        <span class="text-green-600">同比增速转正</span> 积极
+                      </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="p-4 font-medium text-primary">需求指标</td>
+                      <td class="p-4 text-secondary">组件出口量（GW）</td>
+                      <td class="p-4 text-secondary">海关总署</td>
+                      <td class="p-4 text-secondary">月度</td>
+                      <td class="p-4">
+                        <span class="text-green-600">同比降幅收窄</span> 积极
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p-4 font-medium text-primary">企业指标</td>
+                      <td class="p-4 text-secondary">龙头季度毛利率</td>
+                      <td class="p-4 text-secondary">上市公司财报</td>
+                      <td class="p-4 text-secondary">季度</td>
+                      <td class="p-4">
+                        <span class="text-green-600">环比回升</span> 积极
+                      </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="p-4 font-medium text-primary">企业指标</td>
+                      <td class="p-4 text-secondary">经营现金流（亿元）</td>
+                      <td class="p-4 text-secondary">上市公司财报</td>
+                      <td class="p-4 text-secondary">季度</td>
+                      <td class="p-4">
+                        <span class="text-green-600">转正或改善</span> 积极
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p-4 font-medium text-primary">政策指标</td>
+                      <td class="p-4 text-secondary">产业支持政策</td>
+                      <td class="p-4 text-secondary">政府官网、部委文件</td>
+                      <td class="p-4 text-secondary">事件驱动</td>
+                      <td class="p-4">
+                        <span class="text-green-600">超预期利好</span> 催化
+                      </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="p-4 font-medium text-primary">市场指标</td>
+                      <td class="p-4 text-secondary">北向资金持仓变化</td>
+                      <td class="p-4 text-secondary">交易所数据</td>
+                      <td class="p-4 text-secondary">日度</td>
+                      <td class="p-4">
+                        <span class="text-green-600">连续净流入</span> 积极
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+                <h4 class="font-semibold text-blue-800 mb-4 flex items-center">
+                  <i class="fas fa-chart-line text-blue-600 mr-2"></i>监测频率与重要性
+                </h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div class="text-center">
+                    <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                      <i class="fas fa-calendar-day text-red-600 text-xl"></i>
+                    </div>
+                    <h5 class="font-medium text-red-800 mb-2">高频监测</h5>
+                    <div class="text-sm text-red-700">价格指标、市场指标</div>
+                    <div class="text-xs text-red-600">周度、日度</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                      <i class="fas fa-calendar-alt text-amber-600 text-xl"></i>
+                    </div>
+                    <h5 class="font-medium text-amber-800 mb-2">中频监测</h5>
+                    <div class="text-sm text-amber-700">供需指标、需求指标</div>
+                    <div class="text-xs text-amber-600">月度</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+                      <i class="fas fa-calendar text-green-600 text-xl"></i>
+                    </div>
+                    <h5 class="font-medium text-green-800 mb-2">低频监测</h5>
+                    <div class="text-sm text-green-700">企业指标、政策指标</div>
+                    <div class="text-xs text-green-600">季度、事件驱动</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Conclusion -->
+      <section id="section6" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-12">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold mb-8">6. 结论与行动建议</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+              <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 class="font-serif text-xl font-semibold mb-4 text-amber-300">短期判断</h3>
+                <p class="text-gray-200 leading-relaxed">政策冲击叠加周期调整，下行压力尚未完全释放。技术面确认进入技术性熊市，短期虽有超卖反弹需求，但趋势反转信号未现。</p>
+                <div class="mt-4 p-3 bg-red-500/20 rounded">
+                  <div class="text-sm text-red-200">投资者应保持谨慎，避免盲目抄底</div>
+                </div>
+              </div>
+
+              <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 class="font-serif text-xl font-semibold mb-4 text-blue-300">中期展望</h3>
+                <p class="text-gray-200 leading-relaxed">行业出清加速，龙头集中度提升，估值修复可期。当前估值已处历史低位，为中期布局提供较好风险收益比，但时间节奏存在不确定性。</p>
+                <div class="mt-4 p-3 bg-blue-500/20 rounded">
+                  <div class="text-sm text-blue-200">需密切跟踪行业数据和企业业绩改善信号</div>
+                </div>
+              </div>
+
+              <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 class="font-serif text-xl font-semibold mb-4 text-green-300">长期逻辑</h3>
+                <p class="text-gray-200 leading-relaxed">能源转型大趋势未改，技术迭代创造新增长极。全球碳中和目标持续推进，光伏作为最具经济性的可再生能源技术，长期增长空间广阔。</p>
+                <div class="mt-4 p-3 bg-green-500/20 rounded">
+                  <div class="text-sm text-green-200">行业龙头有望在全球竞争中持续扩大优势</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
+              <h3 class="font-serif text-2xl font-semibold mb-6 text-center">差异化操作建议</h3>
+
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-blue-500/20 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg mb-4 text-blue-200">已持仓者</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <i class="fas fa-shield-alt text-blue-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-blue-200">控制仓位比例</div>
+                        <div class="text-sm text-blue-100">单一品种控制在15%以内</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i class="fas fa-stop-circle text-blue-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-blue-200">设置止损纪律</div>
+                        <div class="text-sm text-blue-100">避免情绪化补仓</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i class="fas fa-chart-line text-blue-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-blue-200">动态调整策略</div>
+                        <div class="text-sm text-blue-100">根据成本位置采取不同应对</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-green-500/20 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg mb-4 text-green-200">空仓观望者</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <i class="fas fa-clock text-green-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-green-200">耐心等待右侧信号</div>
+                        <div class="text-sm text-green-100">不建议当前位置重仓抄底</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i class="fas fa-search text-green-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-green-200">左侧试探性建仓</div>
+                        <div class="text-sm text-green-100">首批仓位不超过20%，严格止损</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i class="fas fa-bell text-green-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-green-200">关注反转信号</div>
+                        <div class="text-sm text-green-100">放量突破、站稳20日均线</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-amber-500/20 rounded-lg p-6">
+                  <h4 class="font-semibold text-lg mb-4 text-amber-200">定投参与者</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <i class="fas fa-chart-area text-amber-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-amber-200">利用下跌摊薄成本</div>
+                        <div class="text-sm text-amber-100">发挥定投优势</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i class="fas fa-calendar-check text-amber-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-amber-200">评估资金周期匹配</div>
+                        <div class="text-sm text-amber-100">定投周期建议≥2-3年</div>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <i class="fas fa-target text-amber-300 mr-3 mt-1"></i>
+                      <div>
+                        <div class="font-medium text-amber-200">设定明确止盈目标</div>
+                        <div class="text-sm text-amber-100">避免&#34;微笑曲线&#34;未完成</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <h3 class="font-serif text-xl font-semibold mb-4 text-center text-amber-300">关键时间节点</h3>
+              <div class="grid md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-red-500/20 rounded">
+                  <div class="font-bold text-red-200">2026年4月</div>
+                  <div class="text-sm text-red-100">出口退税政策落地后的市场反应</div>
+                </div>
+                <div class="text-center p-4 bg-amber-500/20 rounded">
+                  <div class="font-bold text-amber-200">2026年Q2末</div>
+                  <div class="text-sm text-amber-100">行业半年报业绩预告，盈利是否触底</div>
+                </div>
+                <div class="text-center p-4 bg-blue-500/20 rounded">
+                  <div class="font-bold text-blue-200">2026年下半年</div>
+                  <div class="text-sm text-blue-100">政策效果评估，需求回暖验证</div>
+                </div>
+                <div class="text-center p-4 bg-green-500/20 rounded">
+                  <div class="font-bold text-green-200">2026年底-2027年初</div>
+                  <div class="text-sm text-green-100">全年装机数据，行业格局变化</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-red-500/20 rounded-lg border border-red-300/30">
+              <div class="flex items-start">
+                <i class="fas fa-exclamation-triangle text-red-300 text-xl mr-4 mt-1"></i>
+                <div>
+                  <h4 class="font-semibold text-red-200 mb-2">风险提示</h4>
+                  <p class="text-red-100 text-sm leading-relaxed">本报告基于公开信息和技术分析，不构成投资建议。光伏ETF属于高风险投资品种，过往业绩不代表未来表现。投资者应根据自身风险承受能力审慎决策，独立承担投资风险。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+        // Table of Contents Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('section[id]');
+            
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+            
+            // Smooth scrolling for TOC links
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+  
+
+</body></html>
